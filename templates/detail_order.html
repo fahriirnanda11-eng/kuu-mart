@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Detail Pesanan</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:#f5f7fb;
+}
+
+.container{
+    width:90%;
+    max-width:1200px;
+    margin:40px auto;
+}
+
+.card{
+    background:#fff;
+    border-radius:15px;
+    padding:30px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+h1{
+    color:#2563eb;
+    margin-bottom:25px;
+}
+
+.info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:15px;
+    margin-bottom:30px;
+}
+
+.item{
+    background:#f8fafc;
+    padding:15px;
+    border-radius:10px;
+}
+
+.item b{
+    color:#444;
+}
+
+.status{
+    display:inline-block;
+    padding:8px 18px;
+    background:#FEF3C7;
+    color:#B45309;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+table{
+    width:100%;
+    border-collapse:collapse;
+    margin-top:20px;
+}
+
+th{
+    background:#2563eb;
+    color:white;
+    padding:15px;
+}
+
+td{
+    padding:18px;
+    text-align:center;
+    border-bottom:1px solid #eee;
+}
+
+img{
+    width:80px;
+    border-radius:10px;
+}
+
+tfoot td{
+    font-size:22px;
+    font-weight:bold;
+    color:#2563eb;
+    border:none;
+    padding-top:25px;
+}
+
+.button{
+    margin-top:35px;
+}
+
+.button a{
+    background:#2563eb;
+    color:white;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.button a:hover{
+    background:#1d4ed8;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<h1>📦 Detail Pesanan #{{ order.id }}</h1>
+
+<div class="info">
+
+<div class="item">
+<b>Nama Penerima</b><br>
+{{ order.nama }}
+</div>
+
+<div class="item">
+<b>No Telepon</b><br>
+{{ order.telepon }}
+</div>
+
+<div class="item">
+<b>Alamat</b><br>
+{{ order.alamat }}
+</div>
+
+<div class="item">
+<b>Metode Pembayaran</b><br>
+{{ order.metode_pembayaran }}
+</div>
+
+<div class="item">
+<b>Status Pesanan</b><br><br>
+<span class="status">{{ order.status }}</span>
+</div>
+
+<div class="item">
+<b>Tanggal Pesanan</b><br>
+{{ order.dibuat }}
+</div>
+
+</div>
+
+<table>
+
+<thead>
+
+<tr>
+<th>Gambar</th>
+<th>Produk</th>
+<th>Harga</th>
+<th>Jumlah</th>
+<th>Subtotal</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+{% for item in items %}
+
+<tr>
+
+<td>
+<img src="{{ item.produk.gambar.url }}">
+</td>
+
+<td>{{ item.produk.nama }}</td>
+
+<td>Rp {{ item.harga }}</td>
+
+<td>{{ item.jumlah }}</td>
+
+<td>Rp {{ item.subtotal }}</td>
+
+</tr>
+
+{% endfor %}
+
+</tbody>
+
+<tfoot>
+
+<tr>
+
+<td colspan="5" align="right">
+
+Total Pembayaran :
+Rp {{ order.total }}
+
+</td>
+
+</tr>
+
+</tfoot>
+
+</table>
+
+<div class="button">
+
+<a href="{% url 'riwayat_pesanan' %}">
+← Kembali ke Riwayat Pesanan
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

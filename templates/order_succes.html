@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+
+<title>Pesanan Berhasil</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+background:#F4F8FC;
+display:flex;
+justify-content:center;
+align-items:center;
+height:100vh;
+
+}
+
+.card{
+
+background:white;
+padding:50px;
+width:550px;
+border-radius:25px;
+text-align:center;
+box-shadow:0 20px 50px rgba(0,0,0,.1);
+
+}
+
+.icon{
+
+font-size:90px;
+margin-bottom:20px;
+
+}
+
+h1{
+
+color:#2563EB;
+margin-bottom:20px;
+
+}
+
+p{
+
+color:#64748B;
+line-height:30px;
+margin-bottom:35px;
+
+}
+
+.btn{
+
+display:flex;
+justify-content:center;
+gap:20px;
+
+}
+
+.btn a{
+
+text-decoration:none;
+padding:15px 30px;
+border-radius:12px;
+font-weight:bold;
+
+}
+
+.order{
+
+background:#2563EB;
+color:white;
+
+}
+
+.home{
+
+border:2px solid #2563EB;
+color:#2563EB;
+
+}
+
+.order:hover{
+
+background:#1D4ED8;
+
+}
+
+.home:hover{
+
+background:#2563EB;
+color:white;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="card">
+
+<div class="icon">
+
+🎉
+
+</div>
+
+<h1>
+
+Pesanan Berhasil
+
+</h1>
+
+<p>
+
+Terima kasih telah berbelanja di
+<b>KUU Mart</b>.
+
+Pesanan Anda telah kami terima dan akan segera diproses.
+
+</p>
+
+<div class="btn">
+
+<a href="{% url 'index' %}" class="home">
+
+🏠 Beranda
+
+</a>
+
+<a href="{% url 'riwayat_pesanan' %}" class="order">
+📦 Pesanan Saya
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

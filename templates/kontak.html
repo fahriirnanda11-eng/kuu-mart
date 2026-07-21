@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Kontak | KUU Mart</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#F5F7FA;
+}
+
+.container{
+width:90%;
+max-width:1100px;
+margin:60px auto;
+display:grid;
+grid-template-columns:1fr 1fr;
+gap:40px;
+}
+
+.info{
+
+background:linear-gradient(135deg,#2563EB,#60A5FA);
+color:white;
+padding:50px;
+border-radius:20px;
+
+}
+
+.info h1{
+margin-bottom:20px;
+}
+
+.info p{
+line-height:1.8;
+margin-bottom:25px;
+}
+
+.item{
+margin-bottom:18px;
+font-size:18px;
+}
+
+.form{
+
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+}
+
+.form h2{
+color:#2563EB;
+margin-bottom:20px;
+}
+
+input,textarea{
+
+width:100%;
+padding:15px;
+margin-bottom:20px;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:15px;
+
+}
+
+textarea{
+height:160px;
+resize:none;
+}
+
+button{
+
+width:100%;
+padding:15px;
+background:#2563EB;
+border:none;
+color:white;
+font-size:18px;
+border-radius:10px;
+cursor:pointer;
+transition:.3s;
+
+}
+
+button:hover{
+background:#1D4ED8;
+}
+
+.back{
+
+margin-top:25px;
+text-align:center;
+
+}
+
+.back a{
+
+display:inline-block;
+padding:14px 30px;
+background:#10B981;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:600;
+
+}
+
+.back a:hover{
+
+background:#059669;
+
+}
+
+@media(max-width:768px){
+
+.container{
+
+grid-template-columns:1fr;
+
+}
+
+}
+.alert-success{
+    background:#dcfce7;
+    color:#166534;
+    border:1px solid #22c55e;
+    padding:15px;
+    margin-bottom:20px;
+    border-radius:12px;
+    font-weight:600;
+    text-align:center;
+    animation:fade .5s;
+}
+
+@keyframes fade{
+    from{
+        opacity:0;
+        transform:translateY(-10px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="info">
+
+<h1>Hubungi Kami</h1>
+
+<p>
+Jika memiliki pertanyaan, kritik, atau saran silakan hubungi kami.
+Tim KUU Mart akan segera membalas pesan Anda.
+</p>
+
+<div class="item">📍 Medan, Sumatera Utara</div>
+<div class="item">📞 0812-3456-7890</div>
+<div class="item">✉️ support@kuumart.com</div>
+<div class="item">🕒 Senin - Sabtu (08.00 - 17.00)</div>
+
+</div>
+
+<div class="form">
+
+<h2>Kirim Pesan</h2>
+{% if messages %}
+    {% for message in messages %}
+        <div class="alert-success">
+            {{ message }}
+        </div>
+    {% endfor %}
+{% endif %}
+
+<form method="POST">
+
+{% csrf_token %}
+
+<input type="text" name="nama" placeholder="Nama Lengkap" required>
+
+<input type="email" name="email" placeholder="Email" required>
+
+<textarea name="pesan" placeholder="Tulis pesan Anda..." required></textarea>
+
+<button type="submit">
+📨 Kirim Pesan
+</button>
+
+</form>
+
+<div class="back">
+
+<a href="{% url 'index' %}">
+🏠 Kembali ke Beranda
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,16 @@
+<h2>Wishlist Saya</h2>
+
+{% for item in wishlist %}
+<div>
+    <img src="{{ item.produk.gambar.url }}" width="120">
+    <h4>{{ item.produk.nama }}</h4>
+    <p>Rp {{ item.produk.harga }}</p>
+
+    <a href="{% url 'detail_produk' item.produk.id %}">
+        Lihat Detail
+    </a>
+</div>
+<hr>
+{% empty %}
+<p>Wishlist masih kosong.</p>
+{% endfor %}

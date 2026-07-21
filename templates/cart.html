@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<title>Keranjang | KUU Mart</title>
+
+<style>
+
+body{
+font-family:Poppins,sans-serif;
+background:#F5F7FA;
+margin:0;
+}
+
+.container{
+width:90%;
+margin:40px auto;
+}
+
+table{
+width:100%;
+background:white;
+border-collapse:collapse;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+th,td{
+padding:18px;
+text-align:center;
+border-bottom:1px solid #eee;
+}
+
+th{
+background:#2563EB;
+color:white;
+}
+
+img{
+width:80px;
+border-radius:10px;
+}
+
+.total{
+margin-top:30px;
+font-size:25px;
+font-weight:bold;
+color:#2563EB;
+text-align:right;
+}
+
+.btn{
+margin-top:30px;
+text-align:right;
+}
+
+.btn a{
+background:#2563EB;
+padding:15px 30px;
+color:white;
+text-decoration:none;
+border-radius:10px;
+}
+
+.hapus-btn{
+    background:#EF4444;
+    color:white;
+    padding:8px 15px;
+    border-radius:8px;
+    text-decoration:none;
+    font-weight:600;
+}
+
+.hapus-btn:hover{
+    background:#DC2626;
+}
+/*================ TOMBOL BAWAH =================*/
+
+.action-button{
+    margin-top:35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.back-btn{
+    text-decoration:none;
+    background:white;
+    color:#2563EB;
+    border:2px solid #2563EB;
+    padding:15px 30px;
+    border-radius:12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#2563EB;
+    color:white;
+    transform:translateY(-3px);
+}
+
+.checkout-btn{
+    text-decoration:none;
+    background:linear-gradient(135deg,#2563EB,#60A5FA);
+    color:white;
+    padding:15px 35px;
+    border-radius:12px;
+    font-weight:700;
+    box-shadow:0 10px 20px rgba(37,99,235,.3);
+    transition:.3s;
+}
+
+.checkout-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 30px rgba(37,99,235,.4);
+}
+/*================ TOMBOL BAWAH =================*/
+
+.action-button{
+    margin-top:35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.back-btn{
+    text-decoration:none;
+    background:white;
+    color:#2563EB;
+    border:2px solid #2563EB;
+    padding:15px 30px;
+    border-radius:12px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back-btn:hover{
+    background:#2563EB;
+    color:white;
+    transform:translateY(-3px);
+}
+
+.checkout-btn{
+    text-decoration:none;
+    background:linear-gradient(135deg,#2563EB,#60A5FA);
+    color:white;
+    padding:15px 35px;
+    border-radius:12px;
+    font-weight:700;
+    box-shadow:0 10px 20px rgba(37,99,235,.3);
+    transition:.3s;
+}
+
+.checkout-btn:hover{
+    transform:translateY(-3px);
+    box-shadow:0 15px 30px rgba(37,99,235,.4);
+}
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🛒 Keranjang Belanja</h1>
+
+<table>
+
+<tr>
+
+<th>Produk</th>
+<th>Gambar</th>
+<th>Harga</th>
+<th>Jumlah</th>
+<th>Subtotal</th>
+<th>Aksi</th>
+
+</tr>
+
+{% for item in carts %}
+
+<tr>
+
+    <td>{{ item.produk.nama }}</td>
+
+    <td>
+        <img src="{{ item.produk.gambar.url }}" width="70">
+    </td>
+
+    <td>Rp {{ item.produk.harga_diskon}}</td>
+
+    <td>{{ item.jumlah }}</td>
+
+    <td>Rp {{ item.subtotal }}</td>
+
+    <td>
+
+        <a href="{% url 'kurang_keranjang' item.id %}" class="btn btn-warning">➖</a>
+
+        <a href="{% url 'tambah_ke_keranjang' item.produk.id %}" class="btn btn-success">➕</a>
+
+        <a href="{% url 'hapus_keranjang' item.id %}"
+           class="btn btn-danger"
+           onclick="return confirm('Hapus produk ini?')">
+           🗑
+        </a>
+
+    </td>
+
+</tr>
+
+{% empty %}
+
+<tr>
+
+<td colspan="5">
+
+Keranjang masih kosong.
+
+</td>
+
+</tr>
+
+{% endfor %}
+
+</table>
+
+<div class="total">
+
+Total :
+
+Rp {{ total }}
+
+</div>
+
+<div class="action-button">
+
+    <a href="{% url 'index' %}" class="back-btn">
+        🛍️ Lanjut Belanja
+    </a>
+
+    <a href="{% url 'checkout' %}" class="checkout-btn">
+        💳 Checkout Sekarang
+    </a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

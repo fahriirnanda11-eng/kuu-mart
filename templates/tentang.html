@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<title>Tentang | KUU Mart</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#F5F7FA;
+}
+
+.hero{
+background:linear-gradient(135deg,#2563EB,#60A5FA);
+padding:90px 20px;
+color:white;
+text-align:center;
+}
+
+.hero h1{
+font-size:50px;
+margin-bottom:20px;
+}
+
+.hero p{
+font-size:20px;
+max-width:800px;
+margin:auto;
+line-height:1.8;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:70px auto;
+}
+
+.card{
+background:white;
+padding:40px;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+margin-bottom:40px;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card h2{
+color:#2563EB;
+margin-bottom:20px;
+}
+
+.card p{
+line-height:1.9;
+color:#666;
+font-size:17px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+margin-top:40px;
+}
+
+.box{
+background:white;
+padding:30px;
+text-align:center;
+border-radius:18px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+.box:hover{
+transform:translateY(-8px);
+}
+
+.icon{
+font-size:55px;
+margin-bottom:15px;
+}
+
+.box h3{
+color:#2563EB;
+margin-bottom:10px;
+}
+
+.box p{
+color:#666;
+line-height:1.7;
+}
+
+.back{
+text-align:center;
+margin:50px 0;
+}
+
+.back a{
+display:inline-block;
+padding:15px 35px;
+background:#2563EB;
+color:white;
+text-decoration:none;
+border-radius:12px;
+font-weight:600;
+transition:.3s;
+}
+
+.back a:hover{
+background:#1D4ED8;
+transform:translateY(-4px);
+}
+
+</style>
+</head>
+
+<body>
+
+<section class="hero">
+
+<h1>Tentang KUU Mart</h1>
+
+<p>
+KUU Mart adalah marketplace modern yang menyediakan berbagai kebutuhan elektronik,
+fashion, aksesoris, dan produk berkualitas dengan harga terbaik.
+</p>
+
+</section>
+
+<div class="container">
+
+<div class="card">
+
+<h2>Siapa Kami?</h2>
+
+<p>
+Kami hadir untuk memberikan pengalaman belanja online yang cepat,
+aman, nyaman, dan terpercaya. Setiap produk yang dijual telah melalui
+proses seleksi sehingga pelanggan memperoleh kualitas terbaik.
+</p>
+
+</div>
+
+<div class="grid">
+
+<div class="box">
+
+<div class="icon">🚚</div>
+
+<h3>Pengiriman Cepat</h3>
+
+<p>Produk dikirim secepat mungkin ke seluruh Indonesia.</p>
+
+</div>
+
+<div class="box">
+
+<div class="icon">🔒</div>
+
+<h3>Pembayaran Aman</h3>
+
+<p>Transfer Bank, QRIS, E-Wallet, dan COD.</p>
+
+</div>
+
+<div class="box">
+
+<div class="icon">⭐</div>
+
+<h3>Produk Berkualitas</h3>
+
+<p>Produk original dengan kualitas terbaik.</p>
+
+</div>
+
+<div class="box">
+
+<div class="icon">💬</div>
+
+<h3>Customer Service</h3>
+
+<p>Siap membantu pelanggan setiap hari.</p>
+
+</div>
+
+</div>
+
+<div class="back">
+<a href="{% url 'index' %}">🏠 Kembali ke Beranda</a>
+</div>
+
+</div>
+
+</body>
+</html>

@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Checkout | KUU Mart</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#F4F8FC;
+}
+
+.container{
+width:90%;
+margin:40px auto;
+display:grid;
+grid-template-columns:2fr 1fr;
+gap:30px;
+}
+
+.card{
+background:white;
+border-radius:20px;
+padding:30px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+h2{
+color:#2563EB;
+margin-bottom:25px;
+}
+
+.form-group{
+margin-bottom:20px;
+}
+
+label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
+
+input,
+textarea,
+select{
+width:100%;
+padding:15px;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:15px;
+outline:none;
+}
+
+textarea{
+height:120px;
+resize:none;
+}
+
+.summary-item{
+display:flex;
+justify-content:space-between;
+margin-bottom:18px;
+padding-bottom:15px;
+border-bottom:1px solid #eee;
+}
+
+.total{
+display:flex;
+justify-content:space-between;
+font-size:22px;
+font-weight:bold;
+color:#2563EB;
+margin-top:25px;
+}
+
+.checkout-btn{
+width:100%;
+margin-top:30px;
+padding:16px;
+background:#2563EB;
+color:white;
+border:none;
+border-radius:12px;
+font-size:17px;
+cursor:pointer;
+transition:.3s;
+}
+
+.checkout-btn:hover{
+background:#1D4ED8;
+}
+
+.back{
+display:inline-block;
+margin-top:20px;
+text-decoration:none;
+color:#2563EB;
+font-weight:bold;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<form method="POST">
+
+{% csrf_token %}
+
+<div class="container">
+    <!-- ================= FORM CHECKOUT ================= -->
+
+<div class="card">
+
+<h2>📦 Data Pengiriman</h2>
+
+<div class="form-group">
+
+<label>Nama Lengkap</label>
+
+<input
+type="text"
+name="nama"
+placeholder="Masukkan nama lengkap"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>Nomor HP</label>
+
+<input
+type="text"
+name="telepon"
+placeholder="08xxxxxxxxxx"
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>Alamat Lengkap</label>
+
+<textarea
+name="alamat"
+placeholder="Masukkan alamat lengkap"
+required></textarea>
+
+</div>
+
+<div class="form-group">
+
+<label>Metode Pembayaran</label>
+
+<select name="metode" required>
+
+<option value="">-- Pilih Metode Pembayaran --</option>
+
+<option value="Transfer Bank">
+🏦 Transfer Bank
+</option>
+
+<option value="COD">
+💵 Bayar di Tempat (COD)
+</option>
+
+<option value="E-Wallet">
+📱 E-Wallet
+</option>
+
+<option value="QRIS">
+📷 QRIS
+</option>
+
+</select>
+
+</div>
+
+<div class="form-group">
+
+<label>Catatan Pesanan</label>
+
+<textarea
+name="catatan"
+placeholder="Contoh: Tolong kirim sore hari"></textarea>
+
+</div>
+
+</div>
+
+<!-- ================= RINGKASAN PESANAN ================= -->
+
+<div class="card">
+
+<h2>🛒 Ringkasan Pesanan</h2>
+
+{% for item in carts %}
+
+<div class="summary-item">
+
+<div>
+
+<b>{{ item.produk.nama }}</b><br>
+
+<small>
+{{ item.jumlah }} x Rp {{ item.produk.harga }}
+</small>
+
+</div>
+
+<div>
+
+Rp {% widthratio item.produk.harga 1 item.jumlah %}
+
+</div>
+
+</div>
+
+{% empty %}
+
+<p>Keranjang masih kosong.</p>
+
+{% endfor %}
+
+<hr style="margin:20px 0;">
+
+<div class="summary-item">
+
+<span>Subtotal</span>
+
+<span>Rp {{ total }}</span>
+
+</div>
+
+<div class="summary-item">
+
+<span>Ongkos Kirim</span>
+
+<span style="color:green;">Gratis</span>
+
+</div>
+
+<div class="summary-item">
+
+<span>Biaya Layanan</span>
+
+<span>Rp 0</span>
+
+</div>
+
+<div class="total">
+
+<span>Total Bayar</span>
+
+<span>Rp {{ total }}</span>
+
+</div>
+
+<button class="checkout-btn">
+
+✅ Pesan Sekarang
+
+</button>
+
+<a href="{% url 'cart' %}" class="back">
+
+← Kembali ke Keranjang
+
+</a>
+
+</div>
+</div>
+</form>
+</body>
+</html>

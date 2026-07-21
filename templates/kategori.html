@@ -1,0 +1,351 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Kategori | KUU Mart</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#F5F7FB;
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+/* HERO */
+
+.hero{
+
+    background:linear-gradient(135deg,#2563EB,#60A5FA);
+
+    color:white;
+
+    text-align:center;
+
+    padding:70px 20px;
+
+}
+
+.hero h1{
+
+    font-size:50px;
+
+    margin-bottom:15px;
+
+}
+
+.hero p{
+
+    font-size:18px;
+
+    opacity:.9;
+
+}
+
+/* BUTTON */
+
+/*================ KEMBALI =================*/
+
+.back-home{
+
+    text-align:center;
+
+    margin:50px 0 70px;
+
+}
+
+.back-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:15px 35px;
+
+    background:#2563EB;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    font-size:16px;
+
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
+
+    transition:.35s;
+
+}
+
+.back-btn:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-5px);
+
+    box-shadow:0 20px 35px rgba(37,99,235,.35);
+
+}
+
+/* TITLE */
+
+.title{
+
+    text-align:center;
+
+    margin:60px 0 35px;
+
+}
+
+.title h2{
+
+    font-size:38px;
+
+    color:#1E293B;
+
+}
+
+/* GRID */
+
+.kategori-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+
+    gap:30px;
+
+    margin-bottom:70px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:35px;
+
+    text-align:center;
+
+    text-decoration:none;
+
+    color:#222;
+
+    transition:.35s;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(37,99,235,.18);
+
+}
+
+.icon{
+
+    width:90px;
+
+    height:90px;
+
+    margin:auto;
+
+    border-radius:50%;
+
+    background:#EFF6FF;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:42px;
+
+    margin-bottom:20px;
+
+}
+
+.card h3{
+
+    font-size:24px;
+
+    margin-bottom:10px;
+
+}
+
+.card p{
+
+    color:#64748B;
+
+    font-size:15px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<section class="hero">
+
+<h1>📂 Kategori Produk</h1>
+
+<p>Pilih kategori favoritmu dan temukan produk terbaik di KUU Mart.</p>
+
+</section>
+
+<div class="container">
+
+<div class="title">
+
+<h2>Kategori Populer</h2>
+
+</div>
+
+<div class="kategori-grid">
+    <a href="{% url 'produk' %}?kategori=1" class="card">
+
+    <div class="icon">📱</div>
+
+    <h3>Elektronik</h3>
+
+    <p>Smartphone, TV, Speaker, Kamera dan lainnya.</p>
+
+</a>
+
+<a href="{% url 'produk' %}?kategori=2" class="card">
+
+    <div class="icon">🥤</div>
+
+    <h3>Minuman</h3>
+
+    <p>Minuman segar, kopi, teh dan aneka jus.</p>
+
+</a>
+
+<a href="{% url 'produk' %}?kategori=3" class="card">
+
+    <div class="icon">🍔</div>
+
+    <h3>Makanan</h3>
+
+    <p>Makanan ringan, instan hingga makanan siap saji.</p>
+
+</a>
+
+<a href="{% url 'produk' %}?kategori=4" class="card">
+
+    <div class="icon">⚽</div>
+
+    <h3>Olahraga</h3>
+
+    <p>Peralatan olahraga dan kebutuhan kebugaran.</p>
+
+</a>
+
+<a href="{% url 'produk' %}?kategori=5" class="card">
+
+    <div class="icon">💻</div>
+
+    <h3>Komputer</h3>
+
+    <p>Laptop, PC, Keyboard, Mouse dan aksesoris.</p>
+
+</a>
+
+<a href="{% url 'produk' %}?kategori=6" class="card">
+
+    <div class="icon">👕</div>
+
+    <h3>Fashion</h3>
+
+    <p>Pakaian pria, wanita, sepatu dan tas terbaru.</p>
+
+</a>
+
+<a href="{% url 'produk' %}?kategori=7" class="card">
+
+    <div class="icon">⌚</div>
+
+    <h3>Aksesoris</h3>
+
+    <p>Jam tangan, headset, charger dan perlengkapan lainnya.</p>
+
+</a>
+
+<a href="{% url 'produk' %}" class="card">
+
+    <div class="icon">🛍️</div>
+
+    <h3>Semua Produk</h3>
+
+    <p>Lihat seluruh produk yang tersedia di KUU Mart.</p>
+
+</a>
+
+</div>
+
+</div>
+<div class="back-home">
+
+    <a href="{% url 'index' %}" class="back-btn">
+
+        <i>🏠</i>
+
+        Kembali ke Beranda
+
+    </a>
+
+</div>
+
+<footer style="background:#111827;color:white;padding:35px;text-align:center;">
+
+    <h2>KUU Mart</h2>
+
+    <p style="margin-top:10px;color:#CBD5E1;">
+
+        Marketplace Modern Untuk Semua Kebutuhan
+
+    </p>
+
+    <p style="margin-top:20px;font-size:14px;color:#94A3B8;">
+
+        © 2026 KUU Mart. All Rights Reserved.
+
+    </p>
+
+</footer>
+
+</body>
+
+</html>

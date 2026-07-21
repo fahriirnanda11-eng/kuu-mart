@@ -1,0 +1,476 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport"
+content="width=device-width, initial-scale=1">
+
+<title>Promo | KUU Mart</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+
+background:#F5F7FB;
+
+}
+
+.container{
+
+width:90%;
+
+max-width:1300px;
+
+margin:auto;
+
+}
+
+/* HERO */
+
+.hero{
+
+background:linear-gradient(135deg,#2563EB,#3B82F6);
+
+padding:80px 20px;
+
+text-align:center;
+
+color:white;
+
+}
+
+.hero h1{
+
+font-size:50px;
+
+margin-bottom:15px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+opacity:.9;
+
+}
+
+.flash{
+
+margin-top:-35px;
+
+background:white;
+
+padding:20px;
+
+border-radius:18px;
+
+box-shadow:0 15px 30px rgba(0,0,0,.08);
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+.flash h2{
+
+color:#EF4444;
+
+font-size:28px;
+
+}
+
+.flash span{
+
+font-size:18px;
+
+color:#64748B;
+
+}
+
+.title{
+
+margin:60px 0 35px;
+
+text-align:center;
+
+}
+
+.title h2{
+
+font-size:40px;
+
+color:#1E293B;
+
+}
+
+/*================ PRODUK =================*/
+
+.product-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+
+    gap:30px;
+
+    margin:40px 0 70px;
+
+}
+
+.product-card{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    position:relative;
+
+}
+
+.product-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(37,99,235,.18);
+
+}
+
+.product-card img{
+
+    width:100%;
+
+    height:220px;
+
+    object-fit:cover;
+
+}
+
+.badge{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    background:#EF4444;
+
+    color:white;
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    font-size:13px;
+
+    font-weight:bold;
+
+}
+
+.info{
+
+    padding:20px;
+
+}
+
+.info h3{
+
+    font-size:22px;
+
+    margin-bottom:10px;
+
+    color:#1E293B;
+
+}
+
+.category{
+
+    color:#2563EB;
+
+    font-size:14px;
+
+    font-weight:600;
+
+}
+
+.rating{
+
+    color:#F59E0B;
+
+    margin:12px 0;
+
+}
+
+.price{
+
+    margin:15px 0;
+
+}
+
+.price h2{
+
+    color:#2563EB;
+
+    font-size:28px;
+
+}
+
+.price del{
+
+    color:#94A3B8;
+
+}
+
+.stok{
+
+    color:#64748B;
+
+    margin-bottom:20px;
+
+}
+
+.btn-group{
+
+    display:flex;
+
+    gap:12px;
+
+}
+
+.cart-btn{
+
+    flex:1;
+
+    background:#EFF6FF;
+
+    color:#2563EB;
+
+    text-align:center;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.cart-btn:hover{
+
+    background:#DBEAFE;
+
+}
+
+.buy-btn{
+
+    flex:1;
+
+    background:#2563EB;
+
+    color:white;
+
+    text-align:center;
+
+    padding:12px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.buy-btn:hover{
+
+    background:#1D4ED8;
+
+}
+
+.back-home{
+
+    text-align:center;
+
+    margin-bottom:70px;
+
+}
+
+.back-btn{
+
+    display:inline-block;
+
+    background:#2563EB;
+
+    color:white;
+
+    text-decoration:none;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.back-btn:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-3px);
+
+}
+</style>
+<body>
+
+<section class="hero">
+
+    <h1>🎉 Promo Spesial KUU Mart</h1>
+
+    <p>Diskon terbaik hanya untuk hari ini.</p>
+
+</section>
+
+<div class="container">
+
+<div class="flash">
+
+<h2>🔥 Flash Sale</h2>
+
+<span>Produk dengan diskon terbesar</span>
+
+</div>
+
+<div class="title">
+
+<h2>Promo Terbaik</h2>
+
+</div>
+
+<div class="product-grid">
+
+{% for p in produk %}
+
+<div class="product-card">
+
+{% if p.diskon > 0 %}
+<div class="badge">
+-{{ p.diskon }}%
+</div>
+{% endif %}
+
+<h3>
+<a href="{% url 'detail_produk' p.id %}">
+<img src="{{ p.gambar.url }}" alt="{{ p.nama }}">
+</a>
+</h3>
+
+<div class="info">
+
+<div class="category">
+{{ p.kategori.nama }}
+</div>
+
+<h3><a href="{% url 'detail_produk' p.id %}">
+     {{ p.nama }}</a></h3>
+
+<div class="rating">
+
+⭐⭐⭐⭐⭐ {{ p.rating }}
+
+</div>
+
+<div class="price">
+
+<h2>
+Rp {{ p.harga_diskon|floatformat:0 }}
+</h2>
+
+<del>
+Rp {{ p.harga|floatformat:0 }}
+</del>
+
+</div>
+
+<p class="stok">
+
+📦 Stok : {{ p.stok }}
+
+</p>
+
+<div class="btn-group">
+
+<a href="{% url 'tambah_ke_keranjang' p.id %}" class="cart-btn">
+
+🛒 Keranjang
+
+</a>
+
+<a href="{% url 'beli_sekarang' p.id %}" class="buy-btn">
+
+⚡ Beli
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+{% empty %}
+
+<h2 style="text-align:center;grid-column:1/-1;">
+Belum ada promo saat ini.
+</h2>
+
+{% endfor %}
+
+</div>
+
+<div class="back-home">
+
+<a href="{% url 'index' %}" class="back-btn">
+
+🏠 Kembali ke Beranda
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,1972 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>KUU Mart</title>
+<link rel="stylesheet"href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+.order-icon{
+    position:relative;
+    text-decoration:none;
+}
+
+.badge-order{
+    position:absolute;
+    top:-5px;
+    right:-5px;
+    width:20px;
+    height:20px;
+    border-radius:50%;
+    background:#EF4444;
+    color:white;
+    font-size:11px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:bold;
+}
+
+/* ================= RESET ================= */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#F6F8FC;
+    color:#1E293B;
+    overflow-x:hidden;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:auto;
+}
+
+/* ================= NAVBAR ================= */
+
+nav{
+
+    width:100%;
+    height:80px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    padding:0 6%;
+
+    background:rgba(255,255,255,.95);
+
+    backdrop-filter:blur(15px);
+
+    position:sticky;
+    top:0;
+    z-index:999;
+
+    box-shadow:0 8px 30px rgba(0,0,0,.06);
+
+}
+
+.logo{
+
+    font-size:30px;
+    font-weight:700;
+    color:#2563EB;
+
+}
+
+.logo span{
+
+    color:#111827;
+
+}
+
+.menu{
+
+    display:flex;
+    gap:35px;
+
+}
+
+.menu a{
+
+    color:#334155;
+    text-decoration:none;
+    font-weight:600;
+    position:relative;
+    transition:.3s;
+
+}
+
+.menu a::after{
+
+    content:"";
+
+    position:absolute;
+
+    left:0;
+    bottom:-8px;
+
+    width:0;
+    height:3px;
+
+    border-radius:20px;
+
+    background:#2563EB;
+
+    transition:.3s;
+
+}
+
+.menu a:hover{
+
+    color:#2563EB;
+
+}
+
+.menu a:hover::after{
+
+    width:100%;
+
+}
+
+.right-nav{
+
+    display:flex;
+    align-items:center;
+    gap:15px;
+
+}
+
+.search-nav{
+
+    width:230px;
+
+    padding:12px 18px;
+
+    border:none;
+
+    background:#F1F5F9;
+
+    border-radius:50px;
+
+    outline:none;
+
+}
+
+.icon{
+
+    width:46px;
+    height:46px;
+
+    background:white;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    font-size:20px;
+
+    transition:.3s;
+
+    box-shadow:0 8px 18px rgba(0,0,0,.08);
+
+}
+
+.icon:hover{
+
+    background:#2563EB;
+
+    color:white;
+
+    transform:translateY(-4px);
+
+}
+
+.order-icon{
+
+    position:relative;
+
+    text-decoration:none;
+
+}
+
+.badge-order{
+
+    position:absolute;
+
+    top:-6px;
+    right:-6px;
+
+    width:22px;
+    height:22px;
+
+    border-radius:50%;
+
+    background:#EF4444;
+
+    color:white;
+
+    font-size:11px;
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    font-weight:bold;
+
+}
+
+.user-name{
+
+    color:#2563EB;
+
+    font-weight:600;
+
+    white-space:nowrap;
+
+}
+
+.login,
+.logout-btn{
+
+    padding:11px 22px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    background:#2563EB;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.login:hover,
+.logout-btn:hover{
+
+    background:#1D4ED8;
+
+}
+
+/* ================= HERO ================= */
+
+.hero{
+
+    width:90%;
+    max-width:1300px;
+
+    margin:45px auto;
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    align-items:center;
+
+    gap:60px;
+
+}
+
+.left h1{
+
+    font-size:62px;
+
+    line-height:75px;
+
+    color:#0F172A;
+
+}
+
+.left p{
+
+    margin-top:20px;
+
+    font-size:18px;
+
+    color:#64748B;
+
+    line-height:34px;
+
+}
+
+.btn{
+
+    margin-top:35px;
+
+    display:flex;
+
+    gap:15px;
+
+}
+
+.btn button{
+
+    padding:16px 34px;
+
+    border:none;
+
+    border-radius:15px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+.btn button:hover{
+
+    transform:translateY(-5px);
+
+    box-shadow:0 15px 30px rgba(37,99,235,.25);
+
+}
+
+.right img{
+
+    width:100%;
+
+    border-radius:30px;
+
+    box-shadow:0 25px 50px rgba(0,0,0,.12);
+
+}
+
+/* ================= SEARCH ================= */
+
+.search-box{
+
+    width:90%;
+    max-width:1300px;
+
+    margin:auto;
+
+    margin-top:-10px;
+
+    background:white;
+
+    border-radius:20px;
+
+    display:flex;
+
+    padding:15px;
+
+    gap:15px;
+
+    box-shadow:0 15px 40px rgba(0,0,0,.08);
+
+}
+
+.search-box input{
+
+    flex:1;
+
+    border:none;
+
+    outline:none;
+
+    padding:18px;
+
+    font-size:16px;
+
+}
+
+.search-box button{
+
+    width:150px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#2563EB;
+
+    color:white;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.search-box button:hover{
+
+    background:#1D4ED8;
+
+}
+
+/*================ KATEGORI =================*/
+
+.category{
+
+    width:90%;
+    max-width:1300px;
+
+    margin:90px auto;
+
+}
+
+.section-title{
+
+    font-size:38px;
+    font-weight:700;
+    color:#0F172A;
+
+    margin-bottom:35px;
+
+}
+
+.box-category{
+
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:25px;
+
+}
+
+.card-category{
+
+    background:white;
+
+    border-radius:22px;
+
+    padding:35px 20px;
+
+    text-align:center;
+
+    cursor:pointer;
+
+    transition:.35s;
+
+    border:1px solid #EEF2F7;
+
+    box-shadow:0 12px 30px rgba(0,0,0,.05);
+
+}
+
+.card-category:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 45px rgba(37,99,235,.15);
+
+}
+
+.circle{
+
+    width:85px;
+
+    height:85px;
+
+    margin:auto;
+
+    margin-bottom:20px;
+
+    border-radius:50%;
+
+    background:linear-gradient(135deg,#DBEAFE,#BFDBFE);
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:40px;
+
+}
+
+.card-category h3{
+
+    font-size:18px;
+
+    color:#334155;
+
+    font-weight:600;
+
+}
+
+/*================ FLASH SALE =================*/
+
+.flash-sale{
+    width:90%;
+    max-width:1300px;
+    margin:80px auto;
+    padding:40px 50px;
+
+    background:linear-gradient(135deg,#2563EB,#60A5FA);
+    border-radius:25px;
+
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+
+    color:white;
+}
+
+.timer{
+    display:flex;
+    gap:15px;
+}
+
+.time-item{
+    text-align:center;
+}
+
+.time-item span{
+    color:white;
+    font-size:13px;
+}
+
+.time-box{
+    width:70px;
+    height:70px;
+    background:white;
+    color:#2563EB;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    border-radius:15px;
+
+    font-size:28px;
+    font-weight:bold;
+}
+
+/*================ PROMO =================*/
+
+.promo{
+
+    width:90%;
+    max-width:1300px;
+
+    margin:90px auto;
+
+    display:grid;
+
+    grid-template-columns:repeat(2,1fr);
+
+    gap:30px;
+
+}
+
+.banner{
+
+    display:block;
+    padding:45px;
+    border-radius:28px;
+    position:relative;
+    overflow:hidden;
+
+    text-decoration:none;
+    color:#fff;
+
+    transition:.35s;
+}
+
+.banner,
+.banner:link,
+.banner:visited,
+.banner:hover,
+.banner:active{
+
+    text-decoration:none;
+    color:#fff;
+}
+
+.banner h2,
+.banner p{
+
+    color:#fff;
+    text-decoration:none;
+
+}
+
+
+
+.banner::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+
+    height:220px;
+
+    background:rgba(255,255,255,.12);
+
+    border-radius:50%;
+
+    right:-70px;
+
+    top:-70px;
+
+}
+
+.banner:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.banner h2{
+
+    font-size:34px;
+
+    margin-bottom:15px;
+
+}
+
+.banner p{
+
+    line-height:30px;
+
+    margin-bottom:30px;
+
+}
+
+.banner button{
+
+    padding:14px 28px;
+
+    border:none;
+
+    border-radius:14px;
+
+    background:white;
+
+    color:#2563EB;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.banner button:hover{
+
+    transform:scale(1.05);
+
+}
+
+.blue{
+
+    background:linear-gradient(135deg,#2563EB,#3B82F6);
+
+}
+
+.green{
+
+    background:linear-gradient(135deg,#10B981,#34D399);
+
+}
+
+
+.badge{
+
+    position:absolute;
+
+    top:18px;
+
+    left:18px;
+
+    background:#EF4444;
+
+    color:white;
+
+    padding:7px 14px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+    z-index:2;
+
+}
+
+.favorite{
+
+    position:absolute;
+
+    top:18px;
+
+    right:18px;
+
+    width:42px;
+
+    height:42px;
+
+    border-radius:50%;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    box-shadow:0 10px 20px rgba(0,0,0,.15);
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    z-index:2;
+
+}
+
+.favorite:hover{
+
+    background:#EF4444;
+
+    color:white;
+
+}
+
+.info{
+
+    padding:15px;
+
+}
+
+.info h3{
+
+    font-size:18px;
+
+    margin-bottom:10px;
+
+    color:#0F172A;
+
+    white-space:nowrap;
+
+    overflow:hidden;
+
+    text-overflow:ellipsis;
+
+}
+
+.category-name{
+
+    color:#64748B;
+
+    margin-bottom:10px;
+
+}
+
+.rating{
+
+    color:#F59E0B;
+
+    font-size:15px;
+
+    margin-bottom:18px;
+
+}
+
+.price{
+
+    display:flex;
+
+    flex-wrap:wrap;
+
+    align-items:center;
+
+    gap:8px;
+
+    margin-bottom:20px;
+
+}
+
+.price h4{
+
+    color:#2563EB;
+
+    font-size:24px;
+
+    font-weight:700;
+
+}
+
+.price del{
+
+    color:#94A3B8;
+
+}
+
+.discount{
+
+    background:#FEE2E2;
+
+    color:#EF4444;
+
+    font-size:12px;
+
+    padding:4px 10px;
+
+    border-radius:20px;
+
+    font-weight:bold;
+
+}
+
+.buy{
+
+    display:flex;
+
+    gap:12px;
+
+    margin-top:15px;
+
+}
+
+.cart{
+
+    flex:1;
+
+    height:48px;
+
+    background:#EFF6FF;
+
+    color:#2563EB;
+
+    border:none;
+
+    border-radius:12px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.cart:hover{
+
+    background:#DBEAFE;
+
+}
+
+.order{
+
+    flex:1;
+    height:42px;
+    font-size: 13px;
+    background:#2563EB;
+    color:white;
+    border-radius:12px;
+    text-decoration:none;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-weight:600;
+    transition:.3s;
+
+}
+
+.order:hover{
+
+    background:#1D4ED8;
+
+}
+
+
+/*================ TESTIMONI =================*/
+
+.testimoni{
+    width:90%;
+    max-width:1300px;
+    margin:100px auto;
+}
+
+.testimoni-grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:30px;
+}
+
+.testi-card{
+    background:white;
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 15px 35px rgba(0,0,0,.05);
+    transition:.35s;
+}
+
+.testi-card:hover{
+    transform:translateY(-8px);
+}
+
+.testi-card img{
+    width:75px;
+    height:75px;
+    border-radius:50%;
+    margin-bottom:15px;
+}
+
+.testi-card h3{
+    margin-bottom:10px;
+}
+
+.testi-card p{
+    color:#64748B;
+    line-height:30px;
+}
+
+/*================ NEWSLETTER =================*/
+
+.newsletter{
+    width:90%;
+    max-width:1300px;
+    margin:100px auto 60px;
+    padding:60px;
+    border-radius:30px;
+    background:linear-gradient(135deg,#2563EB,#3B82F6);
+    color:white;
+    text-align:center;
+}
+
+.newsletter h2{
+
+    font-size:40px;
+
+    margin-bottom:15px;
+
+}
+
+.newsletter p{
+
+    margin-bottom:35px;
+
+    opacity:.95;
+
+}
+
+.newsletter form{
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:15px;
+
+    flex-wrap:wrap;
+
+}
+
+.newsletter input{
+
+    width:420px;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:15px;
+
+    outline:none;
+
+}
+
+.newsletter button{
+
+    padding:18px 35px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:white;
+
+    color:#2563EB;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+}
+
+.newsletter button:hover{
+
+    transform:scale(1.05);
+
+}
+
+
+footer{
+
+    margin-top:0;
+
+    background:#0F172A;
+
+    color:white;
+
+    padding:70px 8% 30px;
+}
+
+.footer-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr 1fr 1.5fr;
+
+    gap:60px;
+
+}
+
+.footer-item h2{
+
+    font-size:30px;
+
+    margin-bottom:18px;
+
+}
+
+.footer-item h3{
+
+    margin-bottom:18px;
+
+    font-size:20px;
+
+}
+
+.footer-item p{
+
+    color:#CBD5E1;
+
+    line-height:30px;
+
+    font-size:15px;
+
+}
+
+.footer-item a{
+
+    display:block;
+
+    color:#CBD5E1;
+
+    text-decoration:none;
+
+    margin-bottom:14px;
+
+    transition:.3s;
+
+}
+
+.footer-item a:hover{
+
+    color:white;
+
+    padding-left:8px;
+
+}
+
+.copy{
+
+    margin-top:60px;
+
+    padding-top:25px;
+
+    border-top:1px solid rgba(255,255,255,.08);
+
+    text-align:center;
+
+    color:#94A3B8;
+
+    font-size:15px;
+
+}
+/*================ RESPONSIVE =================*/
+
+@media(max-width:992px){
+
+.hero{
+
+grid-template-columns:1fr;
+
+text-align:center;
+
+}
+
+.menu{
+
+display:none;
+
+}
+
+.product-header{
+
+flex-direction:column;
+
+gap:15px;
+
+}
+
+.flash-sale{
+
+flex-direction:column;
+
+gap:25px;
+
+text-align:center;
+
+}
+
+.promo{
+
+grid-template-columns:1fr;
+
+}
+
+.footer-grid{
+
+grid-template-columns:1fr;
+
+}
+
+.box-category{
+
+grid-template-columns:repeat(2,1fr);
+
+}
+
+.search-box{
+
+flex-direction:column;
+
+}
+
+.search-box button{
+
+width:100%;
+
+}
+
+.newsletter form{
+
+flex-direction:column;
+
+}
+
+.newsletter input{
+
+width:100%;
+
+}
+
+}
+
+@media(max-width:600px){
+
+.box-category{
+
+grid-template-columns:1fr;
+
+}
+
+.hero h1{
+
+font-size:42px;
+
+line-height:55px;
+
+}
+
+.section-title{
+
+font-size:30px;
+
+}
+
+}
+
+/*================ FLOAT BUTTON =================*/
+
+.whatsapp{
+position:fixed;
+bottom:25px;
+right:25px;
+width:60px;
+height:60px;
+background:#22C55E;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:30px;
+color:white;
+cursor:pointer;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+z-index:999;
+}
+
+.top{
+position:fixed;
+bottom:100px;
+right:25px;
+width:55px;
+height:55px;
+background:#2563EB;
+border-radius:50%;
+display:flex;
+justify-content:center;
+align-items:center;
+font-size:25px;
+color:white;
+cursor:pointer;
+box-shadow:0 10px 20px rgba(0,0,0,.2);
+z-index:999;
+}
+
+.whatsapp,
+.top{
+    transition:.35s ease;
+}
+
+.whatsapp:hover,
+.top:hover{
+    transform:translateY(-6px) scale(1.08);
+    box-shadow:0 20px 35px rgba(0,0,0,.25);
+}
+
+/*================ RESPONSIVE =================*/
+
+@media(max-width:992px){
+
+.menu{
+display:none;
+}
+
+.hero{
+flex-direction:column;
+}
+
+.box-category,
+.product-grid,
+.testimoni-grid,
+.footer-grid,
+.promo{
+grid-template-columns:1fr;
+}
+
+.search-box{
+flex-direction:column;
+}
+
+.search-box input{
+width:100%;
+}
+
+.newsletter input{
+width:100%;
+margin-bottom:15px;
+}
+
+.newsletter button{
+width:100%;
+margin-left:0;
+}
+
+}
+.right-nav{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.search-nav{
+    width:220px;
+    padding:10px 15px;
+    border:1px solid #ddd;
+    border-radius:10px;
+    outline:none;
+}
+
+.icon{
+    font-size:22px;
+    cursor:pointer;
+}
+
+.user-name{
+    font-weight:600;
+    color:#2563EB;
+    white-space:nowrap;
+}
+
+.logout-btn,
+.login{
+    text-decoration:none;
+    background:#2563EB;
+    color:white;
+    padding:10px 18px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.logout-btn:hover,
+.login:hover{
+    background:#1D4ED8;
+}
+
+.right img{
+
+transition:.5s;
+
+}
+
+.right img:hover{
+
+transform:scale(1.03);
+
+}
+@media (max-width:992px){
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+}
+
+@media (max-width:600px){
+    .product-grid{
+        grid-template-columns:1fr;
+    }
+} 
+.kategori-grid{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:25px;
+    margin-top:40px;
+
+}
+
+.kategori-card{
+
+    background:white;
+    border-radius:20px;
+    padding:35px 20px;
+    text-align:center;
+    text-decoration:none;
+    color:#222;
+    transition:.35s;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+.kategori-card:hover{
+
+    transform:translateY(-10px);
+    box-shadow:0 20px 40px rgba(37,99,235,.18);
+
+}
+
+.kategori-icon{
+
+    width:90px;
+    height:90px;
+    margin:auto;
+    border-radius:50%;
+    background:#EFF6FF;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:45px;
+    margin-bottom:20px;
+
+}
+
+.kategori-card h3{
+
+    font-size:22px;
+    font-weight:600;
+
+}
+
+.scroll-top{
+    position:fixed;
+    right:25px;
+    bottom:90px;
+
+    width:55px;
+    height:55px;
+
+    background:#3B82F6;
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    cursor:pointer;
+
+    font-size:22px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+
+    transition:.3s;
+
+    z-index:999;
+}
+
+.scroll-top:hover{
+    transform:translateY(-5px);
+}
+
+.whatsapp{
+    position:fixed;
+    right:25px;
+    bottom:20px;
+
+    width:55px;
+    height:55px;
+
+    background:#25D366;
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    font-size:28px;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.2);
+
+    transition:.3s;
+
+    z-index:999;
+}
+
+.whatsapp:hover{
+    transform:translateY(-5px);
+}
+.wishlist-btn{
+    width:45px;
+    height:45px;
+
+    background:white;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    color:#999;
+
+    text-decoration:none;
+
+    transition:.3s;
+}
+
+.wishlist-btn:hover{
+    background:#ff4d6d;
+    color:white;
+    transform:scale(1.1);
+}
+
+</style>
+</head>
+
+<body>
+    {% if messages %}
+
+    {% for message in messages %}
+
+        <script>
+            alert("{{ message }}");
+        </script>
+
+    {% endfor %}
+
+{% endif %}
+<nav>
+
+
+    <div class="logo">
+        KUU <span>Mart</span>
+    </div>
+
+    <div class="menu">
+        <a href="">Beranda</a>
+        <a href="{% url 'kategori' %}">Kategori</a>
+        <a href="{% url 'produk' %}">Produk</a>
+        <a href="{% url 'promo' %}">Promo</a>
+        <a href="{% url 'tentang' %}">Tentang</a>
+        <a href="{% url 'kontak' %}">Kontak</a>
+    </div>
+
+    <div class="right-nav">
+
+        <a href="{% url 'wishlist' %}">
+    <i class="fa fa-heart"></i>
+</a>
+        <a href="{% url 'cart' %}" style="text-decoration:none;">
+             <div class="icon">🛒</div>
+             </a>
+        
+             <a href="{% url 'riwayat_pesanan' %}" class="order-icon">
+
+    <div class="icon">
+        📦
+
+        {% if jumlah_pesanan > 0 %}
+        <span class="badge-order">
+            {{ jumlah_pesanan }}
+        </span>
+        {% endif %}
+
+    </div>
+
+</a>
+
+        {% if user.is_authenticated %}
+
+            <span class="user-name">
+                👋 Halo, {{ user.username }}
+            </span>
+
+            <a href="{% url 'logout' %}" class="logout-btn">
+                Logout
+            </a>
+
+        {% else %}
+
+            <a href="{% url 'login' %}" class="login">
+                Masuk
+            </a>
+
+        {% endif %}
+
+    </div>
+
+</nav>
+
+<div class="hero">
+
+<div class="left">
+
+<h1>
+
+Marketplace Modern Untuk Semua Kebutuhan
+
+</h1>
+
+<p>
+
+Belanja lebih aman, cepat, dan nyaman dengan ribuan produk pilihan berkualitas.
+
+</p>
+
+
+</div>
+
+<div class="right">
+
+<img src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=900">
+
+</div>
+
+</div>
+
+
+</div>
+<!-- ================= KATEGORI ================= -->
+
+<div class="category">
+
+<h2 class="section-title">
+Kategori Populer
+</h2>
+
+<div class="kategori-grid">
+
+{% for k in kategori %}
+
+<a href="{% url 'produk' %}?kategori={{ k.id }}" class="kategori-card">
+
+    <div class="kategori-icon">
+
+        {% if k.nama == "Elektronik" %}
+            📱
+
+        {% elif k.nama == "Minuman" %}
+            🥤
+
+        {% elif k.nama == "Makanan" %}
+            🍔
+
+        {% elif k.nama == "Olahraga" %}
+            ⚽
+
+        {% elif k.nama == "Komputer" %}
+            💻
+
+        {% elif k.nama == "Fashion" %}
+            👕
+
+        {% elif k.nama == "Aksesoris" %}
+            ⌚
+
+        {% else %}
+            📦
+        {% endif %}
+
+    </div>
+
+    <h3>{{ k.nama }}</h3>
+
+</a>
+
+{% endfor %}
+
+</div>
+
+<!-- ================= FLASH SALE ================= -->
+
+<section class="flash-sale">
+
+    <div class="flash-text">
+        <h2>🔥 Flash Sale Hari Ini</h2>
+        <p>Diskon sampai <strong>70%</strong> hanya hari ini.</p>
+    </div>
+
+    <div class="timer">
+        <div class="time-item">
+            <div class="time-box" id="hours">12</div>
+            <span>Jam</span>
+        </div>
+
+        <div class="time-item">
+            <div class="time-box" id="minutes">45</div>
+            <span>Menit</span>
+        </div>
+
+        <div class="time-item">
+            <div class="time-box" id="seconds">30</div>
+            <span>Detik</span>
+        </div>
+    </div>
+
+</section>
+<!-- ================= PROMO ================= -->
+
+<div class="promo">
+
+<a href="{% url 'produk' %}" class="banner blue">
+
+    <h2>🚚 Gratis Ongkir</h2>
+
+    <p>Belanja minimal Rp100.000 dapat gratis ongkir ke seluruh Indonesia.</p>
+
+    <button>Belanja Sekarang</button>
+
+</a>
+
+<a href="{% url 'register' %}" class="banner green">
+
+    <h2>🎁 Voucher Member</h2>
+
+    <p>Daftar sekarang dan dapatkan voucher belanja hingga Rp50.000.</p>
+
+    <button>Daftar Gratis</button>
+
+</a>
+</div>
+
+<!--================ TESTIMONI =================-->
+
+<div class="testimoni">
+
+<h2 class="section-title">
+Testimoni Pelanggan
+</h2>
+
+<div class="testimoni-grid">
+
+<div class="testi-card">
+
+<img src="https://i.pravatar.cc/150?img=11">
+
+<h3>Andi Saputra</h3>
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+Pelayanannya cepat dan produknya sesuai deskripsi. Sangat puas berbelanja di KUU Mart.
+
+</p>
+
+</div>
+
+<div class="testi-card">
+
+<img src="https://i.pravatar.cc/150?img=32">
+
+<h3>Siti Rahma</h3>
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+Pengiriman cepat dan barang berkualitas. Pasti belanja lagi.
+
+</p>
+
+</div>
+
+<div class="testi-card">
+
+<img src="https://i.pravatar.cc/150?img=41">
+
+<h3>Budi Santoso</h3>
+
+⭐⭐⭐⭐⭐
+
+<p>
+
+Website mudah digunakan dan tampilannya sangat modern.
+
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+<!--================ NEWSLETTER =================-->
+
+<div class="newsletter">
+
+<h2>
+
+Dapatkan Promo Terbaru
+
+</h2>
+
+<p>
+
+Masukkan email Anda untuk mendapatkan voucher dan promo eksklusif.
+
+</p>
+
+<form action="{% url 'subscribe' %}" method="POST">
+
+    {% csrf_token %}
+
+    <input
+        type="email"
+        name="email"
+        placeholder="Masukkan email Anda"
+        required>
+
+    <button type="submit">
+        Berlangganan
+    </button>
+
+</form>
+</div>
+<!--================ FOOTER =================-->
+
+<footer>
+
+<div class="footer-grid">
+
+<div class="footer-item">
+
+<h2>KUU Mart</h2>
+
+<p>
+
+Marketplace modern yang menyediakan berbagai kebutuhan dengan harga terbaik, pengiriman cepat, dan pembayaran yang aman.
+
+</p>
+
+<div class="social">
+
+<i class="fab fa-facebook"></i>
+
+<i class="fab fa-instagram"></i>
+
+<i class="fab fa-tiktok"></i>
+
+<i class="fab fa-youtube"></i>
+</div>
+
+</div>
+
+<div class="footer-item">
+
+<h3>Menu</h3>
+
+<a href="#">Beranda</a>
+
+<a href="#">Kategori</a>
+
+<a href="#">Produk</a>
+
+<a href="#">Promo</a>
+
+<a href="#">Kontak</a>
+
+</div>
+
+<div class="footer-item">
+
+<h3>Bantuan</h3>
+
+<a href="#">FAQ</a>
+
+<a href="#">Cara Belanja</a>
+
+<a href="#">Pengiriman</a>
+
+<a href="#">Pembayaran</a>
+
+<a href="#">Syarat & Ketentuan</a>
+
+</div>
+
+<div class="footer-item">
+
+<h3>Hubungi Kami</h3>
+
+<p>📍 Medan, Sumatera Utara</p>
+
+<p>📞 +62 812-3456-7890</p>
+
+<p>✉ info@kuumart.com</p>
+
+<p>🕒 Senin - Minggu (08.00 - 22.00)</p>
+</div>
+
+</div>
+
+<div class="copy">
+
+© 2026 KUU Mart. All Rights Reserved.
+
+</div>
+
+</footer>
+
+<!-- Floating Button -->
+
+<div class="scroll-top" onclick="scrollToTop()">
+    <i class="fas fa-arrow-up"></i>
+
+</div>
+
+<div>
+<a href="https://wa.me/6282174224789?text=Halo%20Admin,%20saya%20ingin%20bertanya%20tentang%20produk."
+   class="whatsapp"
+   target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+💬
+
+</div>
+<script>
+
+let totalSeconds = (12*3600) + (45*60) + 30;
+
+function updateTimer(){
+
+    let h = Math.floor(totalSeconds/3600);
+    let m = Math.floor((totalSeconds%3600)/60);
+    let s = totalSeconds%60;
+
+    document.getElementById("hours").innerHTML =
+        String(h).padStart(2,'0');
+
+    document.getElementById("minutes").innerHTML =
+        String(m).padStart(2,'0');
+
+    document.getElementById("seconds").innerHTML =
+        String(s).padStart(2,'0');
+
+    const sec=document.getElementById("seconds");
+
+    sec.classList.add("blink");
+
+    setTimeout(()=>{
+        sec.classList.remove("blink");
+    },300);
+
+    if(totalSeconds>0){
+        totalSeconds--;
+    }else{
+        clearInterval(timer);
+    }
+
+}
+
+updateTimer();
+
+const timer=setInterval(updateTimer,1000);
+
+</script>
+<script>
+function scrollToTop(){
+    window.scrollTo({
+        top:0,
+        behavior:'smooth'
+    });
+}
+</script>
+</body>
+</html>

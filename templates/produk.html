@@ -1,0 +1,706 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Produk | KUU Mart</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#F5F7FB;
+}
+
+.container{
+width:90%;
+max-width:1300px;
+margin:auto;
+}
+
+.hero{
+
+background:linear-gradient(135deg,#2563EB,#3B82F6,#60A5FA);
+
+padding:100px 0;
+
+color:white;
+
+text-align:center;
+
+border-radius: 0 0 40PX 40PX;
+
+}
+
+.hero h1{
+
+font-size:52px;
+
+margin-bottom:15px;
+
+}
+
+.hero p{
+
+font-size:18px;
+
+opacity:.95;
+
+}
+
+.search-box{
+
+margin-top:-35px;
+
+background:white;
+
+padding:18px;
+
+border-radius:20px;
+
+display:flex;
+
+gap:15px;
+
+box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.search-box input{
+
+flex:1;
+
+border:none;
+
+outline:none;
+
+font-size:16px;
+
+padding:12px;
+
+}
+
+.search-box button{
+
+padding:14px 30px;
+
+background:#2563EB;
+
+color:white;
+
+border:none;
+
+border-radius:12px;
+
+cursor:pointer;
+
+font-weight:600;
+
+transition:.3s;
+
+}
+
+.search-box button:hover{
+
+background:#1D4ED8;
+
+}
+
+/*================ KATEGORI =================*/
+
+.kategori{
+
+    margin-top:50px;
+
+}
+
+.kategori h2{
+
+    font-size:28px;
+
+    color:#1E293B;
+
+    margin-bottom:20px;
+
+}
+
+.kategori-list{
+
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    margin-top: 15px;
+
+}
+
+.kategori-list a{
+    display: block;
+
+    text-decoration:none;
+
+    padding:12px 15px;
+
+    border-radius:12px;
+
+    background:#F8FAFC;
+
+    color:#334155;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.kategori-list a:hover{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+.kategori-list .active{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+.product-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+
+    gap:10px;
+
+    width:100%;
+
+}
+
+.product-card{
+
+    background:white;
+
+    border-radius:22px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.35s;
+
+    position:relative;
+
+    width: 100%;
+
+}
+
+.product-card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 20px 40px rgba(37,99,235,.18);
+
+    transform: scale(1.05);
+
+}
+
+.product-card img{
+
+    width:100%;
+
+    height:250px;
+
+    object-fit:cover;
+
+    transform: .4S;
+
+}
+
+.badge{
+
+    position:absolute;
+
+    top:15px;
+
+    left:15px;
+
+    background:#EF4444;
+
+    color:white;
+
+    padding:6px 12px;
+
+    border-radius:30px;
+
+    font-size:12px;
+
+    font-weight:bold;
+
+}
+
+.wishlist{
+
+    position:absolute;
+
+    right:15px;
+
+    top:15px;
+
+    width:40px;
+
+    height:40px;
+
+    border-radius:50%;
+
+    background:white;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    cursor:pointer;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+    transition:.3s;
+
+}
+
+.wishlist:hover{
+
+    background:#EF4444;
+
+    color:white;
+
+}
+
+.info{
+
+    padding:10px;
+
+}
+
+.info .kategori{
+
+    color:#2563EB;
+
+    font-size:13px;
+
+    font-weight:600;
+
+}
+
+.info h3{
+
+    margin:8px 0;
+
+    font-size:18px;
+
+}
+
+.rating{
+
+    color:#F59E0B;
+
+    margin:10px 0;
+
+}
+
+.price{
+
+    margin:15px 0;
+
+}
+
+.price h2{
+
+    color:#2563EB;
+
+    font-size:22px;
+
+    font-weight: 700;
+
+}
+
+.price del{
+    display: block;
+
+    margin-top: 5px;
+
+    color:#94A3B8;
+
+}
+
+.stok{
+
+    color:#64748B;
+
+    margin-bottom:18px;
+
+}
+
+.btn-group{
+    display:flex;
+    gap:12px;
+    margin-top:20px;
+}
+
+.cart-btn,
+.buy-btn{
+
+    flex:1;
+
+    text-align:center;
+
+    padding:10px;
+
+    border-radius:12px;
+
+    font-weight:600;
+
+    font-size: 14px;
+
+    text-decoration:none;
+}
+
+.cart-btn:hover{
+
+    background:#DBEAFE;
+
+}
+
+.buy-btn{
+
+    flex:1;
+
+    background:#2563EB;
+
+    color:white;
+
+    padding:12px;
+
+    text-align:center;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.buy-btn:hover{
+
+    background:#1D4ED8;
+
+}
+
+/*================ SHOP LAYOUT ================*/
+
+.shop-container{
+
+    width:90%;
+    max-width:1400px;
+    margin:40px auto;
+    margin-bottom: 70px;
+    display:grid;
+    grid-template-columns:280px 1fr;
+    gap:30px;
+
+}
+
+.sidebar{
+
+    background:white;
+    padding:25px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    height:fit-content;
+
+}
+
+.shop-content{
+
+    width:100%;
+
+}
+.filter-box{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.filter-box input{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    font-size:15px;
+}
+
+.filter-box button{
+    width:100%;
+    padding:14px;
+    background:#2563EB;
+    color:white;
+    border:none;
+    border-radius:12px;
+    cursor:pointer;
+    font-weight:600;
+}
+
+.filter-box button:hover{
+    background:#1D4ED8;
+}
+
+/*================ TOMBOL KEMBALI =================*/
+
+/*================ KEMBALI =================*/
+
+.back-home{
+
+    text-align:center;
+
+    margin:50px 0 70px;
+
+}
+
+.back-btn{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    padding:15px 35px;
+
+    background:#2563EB;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    font-weight:600;
+
+    font-size:16px;
+
+    box-shadow:0 10px 25px rgba(37,99,235,.25);
+
+    transition:.35s;
+
+}
+
+.back-btn:hover{
+
+    background:#1D4ED8;
+
+    transform:translateY(-5px);
+
+    box-shadow:0 20px 35px rgba(37,99,235,.35);
+
+}
+
+.info h3 a{
+    color:#1E293B;
+    text-decoration:none;
+}
+
+.info h3 a:hover{
+    color:#2563EB;
+}
+
+</style>
+
+</head>
+
+<body>
+    <section class="hero">
+
+<div class="container">
+
+<h1>🛍 Semua Produk</h1>
+
+<p>
+
+Temukan ribuan produk berkualitas dengan harga terbaik hanya di KUU Mart.
+
+</p>
+
+</div>
+
+</section>
+
+<div class="shop-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <h2>🔍 Cari Produk</h2>
+
+        <form method="GET" class="filter-box">
+
+            <input
+                type="text"
+                name="q"
+                placeholder="Cari produk..."
+                value="{{ request.GET.q }}">
+
+            <button type="submit">
+                Cari
+            </button>
+
+        </form>
+
+        <hr>
+
+        <h2 style="margin-top:20px;">📂 Kategori</h2>
+
+        <div class="kategori-list">
+
+            <a href="{% url 'produk' %}" class="active">
+                🛍 Semua Produk
+            </a>
+
+            {% for k in kategori %}
+
+            <a href="?kategori={{ k.id }}">
+                {{ k.nama }}
+            </a>
+
+            {% endfor %}
+
+        </div>
+
+    </aside>
+
+    <!-- Produk -->
+    <main class="shop-content">
+
+        <div class="product-grid">
+
+    {% for p in produk %}
+
+    <div class="product-card">
+
+        {% if p.diskon > 0 %}
+        <div class="badge">
+            -{{ p.diskon }}%
+        </div>
+        {% endif %}
+
+        <div class="wishlist">
+            ❤
+        </div>
+
+        <a href="{% url 'detail_produk' p.id %}">
+    <img src="{{ p.gambar.url }}" alt="{{ p.nama }}">
+</a>
+
+        <div class="info">
+
+            <span class="kategori">
+                {{ p.kategori.nama }}
+            </span>
+
+            <h3>
+    <a href="{% url 'detail_produk' p.id %}">
+        {{ p.nama }}
+    </a>
+</h3>
+
+            <div class="rating">
+                ⭐⭐⭐⭐⭐ {{ p.rating }}
+            </div>
+
+            <div class="price">
+
+                {% if p.diskon > 0 %}
+
+                    <h2>
+                        Rp {{ p.harga_diskon|floatformat:0 }}
+                    </h2>
+
+                    <del>
+                        Rp {{ p.harga|floatformat:0 }}
+                    </del>
+
+                {% else %}
+
+                    <h2>
+                        Rp {{ p.harga|floatformat:0 }}
+                    </h2>
+
+                {% endif %}
+
+            </div>
+
+            <p class="stok">
+                📦 Stok {{ p.stok }}
+            </p>
+
+            <div class="btn-group">
+
+                <a href="{% url 'tambah_ke_keranjang' p.id %}" class="cart-btn">
+                    🛒 Keranjang
+                </a>
+
+                <a href="{% url 'beli_sekarang' p.id %}" class="buy-btn">
+                    ⚡ Beli
+                </a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    {% empty %}
+
+    <h2>Tidak ada produk.</h2>
+
+    {% endfor %}
+    
+</div>
+<div class="back-home">
+
+    <a href="{% url 'index' %}" class="back-btn">
+
+        <i>🏠</i>
+
+        Kembali ke Beranda
+
+    </a>
+
+</div>
+
+</div>
+</main>
+</div>

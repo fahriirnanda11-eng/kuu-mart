@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login - KUU Mart</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#DBEAFE,#EFF6FF);
+height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+}
+
+.container{
+width:900px;
+display:flex;
+background:white;
+border-radius:25px;
+overflow:hidden;
+box-shadow:0 15px 40px rgba(0,0,0,.1);
+}
+
+.left{
+flex:1;
+background:linear-gradient(135deg,#2563EB,#60A5FA);
+display:flex;
+justify-content:center;
+align-items:center;
+color:white;
+padding:60px;
+}
+
+.left h1{
+font-size:45px;
+line-height:60px;
+}
+
+.right{
+flex:1;
+padding:55px;
+}
+
+.right h2{
+text-align:center;
+margin-bottom:35px;
+color:#1E293B;
+}
+
+.input-group{
+margin-bottom:22px;
+}
+
+.input-group label{
+display:block;
+margin-bottom:8px;
+font-weight:600;
+}
+
+.input-group input{
+width:100%;
+padding:15px;
+border-radius:12px;
+border:1px solid #ddd;
+outline:none;
+}
+
+button{
+width:100%;
+padding:15px;
+background:#2563EB;
+color:white;
+border:none;
+border-radius:12px;
+font-size:16px;
+cursor:pointer;
+}
+
+button:hover{
+background:#1D4ED8;
+}
+
+.register{
+text-align:center;
+margin-top:20px;
+}
+
+.register a{
+text-decoration:none;
+color:#2563EB;
+font-weight:bold;
+}
+
+.alert{
+padding:12px;
+background:#DBEAFE;
+color:#2563EB;
+border-radius:10px;
+margin-bottom:20px;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="left">
+
+<h1>
+
+Selamat Datang Kembali
+
+</h1>
+
+</div>
+
+<div class="right">
+
+<h2>Login</h2>
+{% if messages %}
+    {% for message in messages %}
+    <div class="alert">
+        {{ message }}
+    </div>
+    {% endfor %}
+{% endif %}
+
+<form method="POST">
+
+    {% csrf_token %}
+
+    <div class="input-group">
+
+        <label>Username</label>
+
+        <input
+            type="text"
+            name="username"
+            placeholder="Masukkan Username"
+            required>
+
+    </div>
+
+    <div class="input-group">
+
+        <label>Password</label>
+
+        <input
+            type="password"
+            name="password"
+            placeholder="Masukkan Password"
+            required>
+
+    </div>
+
+    <button type="submit">
+
+        Login Sekarang
+
+    </button>
+
+</form>
+
+<div class="register">
+
+Belum punya akun?
+
+<a href="{% url 'register' %}">
+
+Daftar
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

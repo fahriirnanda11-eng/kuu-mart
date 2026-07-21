@@ -1,0 +1,485 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>{{ produk.nama }} | KUU Mart</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#F5F7FB;
+}
+
+.container{
+    width:90%;
+    max-width:1300px;
+    margin:50px auto;
+}
+
+.product-detail{
+
+    display:grid;
+
+    grid-template-columns:1fr 1fr;
+
+    gap:50px;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:25px;
+
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+
+}
+
+.image-box{
+
+    text-align:center;
+
+}
+
+.image-box img{
+
+    width:100%;
+
+    max-height:500px;
+
+    object-fit:contain;
+
+    border-radius:20px;
+
+}
+
+.info h1{
+
+    font-size:40px;
+
+    color:#1E293B;
+
+    margin-bottom:15px;
+
+}
+
+.rating{
+
+    color:#F59E0B;
+
+    font-size:18px;
+
+    margin-bottom:20px;
+
+}
+
+.price{
+
+    margin:25px 0;
+
+}
+
+.price h2{
+
+    font-size:42px;
+
+    color:#2563EB;
+
+}
+
+.price del{
+
+    color:#94A3B8;
+
+    font-size:20px;
+
+}
+
+.badge{
+
+    display:inline-block;
+
+    margin-left:10px;
+
+    background:#EF4444;
+
+    color:white;
+
+    padding:5px 12px;
+
+    border-radius:30px;
+
+    font-size:14px;
+
+}
+
+.detail{
+
+    margin:25px 0;
+
+}
+
+.detail p{
+
+    margin-bottom:12px;
+
+    font-size:17px;
+
+}
+
+.deskripsi{
+
+    margin-top:30px;
+
+}
+
+.deskripsi h3{
+
+    margin-bottom:15px;
+
+    color:#1E293B;
+
+}
+
+.deskripsi p{
+
+    line-height:1.8;
+
+    color:#475569;
+
+}
+
+/*================ BUTTON =================*/
+
+.btn-group{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:35px;
+
+}
+
+.cart-btn,
+.buy-btn{
+
+    flex:1;
+
+    text-align:center;
+
+    padding:15px;
+
+    border-radius:12px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+.cart-btn{
+
+    background:#EFF6FF;
+
+    color:#2563EB;
+
+}
+
+.cart-btn:hover{
+
+    background:#DBEAFE;
+
+}
+
+.buy-btn{
+
+    background:#2563EB;
+
+    color:white;
+
+}
+
+.buy-btn:hover{
+
+    background:#1D4ED8;
+
+}
+
+/*================ PRODUK LAIN =================*/
+
+.rekomendasi{
+
+    margin-top:70px;
+
+}
+
+.rekomendasi h2{
+
+    margin-bottom:25px;
+
+    color:#1E293B;
+
+}
+
+.product-grid{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+
+}
+
+.card{
+
+    background:white;
+
+    border-radius:20px;
+
+    overflow:hidden;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+    transition:.3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+.card img{
+
+    width:100%;
+
+    height:200px;
+
+    object-fit:cover;
+
+}
+
+.card-body{
+
+    padding:18px;
+
+}
+
+.card-body h3{
+
+    margin-bottom:10px;
+
+}
+
+.card-body h3 a{
+
+    text-decoration:none;
+
+    color:#1E293B;
+
+}
+
+.card-body h3 a:hover{
+
+    color:#2563EB;
+
+}
+
+.card-body h4{
+
+    color:#2563EB;
+
+    margin-top:10px;
+
+}
+
+/*================ BACK =================*/
+
+.back{
+
+    text-align:center;
+
+    margin:60px 0;
+
+}
+
+.back a{
+
+    background:#2563EB;
+
+    color:white;
+
+    padding:15px 35px;
+
+    border-radius:50px;
+
+    text-decoration:none;
+
+    font-weight:600;
+
+}
+
+.back a:hover{
+
+    background:#1D4ED8;
+
+}
+
+/*================ RESPONSIVE =================*/
+
+@media(max-width:900px){
+
+.product-detail{
+
+grid-template-columns:1fr;
+
+}
+
+.info h1{
+
+font-size:30px;
+
+}
+
+.price h2{
+
+font-size:32px;
+
+}
+
+}
+
+.product-card img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    display:block;
+}
+
+</style>
+
+<body>
+
+<div class="container">
+
+<div class="product-detail">
+
+<div class="image-box">
+
+<img src="{{ produk.gambar.url }}" alt="{{ produk.nama }}">
+
+</div>
+
+<div class="info">
+
+<h1>{{ produk.nama }}</h1>
+
+<div class="rating">
+
+⭐⭐⭐⭐⭐ {{ produk.rating }}
+
+</div>
+
+<div class="price">
+
+<h2>
+
+Rp {{ produk.harga_diskon|floatformat:0 }}
+
+{% if produk.diskon > 0 %}
+
+<span class="badge">
+
+-{{ produk.diskon }}%
+
+</span>
+
+{% endif %}
+
+</h2>
+
+{% if produk.diskon > 0 %}
+
+<del>
+
+Rp {{ produk.harga|floatformat:0 }}
+
+</del>
+
+{% endif %}
+
+</div>
+
+<div class="detail">
+
+<p><b>📂 Kategori :</b> {{ produk.kategori.nama }}</p>
+
+<p><b>📦 Stok :</b> {{ produk.stok }}</p>
+
+</div>
+
+<div class="deskripsi">
+
+<h3>Deskripsi Produk</h3>
+
+<p>
+
+{{ produk.deskripsi }}
+
+</p>
+
+</div>
+
+<div class="btn-group">
+
+<a href="{% url 'tambah_ke_keranjang' produk.id %}" class="cart-btn">
+
+🛒 Tambah ke Keranjang
+
+</a>
+
+<a href="{% url 'beli_sekarang' produk.id %}" class="buy-btn">
+
+⚡ Beli Sekarang
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+<div class="back">
+
+<a href="{% url 'produk' %}">
+
+⬅ Kembali ke Produk
+
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>
