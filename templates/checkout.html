@@ -1,289 +1,830 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Checkout | KUU Mart</title>
+    <title>Checkout | KUU Mart</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
 
-<style>
+    <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-body{
-background:#F4F8FC;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #F8F6F2;
+            color: #3F3025;
+            min-height: 100vh;
+        }
 
-.container{
-width:90%;
-margin:40px auto;
-display:grid;
-grid-template-columns:2fr 1fr;
-gap:30px;
-}
+        .header {
+            background: #FFFFFF;
+            border-bottom: 1px solid #E9E2DA;
+            padding: 18px 7%;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
 
-.card{
-background:white;
-border-radius:20px;
-padding:30px;
-box-shadow:0 10px 20px rgba(0,0,0,.08);
-}
+        .logo {
+            text-decoration: none;
+            font-size: 27px;
+            font-weight: 700;
+            color: #60452F;
+        }
 
-h2{
-color:#2563EB;
-margin-bottom:25px;
-}
+        .logo span {
+            color: #A47D58;
+        }
 
-.form-group{
-margin-bottom:20px;
-}
+        .header-title {
+            color: #8C7765;
+            font-size: 14px;
+            font-weight: 500;
+        }
 
-label{
-display:block;
-margin-bottom:8px;
-font-weight:600;
-}
+        .container {
+            width: 86%;
+            max-width: 1250px;
+            margin: 42px auto 100px;
 
-input,
-textarea,
-select{
-width:100%;
-padding:15px;
-border:1px solid #ddd;
-border-radius:10px;
-font-size:15px;
-outline:none;
-}
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 28px;
 
-textarea{
-height:120px;
-resize:none;
-}
+            align-items: start;
+        }
 
-.summary-item{
-display:flex;
-justify-content:space-between;
-margin-bottom:18px;
-padding-bottom:15px;
-border-bottom:1px solid #eee;
-}
+        .card {
+            background: #FFFFFF;
+            border: 1px solid #E9E2DA;
+            border-radius: 22px;
+            padding: 30px;
+            box-shadow: 0 10px 30px rgba(80, 60, 40, 0.07);
+        }
 
-.total{
-display:flex;
-justify-content:space-between;
-font-size:22px;
-font-weight:bold;
-color:#2563EB;
-margin-top:25px;
-}
+        .card-title {
+            color: #60452F;
+            font-size: 23px;
+            font-weight: 700;
+            margin-bottom: 7px;
+        }
 
-.checkout-btn{
-width:100%;
-margin-top:30px;
-padding:16px;
-background:#2563EB;
-color:white;
-border:none;
-border-radius:12px;
-font-size:17px;
-cursor:pointer;
-transition:.3s;
-}
+        .card-subtitle {
+            color: #968474;
+            font-size: 13px;
+            margin-bottom: 27px;
+        }
 
-.checkout-btn:hover{
-background:#1D4ED8;
-}
+        .form-group {
+            margin-bottom: 20px;
+        }
 
-.back{
-display:inline-block;
-margin-top:20px;
-text-decoration:none;
-color:#2563EB;
-font-weight:bold;
-}
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #554336;
+            font-size: 14px;
+            font-weight: 600;
+        }
 
-</style>
+        .required {
+            color: #A47D58;
+        }
+
+        input,
+        textarea,
+        select {
+            width: 100%;
+            padding: 14px 15px;
+
+            background: #FCFAF7;
+            border: 1px solid #DED4CA;
+            border-radius: 11px;
+
+            color: #4D3B2D;
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+
+            outline: none;
+            transition: .2s;
+        }
+
+        input:focus,
+        textarea:focus,
+        select:focus {
+            border-color: #A47D58;
+            background: #FFFFFF;
+            box-shadow: 0 0 0 3px rgba(164, 125, 88, .10);
+        }
+
+        textarea {
+            height: 115px;
+            resize: vertical;
+            min-height: 90px;
+        }
+
+        select {
+            cursor: pointer;
+        }
+
+        .summary-card {
+            position: sticky;
+            top: 25px;
+        }
+
+        .summary-item {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+
+            padding: 16px 0;
+            border-bottom: 1px solid #EEE8E1;
+        }
+
+        .product-info {
+            min-width: 0;
+        }
+
+        .product-name {
+            color: #463427;
+            font-size: 14px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .product-quantity {
+            color: #968474;
+            font-size: 12px;
+        }
+
+        .product-price {
+            color: #76563A;
+            font-size: 13px;
+            font-weight: 600;
+            white-space: nowrap;
+        }
+
+        .payment-info {
+            margin-top: 20px;
+            padding: 15px;
+
+            background: #F7F1EA;
+            border: 1px solid #E8DDD1;
+            border-radius: 13px;
+        }
+
+        .payment-info-title {
+            color: #60452F;
+            font-size: 13px;
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .payment-info-text {
+            color: #8C7765;
+            font-size: 12px;
+            line-height: 1.6;
+        }
+
+        .price-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            padding: 12px 0;
+
+            color: #725F50;
+            font-size: 13px;
+        }
+
+        .free {
+            color: #758A61;
+            font-weight: 600;
+        }
+
+        .total {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            margin-top: 10px;
+            padding-top: 20px;
+
+            border-top: 1px solid #DDD2C7;
+
+            color: #60452F;
+            font-size: 21px;
+            font-weight: 700;
+        }
+
+        .checkout-btn {
+            width: 100%;
+            margin-top: 25px;
+
+            padding: 15px 20px;
+
+            background: #76563A;
+            color: #FFFFFF;
+
+            border: none;
+            border-radius: 12px;
+
+            font-family: 'Poppins', sans-serif;
+            font-size: 15px;
+            font-weight: 600;
+
+            cursor: pointer;
+
+            box-shadow: 0 8px 18px rgba(118, 86, 58, .20);
+
+            transition: .3s;
+        }
+
+        .checkout-btn:hover {
+            background: #60452F;
+            transform: translateY(-2px);
+            box-shadow: 0 12px 24px rgba(118, 86, 58, .25);
+        }
+
+        .back {
+            display: block;
+
+            margin-top: 15px;
+            padding: 13px;
+
+            text-align: center;
+
+            text-decoration: none;
+
+            background: #F5F0EA;
+            color: #76563A;
+
+            border: 1px solid #E1D6CA;
+            border-radius: 11px;
+
+            font-size: 13px;
+            font-weight: 600;
+
+            transition: .3s;
+        }
+
+        .back:hover {
+            background: #EDE4DA;
+        }
+
+        .secure {
+            text-align: center;
+            margin-top: 15px;
+
+            color: #9A8979;
+            font-size: 11px;
+        }
+
+        .bottom-nav {
+            position: fixed;
+
+            bottom: 20px;
+            left: 50%;
+
+            transform: translateX(-50%);
+
+            width: min(680px, 90%);
+
+            background: rgba(255, 255, 255, .97);
+
+            border: 1px solid #E7DED4;
+            border-radius: 22px;
+
+            box-shadow: 0 12px 35px rgba(70, 50, 30, .13);
+
+            display: flex;
+            justify-content: space-around;
+
+            padding: 10px 12px;
+
+            z-index: 100;
+        }
+
+        .nav-item {
+            flex: 1;
+
+            text-decoration: none;
+
+            color: #9B8A7A;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+
+            gap: 4px;
+
+            padding: 6px 5px;
+
+            border-radius: 13px;
+
+            transition: .2s;
+
+            font-size: 11px;
+            font-weight: 500;
+        }
+
+        .nav-item:hover {
+            color: #76563A;
+            background: #F5EFE9;
+        }
+
+        .nav-icon {
+            font-size: 20px;
+            line-height: 1;
+        }
+
+        @media (max-width: 900px) {
+
+            .container {
+                width: 92%;
+                grid-template-columns: 1fr;
+            }
+
+            .summary-card {
+                position: static;
+            }
+
+            .header {
+                padding: 16px 5%;
+            }
+
+            .header-title {
+                display: none;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .card {
+                padding: 22px;
+                border-radius: 18px;
+            }
+
+            .card-title {
+                font-size: 20px;
+            }
+
+            .container {
+                margin-top: 25px;
+            }
+
+            .bottom-nav {
+                bottom: 12px;
+            }
+        }
+
+    </style>
 
 </head>
 
+
 <body>
+
+
+<header class="header">
+
+    <a href="{% url 'index' %}" class="logo">
+        KUU <span>Mart</span>
+    </a>
+
+    <div class="header-title">
+        Checkout Pesanan
+    </div>
+
+</header>
+
 
 <form method="POST">
 
-{% csrf_token %}
+    {% csrf_token %}
 
-<div class="container">
-    <!-- ================= FORM CHECKOUT ================= -->
+    <div class="container">
 
-<div class="card">
 
-<h2>📦 Data Pengiriman</h2>
+        <!-- DATA PENGIRIMAN -->
 
-<div class="form-group">
+        <div class="card">
 
-<label>Nama Lengkap</label>
+            <div class="card-title">
+                📦 Data Pengiriman
+            </div>
 
-<input
-type="text"
-name="nama"
-placeholder="Masukkan nama lengkap"
-required>
+            <div class="card-subtitle">
+                Isi data dengan lengkap agar pesanan dapat dikirim dengan benar.
+            </div>
 
-</div>
 
-<div class="form-group">
+            <div class="form-group">
 
-<label>Nomor HP</label>
+                <label>
+                    Nama Lengkap <span class="required">*</span>
+                </label>
 
-<input
-type="text"
-name="telepon"
-placeholder="08xxxxxxxxxx"
-required>
+                <input
+                    type="text"
+                    name="nama"
+                    placeholder="Masukkan nama lengkap"
+                    required
+                >
 
-</div>
+            </div>
 
-<div class="form-group">
 
-<label>Alamat Lengkap</label>
+            <div class="form-group">
 
-<textarea
-name="alamat"
-placeholder="Masukkan alamat lengkap"
-required></textarea>
+                <label>
+                    Nomor HP <span class="required">*</span>
+                </label>
 
-</div>
+                <input
+                    type="text"
+                    name="telepon"
+                    placeholder="08xxxxxxxxxx"
+                    required
+                >
 
-<div class="form-group">
+            </div>
 
-<label>Metode Pembayaran</label>
 
-<select name="metode" required>
+            <div class="form-group">
 
-<option value="">-- Pilih Metode Pembayaran --</option>
+                <label>
+                    Alamat Lengkap <span class="required">*</span>
+                </label>
 
-<option value="Transfer Bank">
-🏦 Transfer Bank
-</option>
+                <textarea
+                    name="alamat"
+                    placeholder="Masukkan alamat lengkap untuk pengiriman"
+                    required
+                ></textarea>
 
-<option value="COD">
-💵 Bayar di Tempat (COD)
-</option>
+            </div>
 
-<option value="E-Wallet">
-📱 E-Wallet
-</option>
 
-<option value="QRIS">
-📷 QRIS
-</option>
+            <div class="form-group">
 
-</select>
+                <label>
+                    Metode Pembayaran <span class="required">*</span>
+                </label>
 
-</div>
+                <select name="metode" required>
 
-<div class="form-group">
+                    <option value="">
+                        -- Pilih Metode Pembayaran --
+                    </option>
 
-<label>Catatan Pesanan</label>
+                    <option value="Transfer Bank">
+                        🏦 Transfer Bank
+                    </option>
 
-<textarea
-name="catatan"
-placeholder="Contoh: Tolong kirim sore hari"></textarea>
+                    <option value="COD">
+                        💵 Bayar di Tempat (COD)
+                    </option>
 
-</div>
+                    <option value="E-Wallet">
+                        📱 E-Wallet
+                    </option>
 
-</div>
+                    <option value="QRIS">
+                        📷 QRIS
+                    </option>
 
-<!-- ================= RINGKASAN PESANAN ================= -->
+                </select>
 
-<div class="card">
+            </div>
 
-<h2>🛒 Ringkasan Pesanan</h2>
 
-{% for item in carts %}
+            <div class="form-group">
 
-<div class="summary-item">
+                <label>
+                    Catatan Pesanan
+                </label>
 
-<div>
+                <textarea
+                    name="catatan"
+                    placeholder="Contoh: Tolong kirim sore hari"
+                ></textarea>
 
-<b>{{ item.produk.nama }}</b><br>
+            </div>
 
-<small>
-{{ item.jumlah }} x Rp {{ item.produk.harga }}
-</small>
+        </div>
 
-</div>
 
-<div>
+        <!-- RINGKASAN PESANAN -->
 
-Rp {% widthratio item.produk.harga 1 item.jumlah %}
+        <div class="card summary-card">
 
-</div>
+            <div class="card-title">
+                🛒 Ringkasan Pesanan
+            </div>
 
-</div>
+            <div class="card-subtitle">
+                Periksa kembali pesananmu sebelum checkout.
+            </div>
 
-{% empty %}
 
-<p>Keranjang masih kosong.</p>
+            {% for item in carts %}
 
-{% endfor %}
+            <div class="summary-item">
 
-<hr style="margin:20px 0;">
+                <div class="product-info">
 
-<div class="summary-item">
+                    <div class="product-name">
+                        {{ item.produk.nama }}
+                    </div>
 
-<span>Subtotal</span>
+                    <div class="product-quantity">
 
-<span>Rp {{ total }}</span>
+                        {{ item.jumlah }} ×
 
-</div>
+                        Rp
 
-<div class="summary-item">
+                        <span class="harga-format">
+                            {{ item.produk.harga_diskon|floatformat:0 }}
+                        </span>
 
-<span>Ongkos Kirim</span>
+                    </div>
 
-<span style="color:green;">Gratis</span>
+                </div>
 
-</div>
 
-<div class="summary-item">
+                <div class="product-price">
 
-<span>Biaya Layanan</span>
+                    Rp
 
-<span>Rp 0</span>
+                    <span
+                        class="subtotal-format"
+                        data-harga="{{ item.produk.harga_diskon }}"
+                        data-jumlah="{{ item.jumlah }}"
+                    >
+                        0
+                    </span>
 
-</div>
+                </div>
 
-<div class="total">
+            </div>
 
-<span>Total Bayar</span>
+            {% empty %}
 
-<span>Rp {{ total }}</span>
+            <div style="
+                text-align:center;
+                padding:25px 0;
+                color:#968474;
+                font-size:13px;
+            ">
 
-</div>
+                🛒 Keranjang masih kosong.
 
-<button class="checkout-btn">
+            </div>
 
-✅ Pesan Sekarang
+            {% endfor %}
 
-</button>
 
-<a href="{% url 'cart' %}" class="back">
+            <!-- HARGA -->
 
-← Kembali ke Keranjang
+            <div style="margin-top:15px;">
 
-</a>
+                <div class="price-row">
 
-</div>
-</div>
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <span>
+                        Rp
+
+                        <span
+                            class="total-format"
+                            data-total="{{ total }}"
+                        >
+                            0
+                        </span>
+                    </span>
+
+                </div>
+
+
+                <div class="price-row">
+
+                    <span>
+                        Ongkos Kirim
+                    </span>
+
+                    <span class="free">
+                        Gratis
+                    </span>
+
+                </div>
+
+
+                <div class="price-row">
+
+                    <span>
+                        Biaya Layanan
+                    </span>
+
+                    <span>
+                        Rp 0
+                    </span>
+
+                </div>
+
+
+                <div class="total">
+
+                    <span>
+                        Total Bayar
+                    </span>
+
+                    <span>
+                        Rp
+
+                        <span
+                            class="total-format"
+                            data-total="{{ total }}"
+                        >
+                            0
+                        </span>
+
+                    </span>
+
+                </div>
+
+            </div>
+
+
+            <!-- INFORMASI PEMBAYARAN -->
+
+            <div class="payment-info">
+
+                <div class="payment-info-title">
+                    💡 Informasi Pembayaran
+                </div>
+
+                <div class="payment-info-text">
+                    Pilih metode pembayaran yang tersedia.
+                    Detail pembayaran akan ditampilkan setelah pesanan dibuat.
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="checkout-btn"
+            >
+                ✅ Pesan Sekarang
+            </button>
+
+
+            <a
+                href="{% url 'cart' %}"
+                class="back"
+            >
+                ← Kembali ke Keranjang
+            </a>
+
+
+            <div class="secure">
+                🔒 Data pesanan kamu diproses dengan aman
+            </div>
+
+        </div>
+
+    </div>
+
 </form>
+
+
+<!-- BOTTOM NAV -->
+
+<nav class="bottom-nav">
+
+    <a href="{% url 'index' %}" class="nav-item">
+
+        <span class="nav-icon">⌂</span>
+
+        <span>
+            Beranda
+        </span>
+
+    </a>
+
+
+    <a href="/kategori/" class="nav-item">
+
+        <span class="nav-icon">▦</span>
+
+        <span>
+            Kategori
+        </span>
+
+    </a>
+
+
+    <a href="/wishlist/" class="nav-item">
+
+        <span class="nav-icon">♡</span>
+
+        <span>
+            Wishlist
+        </span>
+
+    </a>
+
+
+    <a href="/keranjang/" class="nav-item">
+
+        <span class="nav-icon">🛒</span>
+
+        <span>
+            Keranjang
+        </span>
+
+    </a>
+
+
+    <a href="/akun/" class="nav-item">
+
+        <span class="nav-icon">♙</span>
+
+        <span>
+            Akun
+        </span>
+
+    </a>
+
+</nav>
+
+
+<!-- ================= FORMAT ANGKA ================= -->
+
+<script>
+
+function formatRupiah(angka) {
+
+    angka = Number(angka) || 0;
+
+    return Math.round(angka)
+        .toString()
+        .replace(/\B(?=(\d{3})+(?!\d))/g, ".");
+}
+
+
+/* FORMAT HARGA PRODUK */
+
+document.querySelectorAll(".harga-format").forEach(function(element) {
+
+    let angka = element.textContent.trim();
+
+    element.textContent = formatRupiah(angka);
+
+});
+
+
+/* HITUNG DAN FORMAT SUBTOTAL SETIAP PRODUK */
+
+document.querySelectorAll(".subtotal-format").forEach(function(element) {
+
+    let harga = Number(element.dataset.harga) || 0;
+
+    let jumlah = Number(element.dataset.jumlah) || 0;
+
+    let subtotal = harga * jumlah;
+
+    element.textContent = formatRupiah(subtotal);
+
+});
+
+
+/* FORMAT TOTAL */
+
+document.querySelectorAll(".total-format").forEach(function(element) {
+
+    let total = element.dataset.total;
+
+    element.textContent = formatRupiah(total);
+
+});
+
+</script>
+
+
 </body>
 </html>

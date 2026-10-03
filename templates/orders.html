@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="id">
 
@@ -8,144 +9,903 @@
 
 <title>Pesanan Saya | KUU Mart</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:#F4F8FC;
+    font-family:'Poppins',sans-serif;
+    background:#f7f5f2;
+    color:#332b25;
+    padding-bottom:100px;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
 .container{
-width:90%;
-max-width:1200px;
-margin:40px auto;
+    width:92%;
+    max-width:1250px;
+    margin:auto;
 }
 
-.title{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:30px;
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+
+    background:rgba(255,255,255,.97);
+
+    border-bottom:1px solid #ebe4dc;
+
+    backdrop-filter:blur(15px);
 }
 
-.title h1{
-color:#2563EB;
-font-size:35px;
+.header-inner{
+    min-height:72px;
+
+    display:flex;
+    align-items:center;
+
+    gap:25px;
 }
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+    font-size:25px;
+    font-weight:700;
+
+    color:#60452f;
+
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#9a7b5c;
+}
+
+
+/* =====================================================
+   SEARCH
+===================================================== */
+
+.search{
+    flex:1;
+    max-width:580px;
+
+    margin:auto;
+
+    position:relative;
+}
+
+.search input{
+    width:100%;
+    height:44px;
+
+    border:none;
+    outline:none;
+
+    background:#f2eee9;
+
+    border-radius:14px;
+
+    padding:0 52px 0 18px;
+
+    font-family:'Poppins',sans-serif;
+    font-size:13px;
+
+    color:#332b25;
+}
+
+.search input:focus{
+    box-shadow:0 0 0 2px #d8c9ba;
+}
+
+.search button{
+    position:absolute;
+
+    right:5px;
+    top:5px;
+
+    width:34px;
+    height:34px;
+
+    border:none;
+    border-radius:10px;
+
+    background:#76563b;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:.25s;
+}
+
+.search button:hover{
+    background:#60452f;
+}
+
+
+/* =====================================================
+   HEADER ICON
+===================================================== */
+
+.header-icons{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.icon-link{
+    position:relative;
+
+    font-size:19px;
+
+    color:#4c443e;
+
+    transition:.25s;
+}
+
+.icon-link:hover{
+    color:#76563b;
+
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   PAGE
+===================================================== */
+
+.page{
+    padding:35px 0 20px;
+}
+
+
+/* =====================================================
+   PAGE HEADER
+===================================================== */
+
+.page-header{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    margin-bottom:25px;
+}
+
+.page-title{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:13px;
+}
+
+.page-title-icon{
+
+    width:50px;
+    height:50px;
+
+    border-radius:15px;
+
+    background:#f1ebe4;
+
+    color:#76563b;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:21px;
+}
+
+.page-title h1{
+
+    font-size:30px;
+
+    color:#493525;
+
+    font-weight:700;
+}
+
+
+/* =====================================================
+   HOME BUTTON
+===================================================== */
 
 .home-btn{
-text-decoration:none;
-background:#2563EB;
-color:white;
-padding:12px 25px;
-border-radius:10px;
-font-weight:600;
-transition:.3s;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    background:#76563b;
+
+    color:white;
+
+    padding:12px 22px;
+
+    border-radius:11px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    transition:.25s;
+
+    box-shadow:0 8px 20px rgba(118,86,59,.18);
 }
 
 .home-btn:hover{
-background:#1D4ED8;
+
+    background:#60452f;
+
+    transform:translateY(-2px);
 }
+
+
+/* =====================================================
+   ORDER CARD
+===================================================== */
 
 .order-card{
-background:white;
-padding:25px;
-border-radius:18px;
-box-shadow:0 10px 25px rgba(0,0,0,.08);
-margin-bottom:25px;
+
+    background:white;
+
+    padding:26px;
+
+    border-radius:21px;
+
+    border:1px solid #ebe5de;
+
+    box-shadow:0 10px 28px rgba(70,52,38,.07);
+
+    margin-bottom:20px;
+
+    transition:.3s;
 }
 
-.row{
-display:flex;
-justify-content:space-between;
-align-items:center;
-margin-bottom:15px;
+.order-card:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:0 16px 35px rgba(70,52,38,.11);
 }
 
-.label{
-color:#64748B;
-font-size:15px;
+
+/* =====================================================
+   ORDER HEADER
+===================================================== */
+
+.order-top{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    gap:15px;
 }
 
-.value{
-font-weight:600;
-color:#0F172A;
+.order-number{
+
+    color:#493525;
+
+    font-size:16px;
+
+    font-weight:700;
 }
+
+.order-number small{
+
+    display:block;
+
+    color:#9a9189;
+
+    font-size:10px;
+
+    font-weight:500;
+
+    margin-bottom:4px;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
 
 .status{
-padding:8px 18px;
-border-radius:20px;
-font-size:14px;
-font-weight:bold;
-color:white;
+
+    padding:8px 15px;
+
+    border-radius:20px;
+
+    font-size:10px;
+
+    font-weight:600;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
 }
 
 .waiting{
-background:#F59E0B;
+
+    background:#f5eee4;
+
+    color:#806047;
 }
 
 .process{
-background:#3B82F6;
+
+    background:#eee7df;
+
+    color:#76563b;
 }
 
 .send{
-background:#10B981;
+
+    background:#edf1eb;
+
+    color:#607255;
 }
 
 .done{
-background:#16A34A;
+
+    background:#e9eee9;
+
+    color:#586b58;
+}
+
+
+/* =====================================================
+   DIVIDER
+===================================================== */
+
+.divider{
+
+    border:none;
+
+    border-top:1px solid #eee7df;
+
+    margin:21px 0;
+}
+
+
+/* =====================================================
+   INFO
+===================================================== */
+
+.info-grid{
+
+    display:grid;
+
+    grid-template-columns:2fr 1fr;
+
+    gap:20px;
+
+    margin-bottom:18px;
+}
+
+.info-item{
+
+    min-width:0;
+}
+
+.info-label{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:#9a9189;
+
+    font-size:10px;
+
+    margin-bottom:6px;
+}
+
+.info-label i{
+
+    color:#96775a;
+
+}
+
+.info-value{
+
+    color:#302b27;
+
+    font-size:13px;
+
+    font-weight:600;
+
+    line-height:1.7;
+
+    word-break:break-word;
+}
+
+
+/* =====================================================
+   DATE
+===================================================== */
+
+.date-row{
+
+    margin-top:5px;
+}
+
+.date-value{
+
+    color:#302b27;
+
+    font-size:12px;
+
+    font-weight:500;
+}
+
+
+/* =====================================================
+   ORDER BOTTOM
+===================================================== */
+
+.order-bottom{
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-between;
+
+    gap:20px;
+
+    margin-top:22px;
+
+    padding-top:20px;
+
+    border-top:1px solid #eee7df;
+}
+
+.total-label{
+
+    color:#8b8178;
+
+    font-size:10px;
+
+    margin-bottom:4px;
 }
 
 .total{
-font-size:24px;
-font-weight:bold;
-color:#2563EB;
-margin-top:15px;
+
+    color:#65482f;
+
+    font-size:21px;
+
+    font-weight:700;
 }
 
+
+/* =====================================================
+   DETAIL BUTTON
+===================================================== */
+
 .detail-btn{
-display:inline-block;
-margin-top:20px;
-background:#2563EB;
-color:white;
-text-decoration:none;
-padding:12px 25px;
-border-radius:10px;
-transition:.3s;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    background:#76563b;
+
+    color:white;
+
+    padding:11px 20px;
+
+    border-radius:10px;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    transition:.25s;
 }
 
 .detail-btn:hover{
-background:#1D4ED8;
+
+    background:#60452f;
+
+    transform:translateY(-2px);
 }
+
+
+/* =====================================================
+   EMPTY
+===================================================== */
 
 .empty{
-background:white;
-padding:60px;
-text-align:center;
-border-radius:20px;
-box-shadow:0 10px 20px rgba(0,0,0,.08);
+
+    background:white;
+
+    padding:70px 30px;
+
+    text-align:center;
+
+    border-radius:22px;
+
+    border:1px solid #ebe5de;
+
+    box-shadow:0 10px 25px rgba(70,52,38,.07);
 }
 
-@media(max-width:768px){
+.empty-icon{
 
-.row{
-flex-direction:column;
-align-items:flex-start;
-gap:10px;
+    width:82px;
+    height:82px;
+
+    margin:0 auto 20px;
+
+    border-radius:50%;
+
+    background:#f1ebe4;
+
+    color:#76563b;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:32px;
 }
 
-.title{
-flex-direction:column;
-gap:15px;
+.empty h2{
+
+    color:#493525;
+
+    font-size:21px;
+
+    margin-bottom:10px;
 }
+
+.empty p{
+
+    color:#8b8178;
+
+    font-size:12px;
+
+    margin-bottom:25px;
+}
+
+
+/* =====================================================
+   BOTTOM NAVIGATION
+===================================================== */
+
+.bottom-nav{
+
+    position:fixed;
+
+    left:50%;
+    bottom:18px;
+
+    transform:translateX(-50%);
+
+    width:min(650px,92%);
+
+    height:72px;
+
+    background:rgba(255,255,255,.97);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid #e9e1d9;
+
+    border-radius:23px;
+
+    box-shadow:0 15px 40px rgba(70,52,38,.16);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-around;
+
+    z-index:9999;
+}
+
+.nav-item{
+
+    position:relative;
+
+    width:20%;
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:5px;
+
+    color:#968b82;
+
+    transition:.25s;
+}
+
+.nav-icon{
+
+    font-size:19px;
+
+    line-height:1;
+}
+
+.nav-text{
+
+    font-size:10px;
+
+    font-weight:500;
+}
+
+.nav-item:hover{
+
+    color:#76563b;
+}
+
+.nav-item.active{
+
+    color:#76563b;
+
+    font-weight:600;
+}
+
+.nav-item.active::before{
+
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    width:35px;
+
+    height:3px;
+
+    background:#76563b;
+
+    border-radius:0 0 8px 8px;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:800px){
+
+    .info-grid{
+
+        grid-template-columns:1fr;
+        gap:15px;
+
+    }
+
+    .page-header{
+
+        align-items:flex-start;
+
+        gap:15px;
+
+    }
+
+}
+
+
+@media(max-width:600px){
+
+    .container{
+
+        width:94%;
+
+    }
+
+    .header-inner{
+
+        padding:13px 0;
+
+        flex-wrap:wrap;
+
+    }
+
+    .search{
+
+        order:3;
+
+        flex-basis:100%;
+
+        max-width:none;
+
+    }
+
+    .page{
+
+        padding-top:25px;
+
+    }
+
+    .page-header{
+
+        flex-direction:column;
+
+    }
+
+    .page-title h1{
+
+        font-size:25px;
+
+    }
+
+    .home-btn{
+
+        width:100%;
+
+    }
+
+    .order-card{
+
+        padding:19px;
+
+    }
+
+    .order-top{
+
+        align-items:flex-start;
+
+    }
+
+    .order-bottom{
+
+        flex-direction:column;
+
+        align-items:stretch;
+
+    }
+
+    .detail-btn{
+
+        width:100%;
+
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    .logo{
+
+        font-size:21px;
+
+    }
+
+    .header-icons{
+
+        gap:13px;
+
+    }
+
+    .page-title-icon{
+
+        width:43px;
+        height:43px;
+
+        font-size:18px;
+
+    }
+
+    .page-title h1{
+
+        font-size:22px;
+
+    }
+
+    .order-number{
+
+        font-size:14px;
+
+    }
+
+    .status{
+
+        padding:6px 10px;
+
+        font-size:9px;
+
+    }
+
+    .total{
+
+        font-size:18px;
+
+    }
+
+    .bottom-nav{
+
+        width:100%;
+
+        bottom:0;
+
+        height:70px;
+
+        border-radius:0;
+
+        border-left:none;
+
+        border-right:none;
+
+        border-bottom:none;
+
+    }
+
+    body{
+
+        padding-bottom:80px;
+
+    }
 
 }
 
@@ -153,73 +913,198 @@ gap:15px;
 
 </head>
 
+
 <body>
+
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<header class="header">
+
+<div class="container header-inner">
+
+
+<a href="{% url 'index' %}" class="logo">
+
+KUU <span>Mart</span>
+
+</a>
+
+
+<form
+    action="{% url 'produk' %}"
+    method="GET"
+    class="search">
+
+<input
+    type="text"
+    name="q"
+    placeholder="Cari produk di KUU Mart..."
+    value="{{ request.GET.q }}">
+
+<button type="submit">
+
+<i class="fa-solid fa-magnifying-glass"></i>
+
+</button>
+
+</form>
+
+
+<div class="header-icons">
+
+
+<a
+    href="{% url 'wishlist' %}"
+    class="icon-link">
+
+<i class="fa-regular fa-heart"></i>
+
+</a>
+
+
+<a
+    href="{% url 'cart' %}"
+    class="icon-link">
+
+<i class="fa-solid fa-cart-shopping"></i>
+
+</a>
+
+
+<a
+    href="{% url 'riwayat_pesanan' %}"
+    class="icon-link">
+
+<i class="fa-regular fa-user"></i>
+
+</a>
+
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
 
 <div class="container">
 
-<div class="title">
+<section class="page">
+
+
+<!-- PAGE HEADER -->
+
+<div class="page-header">
+
+<div class="page-title">
+
+<div class="page-title-icon">
+
+<i class="fa-solid fa-bag-shopping"></i>
 
 </div>
-<div class="title">
 
-<h1>📦 Pesanan Saya</h1>
+<h1>
 
-<a href="{% url 'index' %}" class="home-btn">
-🏠 Beranda
+Pesanan Saya
+
+</h1>
+
+</div>
+
+
+<a
+    href="{% url 'index' %}"
+    class="home-btn">
+
+<i class="fa-solid fa-house"></i>
+
+Beranda
+
 </a>
 
 </div>
+
+
+<!-- =====================================================
+     ORDER LIST
+===================================================== -->
+
 {% if orders %}
+
 
 {% for order in orders %}
 
+
 <div class="order-card">
 
-<div class="row">
 
-<div>
+<!-- ORDER HEADER -->
 
-<div class="label">Nomor Pesanan</div>
+<div class="order-top">
 
-<div class="value">
+
+<div class="order-number">
+
+<small>Nomor Pesanan</small>
 
 #KUU{{ order.id|stringformat:"05d" }}
 
 </div>
 
-</div>
 
 <div>
+
 
 {% if order.status == 'Menunggu' %}
 
 <span class="status waiting">
 
-🟡 {{ order.status }}
+<i class="fa-regular fa-clock"></i>
+
+{{ order.status }}
 
 </span>
+
 
 {% elif order.status == 'Diproses' %}
 
 <span class="status process">
 
-🔵 {{ order.status }}
+<i class="fa-solid fa-box"></i>
+
+{{ order.status }}
 
 </span>
+
 
 {% elif order.status == 'Dikirim' %}
 
 <span class="status send">
 
-🚚 {{ order.status }}
+<i class="fa-solid fa-truck"></i>
+
+{{ order.status }}
 
 </span>
+
 
 {% else %}
 
 <span class="status done">
 
-✅ {{ order.status }}
+<i class="fa-solid fa-check"></i>
+
+{{ order.status }}
 
 </span>
 
@@ -227,21 +1112,29 @@ gap:15px;
 
 </div>
 
-</div>
-
-<hr style="margin:20px 0;border:none;border-top:1px solid #eee;">
-
-<div class="row">
-
-<div>
-
-<div class="label">
-
-👤 Penerima
 
 </div>
 
-<div class="value">
+
+<hr class="divider">
+
+
+<!-- INFORMASI PESANAN -->
+
+<div class="info-grid">
+
+
+<div class="info-item">
+
+<div class="info-label">
+
+<i class="fa-solid fa-user"></i>
+
+Penerima
+
+</div>
+
+<div class="info-value">
 
 {{ order.nama }}
 
@@ -249,15 +1142,18 @@ gap:15px;
 
 </div>
 
-<div>
 
-<div class="label">
+<div class="info-item">
 
-📞 Telepon
+<div class="info-label">
+
+<i class="fa-solid fa-phone"></i>
+
+Telepon
 
 </div>
 
-<div class="value">
+<div class="info-value">
 
 {{ order.telepon }}
 
@@ -265,19 +1161,24 @@ gap:15px;
 
 </div>
 
-</div>
-
-<div class="row">
-
-<div>
-
-<div class="label">
-
-📍 Alamat
 
 </div>
 
-<div class="value">
+
+<div class="info-grid">
+
+
+<div class="info-item">
+
+<div class="info-label">
+
+<i class="fa-solid fa-location-dot"></i>
+
+Alamat
+
+</div>
+
+<div class="info-value">
 
 {{ order.alamat }}
 
@@ -285,15 +1186,18 @@ gap:15px;
 
 </div>
 
-<div>
 
-<div class="label">
+<div class="info-item">
 
-💳 Pembayaran
+<div class="info-label">
+
+<i class="fa-solid fa-credit-card"></i>
+
+Pembayaran
 
 </div>
 
-<div class="value">
+<div class="info-value">
 
 {{ order.metode_pembayaran }}
 
@@ -301,19 +1205,23 @@ gap:15px;
 
 </div>
 
-</div>
-
-<div class="row">
-
-<div>
-
-<div class="label">
-
-📅 Tanggal
 
 </div>
 
-<div class="value">
+
+<!-- TANGGAL -->
+
+<div class="date-row">
+
+<div class="info-label">
+
+<i class="fa-regular fa-calendar"></i>
+
+Tanggal Pesanan
+
+</div>
+
+<div class="date-value">
 
 {{ order.dibuat|date:"d F Y H:i" }}
 
@@ -321,49 +1229,265 @@ gap:15px;
 
 </div>
 
+
+<!-- TOTAL -->
+
+<div class="order-bottom">
+
+
+<div>
+
+<div class="total-label">
+
+Total Pembayaran
+
 </div>
 
-<div class="total">
+<div
+    class="total price-format"
+    data-price="{{ order.total|floatformat:0 }}">
 
-💰 Total Bayar :
-
-Rp {{ order.total }}
+Rp {{ order.total|floatformat:0 }}
 
 </div>
 
-<a href="{% url 'detail_order' order.id %}" class="detail-btn">
+</div>
 
-👁 Lihat Detail
+
+<a
+    href="{% url 'detail_order' order.id %}"
+    class="detail-btn">
+
+<i class="fa-regular fa-eye"></i>
+
+Lihat Detail
 
 </a>
 
+
 </div>
+
+
+</div>
+
 
 {% endfor %}
 
+
 {% else %}
+
+
+<!-- PESANAN KOSONG -->
 
 <div class="empty">
 
-<h2>📦 Belum Ada Pesanan</h2>
 
-<p style="margin-top:15px;color:#64748B;">
+<div class="empty-icon">
+
+<i class="fa-solid fa-bag-shopping"></i>
+
+</div>
+
+
+<h2>
+
+Belum Ada Pesanan
+
+</h2>
+
+
+<p>
 
 Silakan belanja terlebih dahulu untuk melihat riwayat pesanan.
 
 </p>
 
-<br>
 
-<a href="{% url 'index' %}" class="home-btn">
+<a
+    href="{% url 'index' %}"
+    class="home-btn">
 
-🛍️ Mulai Belanja
+<i class="fa-solid fa-store"></i>
+
+Mulai Belanja
 
 </a>
 
+
 </div>
 
+
 {% endif %}
+
+
+</section>
+
 </div>
+
+</main>
+
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+===================================================== -->
+
+<nav class="bottom-nav">
+
+
+<!-- BERANDA -->
+
+<a
+    href="{% url 'index' %}"
+    class="nav-item">
+
+<span class="nav-icon">
+
+<i class="fa-solid fa-house"></i>
+
+</span>
+
+<span class="nav-text">
+
+Beranda
+
+</span>
+
+</a>
+
+
+<!-- KATEGORI -->
+
+<a
+    href="{% url 'kategori' %}"
+    class="nav-item">
+
+<span class="nav-icon">
+
+<i class="fa-solid fa-layer-group"></i>
+
+</span>
+
+<span class="nav-text">
+
+Kategori
+
+</span>
+
+</a>
+
+
+<!-- WISHLIST -->
+
+<a
+    href="{% url 'wishlist' %}"
+    class="nav-item">
+
+<span class="nav-icon">
+
+<i class="fa-regular fa-heart"></i>
+
+</span>
+
+<span class="nav-text">
+
+Wishlist
+
+</span>
+
+</a>
+
+
+<!-- PESANAN -->
+
+<a
+    href="{% url 'riwayat_pesanan' %}"
+    class="nav-item active">
+
+<span class="nav-icon">
+
+<i class="fa-solid fa-bag-shopping"></i>
+
+</span>
+
+<span class="nav-text">
+
+Pesanan
+
+</span>
+
+</a>
+
+
+<!-- AKUN -->
+
+<a
+    href="{% url 'riwayat_pesanan' %}"
+    class="nav-item">
+
+<span class="nav-icon">
+
+<i class="fa-regular fa-user"></i>
+
+</span>
+
+<span class="nav-text">
+
+Akun
+
+</span>
+
+</a>
+
+
+</nav>
+
+
+<!-- =====================================================
+     FORMAT ANGKA
+===================================================== -->
+
+<script>
+
+function formatRupiah(value){
+
+    value = String(value).replace(/[^\d]/g, '');
+
+    if(!value){
+        return '0';
+    }
+
+    let result = '';
+
+    while(value.length > 3){
+
+        result = '.' + value.slice(-3) + result;
+
+        value = value.slice(0, -3);
+
+    }
+
+    result = value + result;
+
+    return result;
+
+}
+
+
+document.addEventListener('DOMContentLoaded', function(){
+
+    document.querySelectorAll('.price-format').forEach(function(element){
+
+        const value = element.getAttribute('data-price');
+
+        element.textContent = 'Rp ' + formatRupiah(value);
+
+    });
+
+});
+
+</script>
+
+
 </body>
+
 </html>

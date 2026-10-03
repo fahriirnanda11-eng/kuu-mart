@@ -1,24 +1,28 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>KUU Mart — Belanja Lebih Nyaman</title>
+<title>KUU Mart | Marketplace</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link
+href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+<link
+rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+>
 
 <style>
-
-/* =========================================================
-   RESET
-========================================================= */
 
 *{
     margin:0;
@@ -31,10 +35,10 @@ html{
 }
 
 body{
-    font-family:'DM Sans',sans-serif;
-    background:#f8f6f2;
-    color:#29241f;
-    overflow-x:hidden;
+    font-family:'Poppins',sans-serif;
+    background:#f7f5f2;
+    color:#332b25;
+    padding-bottom:100px;
 }
 
 a{
@@ -44,2997 +48,2231 @@ a{
 
 button,
 input{
-    font-family:inherit;
+    font-family:'Poppins',sans-serif;
 }
 
-/* =========================================================
-   COLOR SYSTEM
-========================================================= */
-
-:root{
-    --brown:#6f5542;
-    --brown-dark:#49372b;
-    --brown-light:#a88972;
-
-    --cream:#f8f6f2;
-    --cream-dark:#eee8df;
-
-    --white:#ffffff;
-    --text:#29241f;
-    --muted:#82796f;
-
-    --border:#e9e2d9;
-
-    --green:#71856d;
-    --red:#b75b52;
-
-    --shadow:0 12px 35px rgba(71,55,42,.08);
+.container{
+    width:92%;
+    max-width:1250px;
+    margin:auto;
 }
 
-/* =========================================================
-   TOP BAR
-========================================================= */
 
-.top-bar{
-    background:var(--brown-dark);
-    color:#fff;
+/* =====================================================
+   HEADER
+===================================================== */
 
-    padding:9px 6%;
-
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-
-    font-size:12px;
-}
-
-.top-bar-right{
-    display:flex;
-    gap:22px;
-}
-
-.top-bar i{
-    margin-right:5px;
-}
-
-/* =========================================================
-   NAVBAR
-========================================================= */
-
-.navbar{
-    background:rgba(255,255,255,.96);
-
-    height:78px;
-
-    padding:0 6%;
-
-    display:flex;
-    align-items:center;
-
-    gap:45px;
-
+.header{
     position:sticky;
     top:0;
-
     z-index:1000;
-
-    border-bottom:1px solid var(--border);
-
+    background:rgba(255,255,255,.97);
+    border-bottom:1px solid #ebe4dc;
     backdrop-filter:blur(15px);
 }
 
+.header-inner{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
 .logo{
-    min-width:145px;
-
-    font-family:'Playfair Display',serif;
-
-    font-size:30px;
-
+    font-size:25px;
     font-weight:700;
-
-    color:var(--brown-dark);
-}
-
-.logo span{
-    color:var(--brown-light);
-}
-
-/* MENU */
-
-.main-menu{
-    display:flex;
-    align-items:center;
-    gap:27px;
-
-    flex:1;
-}
-
-.main-menu a{
-    color:#655b52;
-
-    font-size:14px;
-
-    font-weight:600;
-
-    position:relative;
-
-    transition:.25s;
-}
-
-.main-menu a:hover{
-    color:var(--brown);
-}
-
-.main-menu a::after{
-    content:"";
-
-    position:absolute;
-
-    left:0;
-    bottom:-8px;
-
-    width:0;
-    height:2px;
-
-    background:var(--brown);
-
-    transition:.25s;
-}
-
-.main-menu a:hover::after{
-    width:100%;
-}
-
-/* NAV RIGHT */
-
-.nav-actions{
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.nav-icon{
-    width:40px;
-    height:40px;
-
-    border:1px solid var(--border);
-
-    border-radius:50%;
-
-    display:flex;
-    justify-content:center;
-    align-items:center;
-
-    color:var(--brown-dark);
-
-    transition:.25s;
-
-    position:relative;
-}
-
-.nav-icon:hover{
-    background:var(--brown);
-    color:#fff;
-    border-color:var(--brown);
-}
-
-.badge-order{
-    position:absolute;
-
-    top:-5px;
-    right:-4px;
-
-    min-width:18px;
-    height:18px;
-
-    padding:0 4px;
-
-    background:var(--red);
-    color:#fff;
-
-    border-radius:50%;
-
-    font-size:9px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    font-weight:700;
-}
-
-.user-name{
-    margin-left:8px;
-
-    font-size:13px;
-
-    color:var(--brown-dark);
-
+    color:#60452f;
     white-space:nowrap;
 }
 
-.login-btn,
-.logout-btn{
-    background:var(--brown-dark);
+.logo span{
+    color:#9a7b5c;
+}
 
-    color:#fff;
 
-    padding:10px 18px;
+/* =====================================================
+   SEARCH
+===================================================== */
 
-    border-radius:9px;
+.search{
+    flex:1;
+    max-width:580px;
+    margin:auto;
+    position:relative;
+}
 
+.search input{
+    width:100%;
+    height:44px;
+    border:none;
+    outline:none;
+    background:#f2eee9;
+    border-radius:14px;
+    padding:0 52px 0 18px;
     font-size:13px;
+    color:#332b25;
+}
 
-    font-weight:600;
+.search input::placeholder{
+    color:#aaa19a;
+}
 
+.search input:focus{
+    box-shadow:0 0 0 2px #d8c9ba;
+}
+
+.search button{
+    position:absolute;
+    right:5px;
+    top:5px;
+    width:34px;
+    height:34px;
+    border:none;
+    border-radius:10px;
+    background:#76563b;
+    color:white;
+    cursor:pointer;
     transition:.25s;
 }
 
-.login-btn:hover,
-.logout-btn:hover{
-    background:var(--brown);
+.search button:hover{
+    background:#60452f;
+    transform:scale(1.03);
 }
 
-/* =========================================================
+
+/* =====================================================
+   HEADER ICON
+===================================================== */
+
+.header-icons{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.icon-link{
+    position:relative;
+    font-size:19px;
+    color:#4c443e;
+    transition:.25s;
+}
+
+.icon-link:hover{
+    color:#76563b;
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   ACCOUNT
+===================================================== */
+
+.account-wrapper{
+    position:relative;
+}
+
+.account-button{
+    width:38px;
+    height:38px;
+    border:none;
+    border-radius:50%;
+    background:#f2eee9;
+    color:#4c443e;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:17px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.account-button:hover{
+    background:#e8ddd0;
+    color:#76563b;
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   ACCOUNT MENU
+===================================================== */
+
+.account-menu{
+    position:absolute;
+    top:50px;
+    right:0;
+    width:290px;
+    background:#fff;
+    border:1px solid #ebe4dc;
+    border-radius:18px;
+    box-shadow:0 18px 45px rgba(60,45,30,.17);
+    padding:10px;
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(-8px);
+    transition:.25s;
+
+    z-index:10000;
+}
+
+.account-menu.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.account-header{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:12px 10px;
+}
+
+.account-avatar{
+    width:46px;
+    height:46px;
+    border-radius:50%;
+    background:#76563b;
+    color:white;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:18px;
+    font-weight:600;
+}
+
+.account-info{
+    min-width:0;
+    display:flex;
+    flex-direction:column;
+}
+
+.account-info strong{
+    color:#332b25;
+    font-size:13px;
+    font-weight:600;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.account-info span{
+    color:#99918a;
+    font-size:10px;
+    margin-top:3px;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.account-divider{
+    height:1px;
+    background:#eee8e2;
+    margin:5px 0;
+}
+
+.account-item{
+    width:100%;
+    display:flex;
+    align-items:center;
+    gap:13px;
+    padding:12px 11px;
+    border-radius:10px;
+    color:#554b43;
+    font-size:12px;
+    transition:.2s;
+}
+
+.account-item i{
+    width:20px;
+    text-align:center;
+    color:#806047;
+    font-size:14px;
+}
+
+.account-item:hover{
+    background:#f6f1eb;
+    color:#76563b;
+}
+
+.logout-item{
+    color:#8a6650;
+}
+
+
+/* =====================================================
    HERO
-========================================================= */
+===================================================== */
 
 .hero{
-    width:88%;
-    max-width:1320px;
+    padding:28px 0 10px;
+}
 
-    margin:35px auto;
-
-    min-height:430px;
-
-    display:grid;
-
-    grid-template-columns:1.05fr 1fr;
-
-    background:#ebe3d8;
-
+.hero-box{
+    min-height:310px;
     border-radius:26px;
 
+    background:linear-gradient(
+        120deg,
+        #e5d9cc,
+        #f5f1ec
+    );
+
+    position:relative;
     overflow:hidden;
+
+    display:flex;
+    align-items:center;
+
+    padding:45px 55px;
+}
+
+.hero-box::after{
+    content:"";
+    position:absolute;
+
+    width:380px;
+    height:380px;
+
+    right:-100px;
+    bottom:-170px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.35);
 }
 
 .hero-content{
-    padding:65px 65px;
-
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
+    position:relative;
+    z-index:3;
+    max-width:520px;
 }
 
-.hero-label{
-    display:inline-flex;
-
-    width:max-content;
-
-    padding:7px 13px;
-
-    border-radius:30px;
-
-    background:#d9cabb;
-
-    color:var(--brown-dark);
-
-    font-size:11px;
-
-    font-weight:700;
-
+.hero-small{
+    color:#806047;
+    font-size:12px;
+    font-weight:600;
     letter-spacing:.5px;
-
-    margin-bottom:20px;
+    margin-bottom:10px;
 }
 
 .hero h1{
-    font-family:'Playfair Display',serif;
+    font-size:42px;
+    line-height:1.2;
+    color:#493525;
+    margin-bottom:15px;
+}
 
-    font-size:53px;
-
-    line-height:1.12;
-
-    color:#3e3027;
-
-    max-width:550px;
+.hero h1 span{
+    color:#8d6c4d;
 }
 
 .hero p{
-    margin-top:20px;
-
-    max-width:500px;
-
-    color:#776c62;
-
+    color:#6f655d;
+    font-size:14px;
     line-height:1.8;
-
-    font-size:15px;
+    margin-bottom:25px;
 }
 
-.hero-button{
+.hero-btn{
     display:inline-flex;
-
     align-items:center;
-    justify-content:center;
+    gap:9px;
 
-    width:max-content;
-
-    margin-top:28px;
+    background:#76563b;
+    color:white;
 
     padding:13px 23px;
 
-    background:var(--brown-dark);
-
-    color:#fff;
-
-    border-radius:9px;
+    border-radius:12px;
 
     font-size:13px;
-
     font-weight:600;
 
     transition:.3s;
 }
 
-.hero-button:hover{
-    transform:translateY(-2px);
-
-    background:var(--brown);
-
-    box-shadow:0 10px 25px rgba(73,55,43,.2);
+.hero-btn:hover{
+    background:#60452f;
+    transform:translateY(-3px);
 }
 
-.hero-image{
-    min-height:430px;
-
-    background-image:
-    linear-gradient(
-        rgba(73,55,43,.05),
-        rgba(73,55,43,.05)
-    ),
-    url("https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1200");
-
-    background-size:cover;
-
-    background-position:center;
+.hero-decoration{
+    position:absolute;
+    right:80px;
+    bottom:5px;
+    font-size:135px;
+    opacity:.16;
 }
 
-/* =========================================================
-   SEARCH
-========================================================= */
 
-.search-area{
-    width:88%;
-    max-width:1320px;
-
-    margin:0 auto 55px;
-}
-
-.search-box{
-    background:#fff;
-
-    border:1px solid var(--border);
-
-    border-radius:13px;
-
-    padding:7px;
-
-    display:flex;
-
-    box-shadow:var(--shadow);
-}
-
-.search-box input{
-    flex:1;
-
-    border:none;
-
-    outline:none;
-
-    padding:13px 17px;
-
-    font-size:13px;
-
-    color:var(--text);
-}
-
-.search-box input::placeholder{
-    color:#aaa19a;
-}
-
-.search-box button{
-    border:none;
-
-    background:var(--brown);
-
-    color:#fff;
-
-    padding:0 24px;
-
-    border-radius:9px;
-
-    cursor:pointer;
-
-    font-weight:600;
-
-    font-size:13px;
-
-    transition:.25s;
-}
-
-.search-box button:hover{
-    background:var(--brown-dark);
-}
-
-/* =========================================================
+/* =====================================================
    SECTION
-========================================================= */
+===================================================== */
 
 .section{
-    width:88%;
-    max-width:1320px;
-
-    margin:0 auto 75px;
+    margin-top:38px;
 }
 
-.section-heading{
+.section-header{
     display:flex;
-
     justify-content:space-between;
-
-    align-items:end;
-
-    margin-bottom:25px;
+    align-items:center;
+    margin-bottom:18px;
 }
 
-.section-heading h2{
-    font-family:'Playfair Display',serif;
-
-    font-size:29px;
-
-    color:#40332a;
+.section-title{
+    font-size:21px;
+    font-weight:600;
+    color:#302923;
 }
 
-.section-heading p{
-    color:var(--muted);
-
-    font-size:13px;
-
-    margin-top:5px;
-}
-
-.see-all{
-    color:var(--brown);
-
-    font-size:13px;
-
+.section-link{
+    color:#806047;
+    font-size:12px;
     font-weight:600;
 }
 
-/* =========================================================
-   CATEGORY
-========================================================= */
+.section-link:hover{
+    text-decoration:underline;
+}
+
+
+/* =====================================================
+   KATEGORI
+===================================================== */
 
 .category-grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(auto-fit,minmax(145px,1fr));
-
-    gap:16px;
+    grid-template-columns:repeat(6,1fr);
+    gap:14px;
 }
 
 .category-card{
-    background:#fff;
-
-    border:1px solid var(--border);
-
-    border-radius:15px;
-
-    padding:24px 15px;
-
+    background:white;
+    border:1px solid #ebe5de;
+    border-radius:18px;
+    padding:20px 10px;
     text-align:center;
-
     transition:.3s;
 }
 
 .category-card:hover{
     transform:translateY(-5px);
-
-    box-shadow:var(--shadow);
-
-    border-color:#d7c8b9;
+    border-color:#d8c9ba;
+    box-shadow:0 12px 25px rgba(70,50,35,.10);
 }
 
 .category-icon{
-    width:62px;
-    height:62px;
-
-    margin:0 auto 14px;
+    width:56px;
+    height:56px;
+    margin:0 auto 11px;
 
     border-radius:50%;
 
-    background:#f0e9e0;
-
     display:flex;
-
     justify-content:center;
     align-items:center;
 
-    font-size:27px;
+    background:#f1ebe4;
+    color:#76563b;
+
+    font-size:21px;
 }
 
 .category-card h3{
-    font-size:13px;
-
+    font-size:12px;
     font-weight:600;
-
-    color:#51473f;
+    color:#413932;
 }
 
-/* =========================================================
+
+/* =====================================================
    FLASH SALE
-========================================================= */
+===================================================== */
 
 .flash-section{
-    width:88%;
-    max-width:1320px;
+    margin-top:38px;
+    padding:23px;
+    border-radius:22px;
+    background:#ebe2d8;
+}
 
-    margin:0 auto 75px;
-
-    background:#5f7561;
-
-    border-radius:20px;
-
-    padding:27px 32px;
-
-    color:#fff;
-
+.flash-header{
     display:flex;
-
-    justify-content:space-between;
-
     align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
 }
 
 .flash-title{
     display:flex;
-
     align-items:center;
-
-    gap:14px;
+    gap:10px;
 }
 
 .flash-title i{
-    font-size:25px;
+    color:#76563b;
+    font-size:19px;
 }
 
 .flash-title h2{
     font-size:20px;
+    color:#493525;
 }
 
-.flash-title p{
-    font-size:12px;
-
-    opacity:.8;
-
-    margin-top:4px;
-}
-
-.timer{
-    display:flex;
-
-    gap:7px;
-}
-
-.time-box{
-    width:48px;
-    height:48px;
-
-    background:rgba(255,255,255,.15);
-
-    border:1px solid rgba(255,255,255,.2);
-
-    border-radius:9px;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    flex-direction:column;
-}
-
-.time-box strong{
-    font-size:16px;
-}
-
-.time-box span{
-    font-size:8px;
-
-    opacity:.75;
-}
-
-/* =========================================================
-   PROMO
-========================================================= */
-
-.promo-grid{
-    display:grid;
-
-    grid-template-columns:repeat(2,1fr);
-
-    gap:20px;
-}
-
-.promo-card{
-    min-height:190px;
-
-    border-radius:19px;
-
-    padding:32px;
-
-    position:relative;
-
-    overflow:hidden;
-
-    color:#fff;
-}
-
-.promo-card::after{
-    content:"";
-
-    position:absolute;
-
-    width:180px;
-    height:180px;
-
-    border-radius:50%;
-
-    right:-65px;
-    bottom:-80px;
-
-    background:rgba(255,255,255,.1);
-}
-
-.promo-one{
-    background:#8b715c;
-}
-
-.promo-two{
-    background:#7c8975;
-}
-
-.promo-tag{
-    font-size:10px;
-
-    font-weight:700;
-
-    letter-spacing:.8px;
-
-    opacity:.8;
-
-    text-transform:uppercase;
-}
-
-.promo-card h3{
-    font-family:'Playfair Display',serif;
-
-    font-size:25px;
-
-    margin:9px 0;
-}
-
-.promo-card p{
-    max-width:400px;
-
-    font-size:12px;
-
-    line-height:1.7;
-
-    opacity:.9;
-}
-
-.promo-link{
-    display:inline-flex;
-
-    margin-top:18px;
-
-    background:#fff;
-
-    color:var(--brown-dark);
-
-    padding:9px 15px;
-
+.countdown{
+    background:#76563b;
+    color:white;
+    padding:5px 10px;
     border-radius:7px;
-
-    font-size:11px;
-
-    font-weight:700;
-
-    position:relative;
-
-    z-index:2;
+    font-size:10px;
 }
 
-/* =========================================================
-   TESTIMONI
-========================================================= */
 
-.testimonial-grid{
+/* =====================================================
+   PRODUCT GRID
+===================================================== */
+
+.product-grid{
     display:grid;
-
-    grid-template-columns:
-    repeat(3,1fr);
-
-    gap:18px;
+    grid-template-columns:repeat(5,1fr);
+    gap:15px;
 }
 
-.testimonial{
-    background:#fff;
-
-    border:1px solid var(--border);
-
+.product-card{
+    background:white;
+    border:1px solid #ebe5de;
     border-radius:17px;
-
-    padding:25px;
-
+    overflow:hidden;
+    position:relative;
     transition:.3s;
 }
 
-.testimonial:hover{
-    transform:translateY(-4px);
-
-    box-shadow:var(--shadow);
+.product-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(65,48,34,.11);
 }
 
-.stars{
-    color:#a88755;
-
-    font-size:12px;
-
-    margin-bottom:15px;
+.product-image{
+    height:185px;
+    background:#f3eee9;
+    position:relative;
+    overflow:hidden;
 }
 
-.testimonial p{
-    color:#716860;
-
-    font-size:13px;
-
-    line-height:1.8;
-
-    margin-bottom:18px;
-}
-
-.customer{
-    display:flex;
-
-    align-items:center;
-
-    gap:11px;
-}
-
-.customer-avatar{
-    width:40px;
-    height:40px;
-
-    border-radius:50%;
-
+.product-image img{
+    width:100%;
+    height:100%;
     object-fit:cover;
+    transition:.4s;
 }
 
-.customer strong{
-    font-size:12px;
-
-    display:block;
-
-    color:#40362f;
+.product-card:hover .product-image img{
+    transform:scale(1.05);
 }
 
-.customer span{
-    font-size:10px;
 
-    color:#aaa19a;
-}
+/* =====================================================
+   DISCOUNT
+===================================================== */
 
-/* =========================================================
-   NEWSLETTER
-========================================================= */
+.discount{
+    position:absolute;
+    top:10px;
+    left:10px;
+    z-index:5;
 
-.newsletter{
-    width:88%;
-    max-width:1320px;
+    background:#76563b;
+    color:white;
 
-    margin:0 auto 75px;
+    padding:5px 8px;
 
-    padding:43px;
+    border-radius:6px;
 
-    background:#eee7de;
-
-    border-radius:20px;
-
-    text-align:center;
-}
-
-.newsletter h2{
-    font-family:'Playfair Display',serif;
-
-    color:#40332a;
-
-    font-size:29px;
-}
-
-.newsletter p{
-    color:#81776e;
-
-    font-size:13px;
-
-    margin:8px 0 25px;
-}
-
-.newsletter form{
-    max-width:470px;
-
-    margin:auto;
-
-    display:flex;
-
-    background:#fff;
-
-    padding:5px;
-
-    border-radius:10px;
-
-    border:1px solid var(--border);
-}
-
-.newsletter input{
-    flex:1;
-
-    border:none;
-
-    outline:none;
-
-    padding:11px 13px;
-
-    font-size:12px;
-}
-
-.newsletter button{
-    border:none;
-
-    background:var(--brown-dark);
-
-    color:#fff;
-
-    border-radius:7px;
-
-    padding:0 17px;
-
-    font-size:11px;
-
+    font-size:9px;
     font-weight:600;
-
-    cursor:pointer;
 }
 
-/* =========================================================
-   FOOTER
-========================================================= */
 
-footer{
-    background:#352a23;
+/* =====================================================
+   FAVORITE
+===================================================== */
 
-    color:#fff;
+.favorite{
+    position:absolute;
+    right:10px;
+    top:10px;
+    z-index:5;
 
-    padding:55px 6% 25px;
-}
+    width:31px;
+    height:31px;
 
-.footer-grid{
-    max-width:1320px;
+    border-radius:50%;
 
-    margin:auto;
+    background:rgba(255,255,255,.95);
 
-    display:grid;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 
-    grid-template-columns:
-    2fr 1fr 1fr 1.4fr;
+    color:#6e6258;
 
-    gap:50px;
-}
-
-.footer-logo{
-    font-family:'Playfair Display',serif;
-
-    font-size:27px;
-
-    margin-bottom:14px;
-}
-
-.footer-item p{
-    color:#c8beb5;
-
-    font-size:12px;
-
-    line-height:1.9;
-}
-
-.footer-item h3{
     font-size:13px;
-
-    margin-bottom:17px;
-}
-
-.footer-item a{
-    display:block;
-
-    color:#c8beb5;
-
-    font-size:12px;
-
-    margin-bottom:11px;
-
-    transition:.2s;
-}
-
-.footer-item a:hover{
-    color:#fff;
-
-    padding-left:4px;
-}
-
-.social{
-    display:flex;
-
-    gap:9px;
-
-    margin-top:18px;
-}
-
-.social a{
-    width:34px;
-    height:34px;
-
-    border:1px solid rgba(255,255,255,.15);
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-    align-items:center;
-
-    color:#d5cbc3;
-}
-
-.social a:hover{
-    background:#fff;
-
-    color:var(--brown-dark);
-
-    padding:0;
-}
-
-.copyright{
-    max-width:1320px;
-
-    margin:45px auto 0;
-
-    padding-top:20px;
-
-    border-top:1px solid rgba(255,255,255,.1);
-
-    text-align:center;
-
-    color:#998e86;
-
-    font-size:11px;
-}
-
-/* =========================================================
-   FLOATING BUTTONS
-========================================================= */
-
-.scroll-top,
-.whatsapp{
-    position:fixed;
-
-    right:22px;
-
-    width:46px;
-    height:46px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    align-items:center;
-    justify-content:center;
-
-    z-index:900;
-
-    box-shadow:0 8px 22px rgba(0,0,0,.15);
 
     transition:.25s;
 }
 
-.scroll-top{
-    bottom:78px;
+.favorite:hover{
+    color:#76563b;
+    transform:scale(1.08);
+}
 
-    background:var(--brown);
 
-    color:#fff;
+/* =====================================================
+   PRODUCT INFO
+===================================================== */
+
+.product-info{
+    padding:13px;
+}
+
+.product-category{
+    color:#96775a;
+    font-size:9px;
+    font-weight:600;
+    text-transform:uppercase;
+}
+
+.product-name{
+    font-size:13px;
+    font-weight:600;
+    line-height:1.5;
+
+    min-height:39px;
+    margin-top:5px;
+
+    color:#302b27;
+}
+
+.product-name:hover{
+    color:#806047;
+}
+
+.rating{
+    margin-top:7px;
+    color:#a07d58;
+    font-size:10px;
+}
+
+.sold{
+    color:#99918a;
+    margin-left:5px;
+}
+
+.price{
+    margin-top:9px;
+}
+
+.price-main{
+    color:#65482f;
+    font-size:16px;
+    font-weight:700;
+}
+
+.price-old{
+    color:#aaa39c;
+    font-size:10px;
+    margin-left:5px;
+    text-decoration:line-through;
+}
+
+.product-bottom{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-top:10px;
+}
+
+.stock{
+    color:#89817a;
+    font-size:9px;
+}
+
+.detail-btn{
+    background:#f0ebe5;
+    color:#674b33;
+
+    padding:6px 9px;
+
+    border-radius:7px;
+
+    font-size:9px;
+    font-weight:600;
+}
+
+.detail-btn:hover{
+    background:#dfd3c5;
+}
+
+
+/* =====================================================
+   PROMO
+===================================================== */
+
+.promo{
+    margin-top:38px;
+
+    min-height:150px;
+
+    padding:30px 42px;
+
+    border-radius:22px;
+
+    background:#dfd3c6;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+}
+
+.promo-text small{
+    color:#806047;
+    font-size:10px;
+    font-weight:600;
+}
+
+.promo-text h2{
+    color:#493525;
+    font-size:25px;
+    margin:5px 0;
+}
+
+.promo-text p{
+    color:#75695e;
+    font-size:12px;
+}
+
+.promo-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+
+    background:#76563b;
+    color:white;
+
+    padding:11px 20px;
+
+    border-radius:10px;
+
+    font-size:12px;
+    font-weight:600;
+
+    transition:.25s;
+}
+
+.promo-btn:hover{
+    background:#60452f;
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   EMPTY PROMO
+===================================================== */
+
+.empty-promo{
+    background:rgba(255,255,255,.7);
+    border-radius:15px;
+    padding:35px 20px;
+    text-align:center;
+    color:#8b8178;
+}
+
+.empty-promo i{
+    font-size:30px;
+    margin-bottom:10px;
+    color:#a58b72;
+}
+
+.empty-promo p{
+    font-size:12px;
+}
+
+
+/* =====================================================
+   F.I PROJECT
+===================================================== */
+
+.fi-project{
+    text-align:center;
+    margin:35px 0 25px;
+    color:#a3988e;
+    font-size:10px;
+    font-weight:500;
+    letter-spacing:.3px;
+}
+
+.fi-project i{
+    font-size:8px;
+    margin-right:4px;
+    color:#a58b72;
+}
+
+
+/* =====================================================
+   BOTTOM NAV
+===================================================== */
+
+.bottom-nav{
+    position:fixed;
+
+    left:50%;
+    bottom:18px;
+
+    transform:translateX(-50%);
+
+    width:min(650px,92%);
+    height:72px;
+
+    background:rgba(255,255,255,.97);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid #e9e1d9;
+
+    border-radius:23px;
+
+    box-shadow:0 15px 40px rgba(70,52,38,.16);
+
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+
+    z-index:9999;
+}
+
+.nav-item{
+    position:relative;
+
+    width:20%;
+    height:100%;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    gap:5px;
+
+    color:#968b82;
+
+    transition:.25s;
 
     cursor:pointer;
 }
 
-.whatsapp{
-    bottom:20px;
-
-    background:#4f8060;
-
-    color:#fff;
-
+.nav-icon{
     font-size:20px;
+    line-height:1;
+    transition:.25s;
 }
 
-.scroll-top:hover,
-.whatsapp:hover{
-    transform:translateY(-4px);
+.nav-text{
+    font-size:10px;
+    font-weight:500;
 }
 
-/* =========================================================
-   MOBILE MENU BUTTON
-========================================================= */
-
-.mobile-menu{
-    display:none;
-
-    width:40px;
-    height:40px;
-
-    border:1px solid var(--border);
-
-    border-radius:9px;
-
-    align-items:center;
-    justify-content:center;
-
-    color:var(--brown-dark);
+.nav-item:hover{
+    color:#76563b;
 }
 
-/* =========================================================
+.nav-item:hover .nav-icon{
+    transform:translateY(-2px);
+}
+
+.nav-item.active{
+    color:#76563b;
+    font-weight:600;
+}
+
+.nav-item.active::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    width:35px;
+    height:3px;
+
+    background:#76563b;
+
+    border-radius:0 0 8px 8px;
+}
+
+
+/* =====================================================
    RESPONSIVE
-========================================================= */
+===================================================== */
 
-@media(max-width:1100px){
+@media(max-width:1000px){
 
-    .navbar{
-        gap:20px;
+    .category-grid{
+        grid-template-columns:repeat(3,1fr);
     }
 
-    .main-menu{
-        gap:16px;
-    }
-
-    .hero h1{
-        font-size:44px;
+    .product-grid{
+        grid-template-columns:repeat(3,1fr);
     }
 
 }
 
-@media(max-width:900px){
 
-    .top-bar{
-        display:none;
+@media(max-width:700px){
+
+    .container{
+        width:94%;
     }
 
-    .navbar{
-        height:68px;
-
-        padding:0 5%;
-
-        gap:12px;
+    .header-inner{
+        padding:13px 0;
+        flex-wrap:wrap;
     }
 
-    .logo{
-        min-width:auto;
-
-        font-size:25px;
+    .search{
+        order:3;
+        flex-basis:100%;
+        max-width:none;
     }
 
-    .main-menu{
-        display:none;
+    .account-menu{
+        position:fixed;
+        top:75px;
+        right:15px;
+        width:280px;
     }
 
-    .mobile-menu{
-        display:flex;
-    }
-
-    .nav-actions{
-        margin-left:auto;
-    }
-
-    .user-name{
-        display:none;
-    }
-
-    .login-btn,
-    .logout-btn{
-        padding:8px 12px;
-
-        font-size:11px;
-    }
-
-    .hero{
-        width:92%;
-
-        grid-template-columns:1fr;
-
-        margin-top:22px;
-    }
-
-    .hero-content{
-        padding:42px 30px;
-    }
-
-    .hero h1{
-        font-size:40px;
-    }
-
-    .hero-image{
+    .hero-box{
         min-height:270px;
-    }
-
-    .search-area,
-    .section,
-    .flash-section,
-    .newsletter{
-        width:92%;
-    }
-
-    .testimonial-grid{
-        grid-template-columns:1fr;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr 1fr;
-    }
-
-}
-
-@media(max-width:600px){
-
-    .navbar{
-        padding:0 4%;
-    }
-
-    .nav-icon{
-        width:35px;
-        height:35px;
-    }
-
-    .login-btn,
-    .logout-btn{
-        display:none;
-    }
-
-    .hero{
-        border-radius:17px;
-    }
-
-    .hero-content{
-        padding:34px 24px;
+        padding:32px 27px;
     }
 
     .hero h1{
-        font-size:34px;
-
-        line-height:1.2;
+        font-size:30px;
     }
 
-    .hero p{
-        font-size:13px;
-
-        line-height:1.7;
-    }
-
-    .hero-image{
-        min-height:220px;
-    }
-
-    .search-box{
-        padding:5px;
-    }
-
-    .search-box input{
-        padding:12px;
-    }
-
-    .search-box button{
-        padding:0 17px;
-    }
-
-    .section-heading h2{
-        font-size:25px;
-    }
-
-    .section-heading p{
+    .hero-decoration{
         display:none;
     }
 
     .category-grid{
-        grid-template-columns:
-        repeat(2,1fr);
-
-        gap:11px;
+        grid-template-columns:repeat(3,1fr);
+        gap:9px;
     }
 
-    .category-card{
-        padding:20px 10px;
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
     }
 
-    .category-icon{
-        width:55px;
-        height:55px;
+    .product-image{
+        height:155px;
     }
 
-    .flash-section{
-        flex-direction:column;
-
-        align-items:flex-start;
-
-        gap:20px;
-
+    .promo{
+        display:block;
         padding:25px;
     }
 
-    .timer{
+    .promo-btn{
+        margin-top:15px;
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    .logo{
+        font-size:21px;
+    }
+
+    .header-icons{
+        gap:13px;
+    }
+
+    .hero-box{
+        padding:28px 22px;
+    }
+
+    .hero h1{
+        font-size:27px;
+    }
+
+    .category-card{
+        padding:14px 5px;
+    }
+
+    .category-icon{
+        width:45px;
+        height:45px;
+        font-size:17px;
+    }
+
+    .product-image{
+        height:140px;
+    }
+
+    .bottom-nav{
         width:100%;
+        bottom:0;
+        height:70px;
 
-        justify-content:space-between;
+        border-radius:0;
+
+        border-left:none;
+        border-right:none;
+        border-bottom:none;
     }
 
-    .time-box{
-        width:100%;
-    }
-
-    .promo-grid{
-        grid-template-columns:1fr;
-    }
-
-    .promo-card{
-        min-height:175px;
-
-        padding:26px;
-    }
-
-    .newsletter{
-        padding:32px 20px;
-    }
-
-    .newsletter form{
-        flex-direction:column;
-
-        background:transparent;
-
-        border:none;
-
-        gap:8px;
-    }
-
-    .newsletter input{
-        background:#fff;
-
-        border:1px solid var(--border);
-
-        border-radius:8px;
-
-        padding:13px;
-    }
-
-    .newsletter button{
-        padding:13px;
-    }
-
-    .footer-grid{
-        grid-template-columns:1fr;
-
-        gap:30px;
-    }
-
-    .scroll-top,
-    .whatsapp{
-        right:16px;
-    }
-
-}
-
-/* =====================================================
-   KUU MART — NAVBAR FINAL
-===================================================== */
-
-.navbar {
-    width: 100%;
-    height: 76px;
-    padding: 0 6%;
-    
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-
-    background: rgba(255, 253, 248, 0.96);
-    backdrop-filter: blur(18px);
-
-    border-bottom: 1px solid #eee7df;
-
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-/* LOGO */
-
-.logo {
-    font-size: 27px;
-    font-weight: 700;
-    letter-spacing: -0.5px;
-    color: #8b6f47;
-    white-space: nowrap;
-}
-
-.logo span {
-    color: #29251f;
-}
-
-/* MENU */
-
-.main-menu {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-}
-
-.main-menu a {
-    position: relative;
-
-    color: #514a42;
-    text-decoration: none;
-
-    font-size: 14px;
-    font-weight: 500;
-
-    transition: .25s ease;
-}
-
-.main-menu a::after {
-    content: "";
-
-    position: absolute;
-    left: 50%;
-    bottom: -9px;
-
-    width: 0;
-    height: 2px;
-
-    border-radius: 10px;
-
-    background: #8b6f47;
-
-    transform: translateX(-50%);
-
-    transition: .25s ease;
-}
-
-.main-menu a:hover {
-    color: #8b6f47;
-}
-
-.main-menu a:hover::after {
-    width: 100%;
-}
-
-/* ACTIONS */
-
-.nav-actions {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-/* ICON */
-
-.nav-icon {
-    width: 40px;
-    height: 40px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    position: relative;
-
-    color: #514a42;
-    text-decoration: none;
-
-    border-radius: 50%;
-
-    transition: .25s ease;
-}
-
-.nav-icon:hover {
-    background: #f1ebe3;
-    color: #8b6f47;
-    transform: translateY(-2px);
-}
-
-.nav-icon i {
-    font-size: 17px;
-}
-
-/* ORDER BADGE */
-
-.badge-order {
-    position: absolute;
-
-    top: 1px;
-    right: 1px;
-
-    min-width: 17px;
-    height: 17px;
-
-    padding: 0 4px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: #a66a5b;
-    color: white;
-
-    border-radius: 50%;
-
-    font-size: 9px;
-    font-weight: 600;
-
-    border: 2px solid #fffdf8;
-}
-
-/* USER */
-
-.user-name {
-    margin-left: 5px;
-
-    color: #514a42;
-
-    font-size: 13px;
-    font-weight: 500;
-
-    white-space: nowrap;
-}
-
-/* LOGIN */
-
-.login-btn,
-.logout-btn {
-    padding: 9px 18px;
-
-    border-radius: 10px;
-
-    background: #8b6f47;
-    color: white !important;
-
-    text-decoration: none;
-
-    font-size: 13px;
-    font-weight: 600;
-
-    transition: .25s ease;
-}
-
-.login-btn:hover,
-.logout-btn:hover {
-    background: #735a39;
-    transform: translateY(-2px);
-}
-
-/* MOBILE MENU */
-
-.mobile-menu {
-    display: none;
-
-    width: 40px;
-    height: 40px;
-
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 10px;
-
-    color: #514a42;
-
-    cursor: pointer;
-
-    transition: .25s ease;
-}
-
-.mobile-menu:hover {
-    background: #f1ebe3;
-}
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 1000px) {
-
-    .main-menu {
-        gap: 18px;
-    }
-
-    .main-menu a {
-        font-size: 13px;
-    }
-
-    .user-name {
-        display: none;
-    }
-
-}
-
-/* =====================================================
-   HP
-===================================================== */
-
-@media (max-width: 760px) {
-
-    .navbar {
-        height: 68px;
-        padding: 0 18px;
-    }
-
-    .logo {
-        font-size: 24px;
-    }
-
-    .main-menu {
-        display: none;
-    }
-
-    .nav-actions {
-        gap: 3px;
-    }
-
-    .nav-icon {
-        width: 38px;
-        height: 38px;
-    }
-
-    .login-btn,
-    .logout-btn {
-        padding: 8px 13px;
-        font-size: 12px;
-    }
-
-    .mobile-menu {
-        display: flex;
-    }
-
-}
-
-/* =====================================================
-   HP KECIL
-===================================================== */
-
-@media (max-width: 450px) {
-
-    .navbar {
-        padding: 0 12px;
-    }
-
-    .logo {
-        font-size: 22px;
-    }
-
-    .nav-icon {
-        width: 34px;
-        height: 34px;
-    }
-
-    .nav-icon i {
-        font-size: 15px;
-    }
-
-    .login-btn,
-    .logout-btn {
-        padding: 7px 10px;
-        font-size: 11px;
-    }
-
-    .mobile-menu {
-        width: 34px;
-        height: 34px;
-    }
-
-}
-/* =====================================================
-   KUU MART — HERO FINAL
-===================================================== */
-
-.kuu-hero {
-
-    width: 88%;
-    max-width: 1280px;
-
-    min-height: 540px;
-
-    margin: 45px auto 80px;
-
-    padding: 65px 70px;
-
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-
-    align-items: center;
-
-    gap: 50px;
-
-    position: relative;
-
-    overflow: hidden;
-
-    border-radius: 32px;
-
-    background:
-        linear-gradient(
-            120deg,
-            #f4eee7 0%,
-            #faf7f2 55%,
-            #eee5db 100%
-        );
-
-    border: 1px solid #ebe1d7;
-
-    box-shadow:
-        0 25px 60px rgba(83, 65, 45, .10);
-}
-
-
-/* TEXT */
-
-.hero-content {
-    position: relative;
-    z-index: 3;
-}
-
-.hero-label {
-
-    display: inline-flex;
-
-    padding: 8px 14px;
-
-    border-radius: 30px;
-
-    background: #e8ddd0;
-
-    color: #806448;
-
-    font-size: 11px;
-
-    font-weight: 700;
-
-    letter-spacing: 1.2px;
-}
-
-
-.hero-content h1 {
-
-    margin-top: 22px;
-
-    max-width: 570px;
-
-    font-size: 54px;
-
-    line-height: 1.12;
-
-    letter-spacing: -1.5px;
-
-    color: #29241f;
-
-    font-weight: 700;
-}
-
-
-.hero-content h1 span {
-
-    display: block;
-
-    color: #8b6f47;
-}
-
-
-.hero-content p {
-
-    max-width: 500px;
-
-    margin-top: 22px;
-
-    color: #756d64;
-
-    font-size: 15px;
-
-    line-height: 29px;
-}
-
-
-/* BUTTON */
-
-.hero-buttons {
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    margin-top: 32px;
-}
-
-
-.hero-primary {
-
-    display: inline-flex;
-
-    align-items: center;
-
-    gap: 10px;
-
-    padding: 13px 22px;
-
-    border-radius: 11px;
-
-    background: #8b6f47;
-
-    color: white;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    transition: .3s ease;
-}
-
-
-.hero-primary:hover {
-
-    background: #735a39;
-
-    color: white;
-
-    transform: translateY(-2px);
-
-    box-shadow:
-        0 12px 25px rgba(139,111,71,.22);
-}
-
-
-.hero-secondary {
-
-    padding: 12px 21px;
-
-    border: 1px solid #d8ccbd;
-
-    border-radius: 11px;
-
-    color: #675b4f;
-
-    text-decoration: none;
-
-    font-size: 13px;
-
-    font-weight: 600;
-
-    background: rgba(255,255,255,.45);
-
-    transition: .3s ease;
-}
-
-
-.hero-secondary:hover {
-
-    background: white;
-
-    color: #8b6f47;
-
-}
-
-
-/* VISUAL */
-
-.hero-visual {
-
-    min-height: 400px;
-
-    position: relative;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-}
-
-
-.hero-visual img {
-
-    width: 90%;
-
-    height: 360px;
-
-    object-fit: cover;
-
-    border-radius: 25px;
-
-    position: relative;
-
-    z-index: 2;
-
-    box-shadow:
-        0 25px 50px rgba(63,48,34,.18);
-
-    transition: .4s ease;
-}
-
-
-.hero-visual img:hover {
-
-    transform: scale(1.025);
-}
-
-
-/* DECORATIVE CIRCLE */
-
-.hero-circle {
-
-    position: absolute;
-
-    width: 330px;
-
-    height: 330px;
-
-    border-radius: 50%;
-
-    background: #dfd0c0;
-
-    right: 20px;
-
-    top: 25px;
-
-    opacity: .55;
-
-}
-
-
-/* FLOATING CARD */
-
-.hero-floating {
-
-    position: absolute;
-
-    z-index: 5;
-
-    bottom: 15px;
-
-    left: 0;
-
-    display: flex;
-
-    align-items: center;
-
-    gap: 12px;
-
-    padding: 12px 17px;
-
-    background: rgba(255,255,255,.94);
-
-    backdrop-filter: blur(12px);
-
-    border-radius: 14px;
-
-    box-shadow:
-        0 15px 35px rgba(48,38,28,.15);
-}
-
-
-.floating-icon {
-
-    width: 38px;
-
-    height: 38px;
-
-    display: flex;
-
-    align-items: center;
-
-    justify-content: center;
-
-    border-radius: 10px;
-
-    background: #eee4d8;
-
-    color: #8b6f47;
-}
-
-
-.hero-floating strong {
-
-    display: block;
-
-    color: #39332c;
-
-    font-size: 12px;
-}
-
-
-.hero-floating small {
-
-    display: block;
-
-    margin-top: 2px;
-
-    color: #8b8177;
-
-    font-size: 10px;
-}
-
-
-/* =====================================================
-   TABLET
-===================================================== */
-
-@media (max-width: 950px) {
-
-    .kuu-hero {
-
-        width: 92%;
-
-        padding: 50px 45px;
-
-        grid-template-columns: 1fr;
-
-        text-align: center;
-
-    }
-
-
-    .hero-content h1,
-    .hero-content p {
-
-        margin-left: auto;
-        margin-right: auto;
-    }
-
-
-    .hero-buttons {
-
-        justify-content: center;
-    }
-
-
-    .hero-visual {
-
-        min-height: 360px;
-    }
-
-
-    .hero-visual img {
-
-        width: 85%;
-    }
-
-
-    .hero-floating {
-
-        left: 5%;
-    }
-
-}
-
-
-/* =====================================================
-   MOBILE
-===================================================== */
-
-@media (max-width: 600px) {
-
-    .kuu-hero {
-
-        width: calc(100% - 24px);
-
-        margin: 20px auto 55px;
-
-        padding: 35px 20px 25px;
-
-        border-radius: 24px;
-
-        gap: 25px;
-    }
-
-
-    .hero-label {
-
-        font-size: 9px;
-
-        padding: 7px 11px;
-    }
-
-
-    .hero-content h1 {
-
-        margin-top: 17px;
-
-        font-size: 36px;
-
-        line-height: 1.15;
-
-        letter-spacing: -1px;
-    }
-
-
-    .hero-content p {
-
-        margin-top: 15px;
-
-        font-size: 13px;
-
-        line-height: 24px;
-    }
-
-
-    .hero-buttons {
-
-        margin-top: 23px;
-
-        flex-direction: column;
-
-        width: 100%;
-    }
-
-
-    .hero-primary,
-    .hero-secondary {
-
-        width: 100%;
-
-        justify-content: center;
-
-        padding: 12px;
-    }
-
-
-    .hero-visual {
-
-        min-height: 260px;
-    }
-
-
-    .hero-visual img {
-
-        width: 100%;
-
-        height: 250px;
-
-        border-radius: 19px;
-    }
-
-
-    .hero-circle {
-
-        width: 220px;
-
-        height: 220px;
-
-        right: -20px;
-
-        top: 15px;
-    }
-
-
-    .hero-floating {
-
-        bottom: -8px;
-
-        left: 5px;
-
-        padding: 9px 12px;
-
-        border-radius: 11px;
-    }
-
-
-    .floating-icon {
-
-        width: 32px;
-
-        height: 32px;
-
-        font-size: 13px;
+    body{
+        padding-bottom:80px;
     }
 
 }
 
 </style>
+
 </head>
+
 
 <body>
 
-<!-- =========================================================
-     TOP BAR
-========================================================= -->
 
-<div class="top-bar">
+<!-- =====================================================
+     HEADER
+===================================================== -->
 
-    <div>
-        <i class="fa-solid fa-truck"></i>
-        Gratis ongkir untuk pesanan tertentu
-    </div>
+<header class="header">
 
-    <div class="top-bar-right">
+<div class="container header-inner">
 
-        <span>
-            <i class="fa-regular fa-clock"></i>
-            Layanan 08.00 - 22.00
-        </span>
 
-        <span>
-            Belanja aman & nyaman
-        </span>
+<!-- LOGO -->
 
-    </div>
+<a href="{% url 'index' %}" class="logo">
+    KUU <span>Mart</span>
+</a>
 
-</div>
 
+<!-- SEARCH -->
 
-<!-- =========================================================
-     NAVBAR
-========================================================= -->
+<form
+    action="{% url 'produk' %}"
+    method="GET"
+    class="search"
+>
 
-<nav class="navbar">
+<input
+    type="text"
+    name="q"
+    placeholder="Cari produk di KUU Mart..."
+    value="{{ request.GET.q|default:'' }}"
+    autocomplete="off"
+>
 
-    <div class="logo">
-        KUU <span>Mart</span>
-    </div>
+<button type="submit" aria-label="Cari">
 
+    <i class="fa-solid fa-magnifying-glass"></i>
 
-    <div class="main-menu">
+</button>
 
-        <a href="">Beranda</a>
+</form>
 
-        <a href="{% url 'kategori' %}">
-            Kategori
-        </a>
 
-        <a href="{% url 'produk' %}">
-            Produk
-        </a>
+<!-- HEADER ICON -->
 
-        <a href="{% url 'promo' %}">
-            Promo
-        </a>
+<div class="header-icons">
 
-        <a href="{% url 'tentang' %}">
-            Tentang
-        </a>
+{% if user.is_authenticated %}
 
-        <a href="{% url 'kontak' %}">
-            Kontak
-        </a>
 
-    </div>
-
-
-    <div class="nav-actions">
-
-        <a href="{% url 'wishlist' %}" class="nav-icon">
-            <i class="fa-regular fa-heart"></i>
-        </a>
-
-
-        <a href="{% url 'cart' %}" class="nav-icon">
-            <i class="fa-solid fa-bag-shopping"></i>
-        </a>
-
-
-        <a href="{% url 'riwayat_pesanan' %}" class="nav-icon">
-
-            <i class="fa-solid fa-box"></i>
-
-            {% if jumlah_pesanan > 0 %}
-
-                <span class="badge-order">
-                    {{ jumlah_pesanan }}
-                </span>
-
-            {% endif %}
-
-        </a>
-
-
-        {% if user.is_authenticated %}
-
-            <span class="user-name">
-                Halo, {{ user.username }}
-            </span>
-
-            <a href="{% url 'logout' %}"
-               class="logout-btn">
-                Keluar
-            </a>
-
-        {% else %}
-
-            <a href="{% url 'login' %}"
-               class="login-btn">
-                Masuk
-            </a>
-
-        {% endif %}
-
-        <div class="mobile-menu">
-            <i class="fa-solid fa-bars"></i>
-        </div>
-
-    </div>
-
-</nav>
-
-
-<!-- =========================================================
-     HERO
-========================================================= -->
-
-<!-- ================= HERO KUU MART ================= -->
-
-<section class="kuu-hero">
-
-    <div class="hero-content">
-
-        <span class="hero-label">
-            ✦ BELANJA LEBIH NYAMAN
-        </span>
-
-        <h1>
-            Temukan Produk
-            <span>Pilihanmu</span>
-        </h1>
-
-        <p>
-            Berbagai kebutuhan pilihan dengan harga terbaik.
-            Belanja mudah, aman, dan nyaman hanya di KUU Mart.
-        </p>
-
-        <div class="hero-buttons">
-
-            <a href="{% url 'produk' %}" class="hero-primary">
-                Belanja Sekarang
-                <i class="fa-solid fa-arrow-right"></i>
-            </a>
-
-            <a href="{% url 'kategori' %}" class="hero-secondary">
-                Lihat Kategori
-            </a>
-
-        </div>
-
-    </div>
-
-
-    <div class="hero-visual">
-
-        <div class="hero-circle"></div>
-
-        <img
-            src="https://images.unsplash.com/photo-1607082349566-187342175e2f?w=1000"
-            alt="KUU Mart"
-        >
-
-        <div class="hero-floating">
-
-            <div class="floating-icon">
-                <i class="fa-solid fa-bag-shopping"></i>
-            </div>
-
-            <div>
-                <strong>Belanja Mudah</strong>
-                <small>Produk pilihan untukmu</small>
-            </div>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     SEARCH
-========================================================= -->
-
-<div class="search-area">
-
-    <form class="search-box"
-          action="{% url 'produk' %}"
-          method="GET">
-
-        <i class="fa-solid fa-magnifying-glass"
-           style="
-           display:flex;
-           align-items:center;
-           padding-left:15px;
-           color:#a59b92;
-           ">
-        </i>
-
-        <input
-            type="text"
-            name="q"
-            placeholder="Cari produk yang kamu butuhkan..."
-        >
-
-        <button type="submit">
-            Cari
-        </button>
-
-    </form>
-
-</div>
-
-
-<!-- =========================================================
-     KATEGORI
-========================================================= -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <div>
-
-            <h2>
-                Kategori Pilihan
-            </h2>
-
-            <p>
-                Temukan produk sesuai kebutuhanmu
-            </p>
-
-        </div>
-
-        <a href="{% url 'kategori' %}"
-           class="see-all">
-
-            Lihat semua
-            <i class="fa-solid fa-arrow-right"></i>
-
-        </a>
-
-    </div>
-
-
-    <div class="category-grid">
-
-        {% for k in kategori %}
-
-        <a href="{% url 'produk' %}?kategori={{ k.id }}"
-           class="category-card">
-
-            <div class="category-icon">
-
-                {% if k.nama == "Elektronik" %}
-                    📱
-
-                {% elif k.nama == "Minuman" %}
-                    🥤
-
-                {% elif k.nama == "Makanan" %}
-                    🍔
-
-                {% elif k.nama == "Olahraga" %}
-                    ⚽
-
-                {% elif k.nama == "Komputer" %}
-                    💻
-
-                {% elif k.nama == "Fashion" %}
-                    👕  
-
-                {% elif k.nama == "Aksesoris" %}
-                    ⌚
-
-                {% else %}
-                    📦
-
-                {% endif %}
-
-            </div>
-
-            <h3>
-                {{ k.nama }}
-            </h3>
-
-        </a>
-
-        {% endfor %}
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     FLASH SALE
-========================================================= -->
-
-<section class="flash-section">
-
-    <div class="flash-title">
-
-        <i class="fa-solid fa-bolt"></i>
-
-        <div>
-
-            <h2>
-                Flash Sale
-            </h2>
-
-            <p>
-                Penawaran spesial hari ini
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="timer">
-
-        <div class="time-box">
-
-            <strong id="hours">
-                12
-            </strong>
-
-            <span>
-                JAM
-            </span>
-
-        </div>
-
-
-        <div class="time-box">
-
-            <strong id="minutes">
-                45
-            </strong>
-
-            <span>
-                MENIT
-            </span>
-
-        </div>
-
-
-        <div class="time-box">
-
-            <strong id="seconds">
-                30
-            </strong>
-
-            <span>
-                DETIK
-            </span>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     PROMO
-========================================================= -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <div>
-
-            <h2>
-                Promo Spesial
-            </h2>
-
-            <p>
-                Jangan lewatkan penawaran terbaik KUU Mart
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="promo-grid">
-
-        <div class="promo-card promo-one">
-
-            <span class="promo-tag">
-                Hemat lebih banyak
-            </span>
-
-            <h3>
-                Gratis Ongkir
-            </h3>
-
-            <p>
-                Belanja minimal Rp100.000
-                dan nikmati pengiriman gratis
-                untuk pesananmu.
-            </p>
-
-            <a href="{% url 'produk' %}"
-               class="promo-link">
-
-                Belanja sekarang
-
-            </a>
-
-        </div>
-
-
-        <div class="promo-card promo-two">
-
-            <span class="promo-tag">
-                Khusus member
-            </span>
-
-            <h3>
-                Voucher Member
-            </h3>
-
-            <p>
-                Daftar menjadi member KUU Mart
-                dan dapatkan voucher belanja
-                hingga Rp50.000.
-            </p>
-
-            <a href="{% url 'register' %}"
-               class="promo-link">
-
-                Daftar gratis
-
-            </a>
-
-        </div>
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     TESTIMONIAL
-========================================================= -->
-
-<section class="section">
-
-    <div class="section-heading">
-
-        <div>
-
-            <h2>
-                Kata Mereka
-            </h2>
-
-            <p>
-                Pengalaman pelanggan KUU Mart
-            </p>
-
-        </div>
-
-    </div>
-
-
-    <div class="testimonial-grid">
-
-
-        <div class="testimonial">
-
-            <div class="stars">
-                ★★★★★
-            </div>
-
-            <p>
-                Produk sesuai dengan deskripsi
-                dan proses pemesanannya juga
-                mudah. Pengiriman cukup cepat.
-            </p>
-
-            <div class="customer">
-
-                <img
-                    src="https://i.pravatar.cc/100?img=11"
-                    class="customer-avatar"
-                >
-
-                <div>
-
-                    <strong>
-                        Andi Saputra
-                    </strong>
-
-                    <span>
-                        Pelanggan KUU Mart
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="testimonial">
-
-            <div class="stars">
-                ★★★★★
-            </div>
-
-            <p>
-                Saya suka karena tampilannya
-                sederhana dan tidak membingungkan
-                ketika mencari produk.
-            </p>
-
-            <div class="customer">
-
-                <img
-                    src="https://i.pravatar.cc/100?img=32"
-                    class="customer-avatar"
-                >
-
-                <div>
-
-                    <strong>
-                        Siti Rahma
-                    </strong>
-
-                    <span>
-                        Pelanggan KUU Mart
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <div class="testimonial">
-
-            <div class="stars">
-                ★★★★★
-            </div>
-
-            <p>
-                Pengalaman belanjanya nyaman.
-                Semoga semakin banyak produk
-                yang tersedia di KUU Mart.
-            </p>
-
-            <div class="customer">
-
-                <img
-                    src="https://i.pravatar.cc/100?img=41"
-                    class="customer-avatar"
-                >
-
-                <div>
-
-                    <strong>
-                        Budi Santoso
-                    </strong>
-
-                    <span>
-                        Pelanggan KUU Mart
-                    </span>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-    </div>
-
-</section>
-
-
-<!-- =========================================================
-     NEWSLETTER
-========================================================= -->
-
-<section class="newsletter">
-
-    <h2>
-        Jangan Lewatkan Promo
-    </h2>
-
-    <p>
-        Dapatkan informasi promo dan penawaran
-        terbaru langsung ke email kamu.
-    </p>
-
-
-    <form
-        action="{% url 'subscribe' %}"
-        method="POST">
-
-        {% csrf_token %}
-
-        <input
-            type="email"
-            name="email"
-            placeholder="Masukkan email kamu"
-            required
-        >
-
-        <button type="submit">
-            Berlangganan
-        </button>
-
-    </form>
-
-</section>
-
-
-<!-- =========================================================
-     FOOTER
-========================================================= -->
-
-<footer>
-
-    <div class="footer-grid">
-
-
-        <div class="footer-item">
-
-            <div class="footer-logo">
-                KUU Mart
-            </div>
-
-            <p>
-                Marketplace pilihan untuk memenuhi
-                berbagai kebutuhanmu dengan
-                pengalaman belanja yang nyaman,
-                aman, dan sederhana.
-            </p>
-
-
-            <div class="social">
-
-                <a href="#">
-                    <i class="fab fa-instagram"></i>
-                </a>
-
-                <a href="#">
-                    <i class="fab fa-facebook-f"></i>
-                </a>
-
-                <a href="#">
-                    <i class="fab fa-tiktok"></i>
-                </a>
-
-                <a href="#">
-                    <i class="fab fa-youtube"></i>
-                </a>
-
-            </div>
-
-        </div>
-
-
-        <div class="footer-item">
-
-            <h3>
-                KUU Mart
-            </h3>
-
-            <a href="">
-                Beranda
-            </a>
-
-            <a href="{% url 'kategori' %}">
-                Kategori
-            </a>
-
-            <a href="{% url 'produk' %}">
-                Produk
-            </a>
-
-            <a href="{% url 'promo' %}">
-                Promo
-            </a>
-
-        </div>
-
-
-        <div class="footer-item">
-
-            <h3>
-                Bantuan
-            </h3>
-
-            <a href="{% url 'tentang' %}">
-                Tentang Kami
-            </a>
-
-            <a href="{% url 'kontak' %}">
-                Hubungi Kami
-            </a>
-
-            <a href="#">
-                Cara Belanja
-            </a>
-
-            <a href="#">
-                Pengiriman
-            </a>
-
-        </div>
-
-
-        <div class="footer-item">
-
-            <h3>
-                Hubungi Kami
-            </h3>
-
-            <p>
-                <i class="fa-solid fa-location-dot"></i>
-                Medan, Sumatera Utara
-            </p>
-
-            <p style="margin-top:8px;">
-                <i class="fa-solid fa-phone"></i>
-                +62 812-3456-7890
-            </p>
-
-            <p style="margin-top:8px;">
-                <i class="fa-solid fa-envelope"></i>
-                info@kuumart.com
-            </p>
-
-            <p style="margin-top:8px;">
-                <i class="fa-regular fa-clock"></i>
-                08.00 - 22.00
-            </p>
-
-        </div>
-
-
-    </div>
-
-
-    <div class="copyright">
-
-        © 2026 KUU Mart.
-        Semua hak dilindungi.
-
-    </div>
-
-</footer>
-
-
-<!-- =========================================================
-     FLOAT BUTTON
-========================================================= -->
-
-<div
-    class="scroll-top"
-    onclick="scrollToTop()">
-
-    <i class="fa-solid fa-arrow-up"></i>
-
-</div>
-
+<!-- WISHLIST -->
 
 <a
-    href="https://wa.me/6282174224789?text=Halo%20Admin,%20saya%20ingin%20bertanya%20tentang%20produk."
-    class="whatsapp"
-    target="_blank">
+    href="{% url 'wishlist' %}"
+    class="icon-link"
+    title="Wishlist"
+>
 
-    <i class="fab fa-whatsapp"></i>
+    <i class="fa-regular fa-heart"></i>
 
 </a>
 
 
-<!-- =========================================================
+<!-- CART -->
+
+<a
+    href="{% url 'cart' %}"
+    class="icon-link"
+    title="Keranjang"
+>
+
+    <i class="fa-solid fa-cart-shopping"></i>
+
+</a>
+
+
+<!-- ACCOUNT -->
+
+<div class="account-wrapper">
+
+<button
+    type="button"
+    class="account-button"
+    onclick="toggleAccountMenu(event)"
+    aria-label="Akun"
+>
+
+    <i class="fa-regular fa-user"></i>
+
+</button>
+
+
+<div
+    class="account-menu"
+    id="accountMenu"
+>
+
+
+<div class="account-header">
+
+    <div class="account-avatar">
+
+        {{ user.username|first|upper }}
+
+    </div>
+
+
+    <div class="account-info">
+
+        <strong>
+            {{ user.username }}
+        </strong>
+
+        <span>
+            {{ user.email }}
+        </span>
+
+    </div>
+
+</div>
+
+
+<div class="account-divider"></div>
+
+
+<a
+    href="{% url 'riwayat_pesanan' %}"
+    class="account-item"
+>
+
+    <i class="fa-solid fa-box"></i>
+
+    <span>
+        Pesanan Saya
+    </span>
+
+</a>
+
+
+<a
+    href="{% url 'wishlist' %}"
+    class="account-item"
+>
+
+    <i class="fa-regular fa-heart"></i>
+
+    <span>
+        Wishlist
+    </span>
+
+</a>
+
+
+<div class="account-divider"></div>
+
+
+<a
+    href="{% url 'logout' %}"
+    class="account-item logout-item"
+>
+
+    <i class="fa-solid fa-right-from-bracket"></i>
+
+    <span>
+        Keluar
+    </span>
+
+</a>
+
+
+</div>
+
+</div>
+
+
+{% else %}
+
+
+<a
+    href="{% url 'login' %}"
+    class="icon-link"
+    title="Login"
+>
+
+    <i class="fa-regular fa-user"></i>
+
+</a>
+
+
+{% endif %}
+
+</div>
+
+</div>
+
+</header>
+
+
+
+<!-- =====================================================
+     MAIN
+===================================================== -->
+
+<main>
+
+<div class="container">
+
+
+<!-- =====================================================
+     HERO
+===================================================== -->
+
+<section class="hero">
+
+<div class="hero-box">
+
+
+<div class="hero-content">
+
+<div class="hero-small">
+    ✦ BELANJA LEBIH MUDAH
+</div>
+
+<h1>
+    Temukan Produk<br>
+    <span>Favoritmu</span>
+</h1>
+
+<p>
+    Belanja kebutuhan sehari-hari dengan mudah,
+    nyaman, dan harga terbaik hanya di KUU Mart.
+</p>
+
+<a
+    href="{% url 'produk' %}"
+    class="hero-btn"
+>
+
+    Belanja Sekarang
+
+    <i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+</div>
+
+
+<div class="hero-decoration">
+    🛍️
+</div>
+
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     KATEGORI
+===================================================== -->
+
+<section class="section">
+
+<div class="section-header">
+
+<h2 class="section-title">
+    Kategori
+</h2>
+
+<a
+    href="{% url 'kategori' %}"
+    class="section-link"
+>
+    Lihat Semua
+</a>
+
+</div>
+
+
+<div class="category-grid">
+
+{% for k in kategori %}
+
+<a
+    href="{% url 'produk' %}?kategori={{ k.id }}"
+    class="category-card"
+>
+
+<div class="category-icon">
+
+{% if forloop.counter == 1 %}
+
+<i class="fa-solid fa-mobile-screen-button"></i>
+
+{% elif forloop.counter == 2 %}
+
+<i class="fa-solid fa-shirt"></i>
+
+{% elif forloop.counter == 3 %}
+
+<i class="fa-solid fa-utensils"></i>
+
+{% elif forloop.counter == 4 %}
+
+<i class="fa-solid fa-basketball"></i>
+
+{% elif forloop.counter == 5 %}
+
+<i class="fa-solid fa-laptop"></i>
+
+{% elif forloop.counter == 6 %}
+
+<i class="fa-solid fa-bag-shopping"></i>
+
+{% else %}
+
+<i class="fa-solid fa-store"></i>
+
+{% endif %}
+
+</div>
+
+<h3>
+    {{ k.nama }}
+</h3>
+
+</a>
+
+{% empty %}
+
+<a
+    href="{% url 'produk' %}"
+    class="category-card"
+>
+
+<div class="category-icon">
+
+<i class="fa-solid fa-store"></i>
+
+</div>
+
+<h3>
+    Semua Produk
+</h3>
+
+</a>
+
+{% endfor %}
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     FLASH SALE
+===================================================== -->
+
+<section class="flash-section">
+
+<div class="flash-header">
+
+<div class="flash-title">
+
+<i class="fa-solid fa-bolt"></i>
+
+<h2>
+    Flash Sale
+</h2>
+
+<div class="countdown">
+    PROMO HARI INI
+</div>
+
+</div>
+
+
+<!-- INI TOMBOL PROMO -->
+
+<a
+    href="{% url 'promo' %}"
+    class="section-link"
+>
+
+    Lihat Semua
+
+</a>
+
+</div>
+
+
+<div class="product-grid">
+
+{% for p in produk_promo %}
+
+
+<div class="product-card">
+
+
+<div class="product-image">
+
+
+<!-- DISKON -->
+
+<div class="discount">
+    -{{ p.diskon }}%
+</div>
+
+
+<!-- GAMBAR -->
+
+<a
+    href="{% url 'detail_produk' p.id %}"
+>
+
+{% if p.gambar %}
+
+<img
+    src="{{ p.gambar.url }}"
+    alt="{{ p.nama }}"
+>
+
+{% else %}
+
+<div style="
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:50px;
+">
+    🛍️
+</div>
+
+{% endif %}
+
+</a>
+
+
+<!-- WISHLIST -->
+
+{% if user.is_authenticated %}
+
+<a
+    href="{% url 'tambah_wishlist' p.id %}"
+    class="favorite"
+    title="Tambah Wishlist"
+>
+
+    <i class="fa-regular fa-heart"></i>
+
+</a>
+
+{% endif %}
+
+
+</div>
+
+
+<!-- PRODUCT INFO -->
+
+<div class="product-info">
+
+
+<div class="product-category">
+    {{ p.kategori.nama }}
+</div>
+
+
+<a
+    href="{% url 'detail_produk' p.id %}"
+>
+
+<div class="product-name">
+    {{ p.nama }}
+</div>
+
+</a>
+
+
+<div class="rating">
+
+    ★ {{ p.rating|default:"5.0" }}
+
+    <span class="sold">
+        Terjual {{ p.terjual|default:"0" }}
+    </span>
+
+</div>
+
+
+<div class="price">
+
+<span class="price-main harga-format"
+      data-price="{{ p.harga_diskon }}">
+
+    Rp {{ p.harga_diskon|floatformat:0 }}
+
+</span>
+
+
+<span class="price-old harga-format"
+      data-price="{{ p.harga }}">
+
+    Rp {{ p.harga|floatformat:0 }}
+
+</span>
+
+</div>
+
+
+<div class="product-bottom">
+
+<span class="stock">
+    Stok {{ p.stok }}
+</span>
+
+
+<a
+    href="{% url 'detail_produk' p.id %}"
+    class="detail-btn"
+>
+
+    Detail
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+{% empty %}
+
+
+<div
+    class="empty-promo"
+    style="grid-column:1/-1;"
+>
+
+    <i class="fa-solid fa-tag"></i>
+
+    <p>
+        Belum ada produk promo saat ini.
+    </p>
+
+</div>
+
+
+{% endfor %}
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PRODUK TERBARU
+===================================================== -->
+
+<section class="section">
+
+
+<div class="section-header">
+
+<h2 class="section-title">
+    Produk Terbaru
+</h2>
+
+
+<a
+    href="{% url 'produk' %}"
+    class="section-link"
+>
+
+    Lihat Semua
+
+</a>
+
+</div>
+
+
+<div class="product-grid">
+
+
+{% for p in produk|slice:":10" %}
+
+
+<div class="product-card">
+
+
+<div class="product-image">
+
+
+{% if p.diskon > 0 %}
+
+<div class="discount">
+    -{{ p.diskon }}%
+</div>
+
+{% endif %}
+
+
+<a
+    href="{% url 'detail_produk' p.id %}"
+>
+
+{% if p.gambar %}
+
+<img
+    src="{{ p.gambar.url }}"
+    alt="{{ p.nama }}"
+>
+
+{% else %}
+
+<div style="
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:50px;
+">
+    🛍️
+</div>
+
+{% endif %}
+
+</a>
+
+
+{% if user.is_authenticated %}
+
+<a
+    href="{% url 'tambah_wishlist' p.id %}"
+    class="favorite"
+    title="Tambah Wishlist"
+>
+
+    <i class="fa-regular fa-heart"></i>
+
+</a>
+
+{% endif %}
+
+
+</div>
+
+
+<div class="product-info">
+
+
+<div class="product-category">
+    {{ p.kategori.nama }}
+</div>
+
+
+<a
+    href="{% url 'detail_produk' p.id %}"
+>
+
+<div class="product-name">
+    {{ p.nama }}
+</div>
+
+</a>
+
+
+<div class="rating">
+
+    ★ {{ p.rating|default:"5.0" }}
+
+    <span class="sold">
+        Terjual {{ p.terjual|default:"0" }}
+    </span>
+
+</div>
+
+
+<div class="price">
+
+
+{% if p.diskon > 0 %}
+
+<span
+    class="price-main harga-format"
+    data-price="{{ p.harga_diskon }}"
+>
+
+    Rp {{ p.harga_diskon|floatformat:0 }}
+
+</span>
+
+
+<span
+    class="price-old harga-format"
+    data-price="{{ p.harga }}"
+>
+
+    Rp {{ p.harga|floatformat:0 }}
+
+</span>
+
+
+{% else %}
+
+
+<span
+    class="price-main harga-format"
+    data-price="{{ p.harga }}"
+>
+
+    Rp {{ p.harga|floatformat:0 }}
+
+</span>
+
+
+{% endif %}
+
+
+</div>
+
+
+<div class="product-bottom">
+
+<span class="stock">
+    Stok {{ p.stok }}
+</span>
+
+
+<a
+    href="{% url 'detail_produk' p.id %}"
+    class="detail-btn"
+>
+
+    Detail
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
+
+{% empty %}
+
+
+<p style="
+grid-column:1/-1;
+text-align:center;
+padding:40px;
+color:#8b8178;
+">
+
+    Belum ada produk.
+
+</p>
+
+
+{% endfor %}
+
+</div>
+
+</section>
+
+
+
+<!-- =====================================================
+     PROMO BANNER
+===================================================== -->
+
+<section class="promo">
+
+
+<div class="promo-text">
+
+<small>
+    PROMO SPESIAL KUU MART
+</small>
+
+
+<h2>
+    Diskon Menarik Untukmu
+</h2>
+
+
+<p>
+    Temukan berbagai produk pilihan dengan harga
+    lebih hemat dan penawaran menarik.
+</p>
+
+</div>
+
+
+<!-- TOMBOL PROMO -->
+
+<a
+    href="{% url 'promo' %}"
+    class="promo-btn"
+>
+
+    Lihat Promo
+
+    <i class="fa-solid fa-arrow-right"></i>
+
+</a>
+
+
+</section>
+
+
+</div>
+
+</main>
+
+
+<!-- =====================================================
+     F.I PROJECT
+===================================================== -->
+
+<div class="fi-project">
+    <i class="fa-solid fa-star"></i>
+    F.I Project
+</div>
+
+
+
+<!-- =====================================================
+     BOTTOM NAVIGATION
+===================================================== -->
+
+<nav class="bottom-nav">
+
+
+<!-- BERANDA -->
+
+<a
+    href="{% url 'index' %}"
+    class="nav-item active"
+>
+
+<span class="nav-icon">
+    <i class="fa-solid fa-house"></i>
+</span>
+
+<span class="nav-text">
+    Beranda
+</span>
+
+</a>
+
+
+<!-- KATEGORI -->
+
+<a
+    href="{% url 'kategori' %}"
+    class="nav-item"
+>
+
+<span class="nav-icon">
+    <i class="fa-solid fa-layer-group"></i>
+</span>
+
+<span class="nav-text">
+    Kategori
+</span>
+
+</a>
+
+
+{% if user.is_authenticated %}
+
+
+<!-- WISHLIST -->
+
+<a
+    href="{% url 'wishlist' %}"
+    class="nav-item"
+>
+
+<span class="nav-icon">
+    <i class="fa-regular fa-heart"></i>
+</span>
+
+<span class="nav-text">
+    Wishlist
+</span>
+
+</a>
+
+
+<!-- PESANAN -->
+
+<a
+    href="{% url 'riwayat_pesanan' %}"
+    class="nav-item"
+>
+
+<span class="nav-icon">
+    <i class="fa-solid fa-bag-shopping"></i>
+</span>
+
+<span class="nav-text">
+    Pesanan
+</span>
+
+</a>
+
+
+<!-- AKUN -->
+
+<a
+    href="#"
+    class="nav-item"
+    onclick="openAccountFromNav(event)"
+>
+
+<span class="nav-icon">
+    <i class="fa-regular fa-user"></i>
+</span>
+
+<span class="nav-text">
+    Akun
+</span>
+
+</a>
+
+
+{% else %}
+
+
+<!-- WISHLIST -->
+
+<a
+    href="{% url 'login' %}"
+    class="nav-item"
+>
+
+<span class="nav-icon">
+    <i class="fa-regular fa-heart"></i>
+</span>
+
+<span class="nav-text">
+    Wishlist
+</span>
+
+</a>
+
+
+<!-- PESANAN -->
+
+<a
+    href="{% url 'login' %}"
+    class="nav-item"
+>
+
+<span class="nav-icon">
+    <i class="fa-solid fa-bag-shopping"></i>
+</span>
+
+<span class="nav-text">
+    Pesanan
+</span>
+
+</a>
+
+
+<!-- AKUN -->
+
+<a
+    href="{% url 'login' %}"
+    class="nav-item"
+>
+
+<span class="nav-icon">
+    <i class="fa-regular fa-user"></i>
+</span>
+
+<span class="nav-text">
+    Akun
+</span>
+
+</a>
+
+
+{% endif %}
+
+</nav>
+
+
+
+<!-- =====================================================
      JAVASCRIPT
-========================================================= -->
+===================================================== -->
 
 <script>
 
-let totalSeconds =
-    (12 * 3600) +
-    (45 * 60) +
-    30;
 
+/* =====================================================
+   FORMAT HARGA INDONESIA
+===================================================== */
 
-function updateTimer(){
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
 
-    let h =
-        Math.floor(totalSeconds / 3600);
+        const hargaElements =
+            document.querySelectorAll(
+                ".harga-format"
+            );
 
-    let m =
-        Math.floor(
-            (totalSeconds % 3600) / 60
+        hargaElements.forEach(
+            function(element){
+
+                let angka =
+                    element.getAttribute(
+                        "data-price"
+                    );
+
+                if(!angka){
+                    return;
+                }
+
+                angka =
+                    parseFloat(angka);
+
+                if(isNaN(angka)){
+                    return;
+                }
+
+                angka =
+                    Math.round(angka);
+
+                element.innerHTML =
+                    "Rp " +
+                    angka.toLocaleString(
+                        "id-ID"
+                    );
+
+            }
         );
 
-    let s =
-        totalSeconds % 60;
+    }
+);
 
 
-    document.getElementById("hours")
-        .innerText =
-        String(h).padStart(2,'0');
+/* =====================================================
+   ACCOUNT MENU
+===================================================== */
 
+function toggleAccountMenu(event){
 
-    document.getElementById("minutes")
-        .innerText =
-        String(m).padStart(2,'0');
+    if(event){
 
-
-    document.getElementById("seconds")
-        .innerText =
-        String(s).padStart(2,'0');
-
-
-    if(totalSeconds > 0){
-
-        totalSeconds--;
-
-    }else{
-
-        clearInterval(timer);
+        event.preventDefault();
+        event.stopPropagation();
 
     }
+
+    const menu =
+        document.getElementById(
+            "accountMenu"
+        );
+
+    if(!menu){
+        return;
+    }
+
+    menu.classList.toggle("show");
 
 }
 
 
-updateTimer();
+/* =====================================================
+   ACCOUNT DARI BOTTOM NAV
+===================================================== */
 
-const timer =
-    setInterval(updateTimer,1000);
+function openAccountFromNav(event){
+
+    if(event){
+
+        event.preventDefault();
+        event.stopPropagation();
+
+    }
+
+    const menu =
+        document.getElementById(
+            "accountMenu"
+        );
+
+    if(!menu){
+        return;
+    }
+
+    menu.classList.add("show");
+
+}
 
 
-/* SCROLL TOP */
+/* =====================================================
+   TUTUP ACCOUNT MENU
+===================================================== */
 
-function scrollToTop(){
+document.addEventListener(
+    "click",
+    function(event){
 
-    window.scrollTo({
-        top:0,
-        behavior:'smooth'
+        const menu =
+            document.getElementById(
+                "accountMenu"
+            );
+
+        const accountWrapper =
+            document.querySelector(
+                ".account-wrapper"
+            );
+
+        if(!menu){
+            return;
+        }
+
+        if(
+            accountWrapper &&
+            accountWrapper.contains(
+                event.target
+            )
+        ){
+
+            return;
+
+        }
+
+        menu.classList.remove("show");
+
+    }
+);
+
+
+/* =====================================================
+   ESC
+===================================================== */
+
+document.addEventListener(
+    "keydown",
+    function(event){
+
+        if(
+            event.key === "Escape"
+        ){
+
+            const menu =
+                document.getElementById(
+                    "accountMenu"
+                );
+
+            if(menu){
+
+                menu.classList.remove(
+                    "show"
+                );
+
+            }
+
+        }
+
+    }
+);
+
+</script>
+
+<script>
+/* =====================================================
+   PWA SERVICE WORKER KUU MART
+===================================================== */
+
+
+if ("serviceWorker" in navigator) {
+
+    window.addEventListener("load", function () {
+
+        navigator.serviceWorker.register(
+            "{% url 'service_worker' %}"
+        )
+
+        .then(function (registration) {
+
+            console.log(
+                "KUU Mart Service Worker berhasil terdaftar:",
+                registration.scope
+            );
+
+        })
+
+        .catch(function (error) {
+
+            console.error(
+                "Service Worker gagal didaftarkan:",
+                error
+            );
+
+        });
+
     });
 
 }
 
 </script>
-
 </body>
+
 </html>

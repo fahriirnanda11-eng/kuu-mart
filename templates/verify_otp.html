@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Verifikasi OTP | KUU Mart</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            padding: 20px;
+
+            background: linear-gradient(
+                135deg,
+                #FFF9F3,
+                #F6EBDD
+            );
+        }
+
+        .container {
+            width: 100%;
+            max-width: 450px;
+
+            background: white;
+
+            padding: 45px 40px;
+
+            border-radius: 25px;
+
+            box-shadow:
+                0 15px 40px rgba(70, 50, 30, .12);
+
+            text-align: center;
+        }
+
+        .icon {
+            width: 75px;
+            height: 75px;
+
+            margin: 0 auto 20px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #F5E2C9;
+
+            font-size: 32px;
+        }
+
+        h1 {
+            color: #4A2C18;
+
+            font-size: 26px;
+
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #7A716A;
+
+            font-size: 13px;
+
+            line-height: 1.7;
+
+            margin-bottom: 25px;
+        }
+
+        .otp-input {
+            width: 100%;
+
+            padding: 15px;
+
+            border: 1px solid #E7D8C7;
+
+            border-radius: 12px;
+
+            outline: none;
+
+            text-align: center;
+
+            font-size: 24px;
+
+            letter-spacing: 8px;
+
+            color: #4A2C18;
+
+            background: #FFFDF9;
+        }
+
+        .otp-input:focus {
+            border-color: #E89B50;
+
+            box-shadow:
+                0 0 0 3px rgba(232,155,80,.12);
+        }
+
+        button {
+            width: 100%;
+
+            margin-top: 18px;
+
+            padding: 14px;
+
+            border: none;
+
+            border-radius: 12px;
+
+            background: #E89B50;
+
+            color: white;
+
+            font-size: 14px;
+
+            font-weight: 600;
+
+            cursor: pointer;
+
+            transition: .3s;
+        }
+
+        button:hover {
+            background: #D9873B;
+
+            transform: translateY(-2px);
+        }
+
+        .alert {
+            padding: 12px;
+
+            margin-bottom: 18px;
+
+            border-radius: 10px;
+
+            background: #FFF1E5;
+
+            color: #A65D21;
+
+            font-size: 12px;
+        }
+
+        .back {
+            display: inline-block;
+
+            margin-top: 20px;
+
+            color: #806047;
+
+            font-size: 12px;
+
+            text-decoration: none;
+        }
+
+        .back:hover {
+            color: #D9873B;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="icon">
+        ✉️
+    </div>
+
+    <h1>Verifikasi Email</h1>
+
+    <p class="description">
+        Kami telah mengirimkan kode OTP ke email kamu.
+        Silakan masukkan kode 6 digit untuk melanjutkan login.
+    </p>
+
+    {% if messages %}
+        {% for message in messages %}
+
+            <div class="alert">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+    {% endif %}
+
+    <form method="POST">
+
+        {% csrf_token %}
+
+        <input
+            type="text"
+            name="otp"
+            class="otp-input"
+            placeholder="000000"
+            maxlength="6"
+            inputmode="numeric"
+            required
+        >
+
+        <button type="submit">
+            Verifikasi & Login
+        </button>
+
+    </form>
+
+    <a href="{% url 'login' %}" class="back">
+        ← Kembali ke Login
+    </a>
+
+</div>
+
+</body>
+</html>

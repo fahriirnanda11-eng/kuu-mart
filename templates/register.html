@@ -1,122 +1,729 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Daftar - KUU Mart</title>
+<title>Daftar Akun | KUU Mart</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(135deg,#DBEAFE,#EFF6FF);
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+
+    font-family:'Poppins',sans-serif;
+
+    min-height:100vh;
+
+    background:
+        linear-gradient(
+            135deg,
+            #f7f5f2,
+            #eee7df
+        );
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:30px 15px;
+
+    color:#332b25;
+
 }
 
-.container{
-width:900px;
-background:white;
-display:flex;
-border-radius:25px;
-overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,.1);
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.register-container{
+
+    width:100%;
+
+    max-width:950px;
+
+    min-height:590px;
+
+    background:#ffffff;
+
+    border:1px solid #ebe4dc;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    box-shadow:
+        0 25px 60px rgba(70,52,38,.15);
+
 }
 
-.left{
-flex:1;
-background:linear-gradient(135deg,#2563EB,#60A5FA);
-color:white;
-padding:60px;
-display:flex;
-flex-direction:column;
-justify-content:center;
+
+/* =====================================================
+   LEFT SIDE
+===================================================== */
+
+.register-left{
+
+    width:48%;
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    padding:55px;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e5d9cc,
+            #f5f1ec
+        );
+
 }
 
-.left h1{
-font-size:42px;
-margin-bottom:20px;
+
+/* DECORATION */
+
+.register-left::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:330px;
+    height:330px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.35);
+
+    right:-150px;
+    top:-120px;
+
 }
 
-.left p{
-line-height:30px;
+
+.register-left::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:240px;
+    height:240px;
+
+    border-radius:50%;
+
+    background:rgba(118,86,59,.07);
+
+    left:-120px;
+    bottom:-100px;
+
 }
 
-.right{
-flex:1;
-padding:50px;
+
+/* CONTENT */
+
+.left-content{
+
+    position:relative;
+
+    z-index:2;
+
 }
 
-.right h2{
-text-align:center;
-margin-bottom:30px;
-color:#1E293B;
+
+.brand{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    margin-bottom:38px;
+
 }
 
-.input-group{
-margin-bottom:20px;
+
+.brand-icon{
+
+    width:43px;
+    height:43px;
+
+    border-radius:13px;
+
+    background:#76563b;
+
+    color:white;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:18px;
+
 }
 
-.input-group label{
-display:block;
-margin-bottom:8px;
-font-weight:600;
+
+.brand-name{
+
+    font-size:22px;
+
+    font-weight:700;
+
+    color:#60452f;
+
 }
 
-.input-group input{
-width:100%;
-padding:15px;
-border:1px solid #ddd;
-border-radius:12px;
-outline:none;
-font-size:15px;
+
+.brand-name span{
+
+    color:#9a7b5c;
+
 }
 
-button{
-width:100%;
-padding:15px;
-background:#2563EB;
-color:white;
-border:none;
-border-radius:12px;
-font-size:16px;
-cursor:pointer;
-margin-top:10px;
+
+.welcome-small{
+
+    color:#806047;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:.8px;
+
+    margin-bottom:12px;
+
 }
 
-button:hover{
-background:#1D4ED8;
+
+.register-left h1{
+
+    color:#493525;
+
+    font-size:38px;
+
+    line-height:1.25;
+
+    margin-bottom:17px;
+
 }
 
-.login-link{
-text-align:center;
-margin-top:20px;
+
+.register-left h1 span{
+
+    color:#8d6c4d;
+
 }
 
-.login-link a{
-color:#2563EB;
-text-decoration:none;
-font-weight:bold;
+
+.register-left p{
+
+    color:#6f655d;
+
+    font-size:13px;
+
+    line-height:1.9;
+
+    max-width:400px;
+
 }
+
+
+/* BENEFIT */
+
+.benefits{
+
+    margin-top:32px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    gap:13px;
+
+}
+
+
+.benefit{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:11px;
+
+    color:#65594f;
+
+    font-size:11px;
+
+}
+
+
+.benefit i{
+
+    width:29px;
+    height:29px;
+
+    border-radius:9px;
+
+    background:#f1ebe4;
+
+    color:#76563b;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:12px;
+
+}
+
+
+/* =====================================================
+   RIGHT SIDE
+===================================================== */
+
+.register-right{
+
+    width:52%;
+
+    padding:48px 55px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+}
+
+
+.form-header{
+
+    margin-bottom:27px;
+
+}
+
+
+.form-header h2{
+
+    color:#332b25;
+
+    font-size:25px;
+
+    font-weight:600;
+
+    margin-bottom:6px;
+
+}
+
+
+.form-header p{
+
+    color:#99918a;
+
+    font-size:11px;
+
+}
+
+
+/* =====================================================
+   ALERT
+===================================================== */
+
 .alert{
 
-padding:12px;
-margin-bottom:20px;
-background:#DBEAFE;
-color:#1D4ED8;
-border-radius:10px;
-font-weight:500;
+    padding:11px 13px;
+
+    margin-bottom:18px;
+
+    background:#f7eee8;
+
+    border:1px solid #ead8ca;
+
+    color:#76563b;
+
+    border-radius:10px;
+
+    font-size:11px;
+
+    line-height:1.5;
+
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
+
+.input-group{
+
+    margin-bottom:17px;
+
+}
+
+
+.input-group label{
+
+    display:block;
+
+    color:#4d443d;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    margin-bottom:7px;
+
+}
+
+
+.input-wrapper{
+
+    position:relative;
+
+}
+
+
+.input-icon{
+
+    position:absolute;
+
+    left:14px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#9b8c7e;
+
+    font-size:13px;
+
+}
+
+
+.input-wrapper input{
+
+    width:100%;
+
+    height:46px;
+
+    padding:0 42px;
+
+    border:1px solid #e4ddd5;
+
+    border-radius:11px;
+
+    outline:none;
+
+    background:#faf9f7;
+
+    color:#332b25;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:12px;
+
+    transition:.25s;
+
+}
+
+
+.input-wrapper input::placeholder{
+
+    color:#aaa39c;
+
+}
+
+
+.input-wrapper input:focus{
+
+    background:white;
+
+    border-color:#cdbba8;
+
+    box-shadow:
+        0 0 0 3px rgba(118,86,59,.08);
+
+}
+
+
+/* PASSWORD BUTTON */
+
+.password-toggle{
+
+    position:absolute;
+
+    right:13px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    border:none;
+
+    background:none;
+
+    color:#9b8c7e;
+
+    cursor:pointer;
+
+    font-size:13px;
+
+    padding:3px;
+
+}
+
+
+.password-toggle:hover{
+
+    color:#76563b;
+
+}
+
+
+/* =====================================================
+   REGISTER BUTTON
+===================================================== */
+
+.register-button{
+
+    width:100%;
+
+    height:47px;
+
+    border:none;
+
+    border-radius:11px;
+
+    background:#76563b;
+
+    color:white;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    margin-top:5px;
+
+    transition:.3s;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    gap:8px;
+
+}
+
+
+.register-button:hover{
+
+    background:#60452f;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 8px 18px rgba(96,69,47,.20);
+
+}
+
+
+/* =====================================================
+   LOGIN LINK
+===================================================== */
+
+.login-link{
+
+    text-align:center;
+
+    margin-top:21px;
+
+    color:#99918a;
+
+    font-size:11px;
+
+}
+
+
+.login-link a{
+
+    color:#76563b;
+
+    font-weight:600;
+
+    text-decoration:none;
+
+    margin-left:4px;
+
+}
+
+
+.login-link a:hover{
+
+    color:#60452f;
+
+    text-decoration:underline;
+
+}
+
+
+/* =====================================================
+   BACK HOME
+===================================================== */
+
+.back-home{
+
+    text-align:center;
+
+    margin-top:15px;
+
+}
+
+
+.back-home a{
+
+    display:inline-flex;
+
+    align-items:center;
+
+    gap:6px;
+
+    color:#9a8c80;
+
+    font-size:10px;
+
+    text-decoration:none;
+
+    transition:.2s;
+
+}
+
+
+.back-home a:hover{
+
+    color:#76563b;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE TABLET
+===================================================== */
+
+@media(max-width:800px){
+
+    .register-container{
+
+        max-width:560px;
+
+        min-height:auto;
+
+    }
+
+
+    .register-left{
+
+        display:none;
+
+    }
+
+
+    .register-right{
+
+        width:100%;
+
+        padding:45px 50px;
+
+    }
+
+}
+
+
+/* =====================================================
+   RESPONSIVE MOBILE
+===================================================== */
+
+@media(max-width:500px){
+
+    body{
+
+        padding:15px;
+
+    }
+
+
+    .register-container{
+
+        border-radius:21px;
+
+    }
+
+
+    .register-right{
+
+        padding:35px 23px;
+
+    }
+
+
+    .form-header h2{
+
+        font-size:22px;
+
+    }
+
+
+    .input-wrapper input{
+
+        height:45px;
+
+    }
 
 }
 
@@ -124,83 +731,386 @@ font-weight:500;
 
 </head>
 
+
 <body>
 
-<div class="container">
 
-<div class="left">
+<!-- =====================================================
+     REGISTER CONTAINER
+===================================================== -->
 
-<h1>Selamat Datang</h1>
+<div class="register-container">
 
-<p>
 
-Bergabunglah bersama KUU Mart dan nikmati pengalaman belanja yang mudah, aman, dan nyaman.
+    <!-- =================================================
+         LEFT
+    ================================================== -->
 
-</p>
+    <div class="register-left">
+
+        <div class="left-content">
+
+
+            <!-- BRAND -->
+
+            <div class="brand">
+
+                <div class="brand-icon">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                </div>
+
+                <div class="brand-name">
+
+                    KUU <span>Mart</span>
+
+                </div>
+
+            </div>
+
+
+            <div class="welcome-small">
+
+                ✦ BERGABUNG BERSAMA KAMI
+
+            </div>
+
+
+            <h1>
+
+                Mulai Belanja<br>
+
+                <span>Lebih Mudah</span>
+
+            </h1>
+
+
+            <p>
+
+                Buat akun KUU Mart dan nikmati pengalaman
+
+                berbelanja yang mudah, nyaman, dan aman.
+
+            </p>
+
+
+            <!-- BENEFITS -->
+
+            <div class="benefits">
+
+
+                <div class="benefit">
+
+                    <i class="fa-solid fa-bag-shopping"></i>
+
+                    <span>
+
+                        Temukan berbagai produk pilihan
+
+                    </span>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <i class="fa-solid fa-tags"></i>
+
+                    <span>
+
+                        Dapatkan promo dan harga menarik
+
+                    </span>
+
+                </div>
+
+
+                <div class="benefit">
+
+                    <i class="fa-solid fa-shield-halved"></i>
+
+                    <span>
+
+                        Belanja dengan nyaman dan aman
+
+                    </span>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =================================================
+         RIGHT
+    ================================================== -->
+
+    <div class="register-right">
+
+
+        <div class="form-header">
+
+            <h2>
+
+                Buat Akun
+
+            </h2>
+
+            <p>
+
+                Lengkapi data berikut untuk membuat akun KUU Mart.
+
+            </p>
+
+        </div>
+
+
+
+        <!-- =================================================
+             DJANGO MESSAGE
+        ================================================== -->
+
+        {% if messages %}
+
+            {% for message in messages %}
+
+                <div class="alert">
+
+                    <i class="fa-solid fa-circle-info"></i>
+
+                    {{ message }}
+
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+
+        <!-- =================================================
+             FORM
+        ================================================== -->
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <!-- USERNAME -->
+
+            <div class="input-group">
+
+                <label>
+
+                    Username
+
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-regular fa-user input-icon"></i>
+
+                    <input
+
+                        type="text"
+
+                        name="username"
+
+                        placeholder="Masukkan username"
+
+                        autocomplete="username"
+
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+                <label>
+
+                    Email
+
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-regular fa-envelope input-icon"></i>
+
+                    <input
+
+                        type="email"
+
+                        name="email"
+
+                        placeholder="Masukkan email"
+
+                        autocomplete="email"
+
+                        required>
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <label>
+
+                    Password
+
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-lock input-icon"></i>
+
+                    <input
+
+                        type="password"
+
+                        name="password"
+
+                        id="password"
+
+                        placeholder="Masukkan password"
+
+                        autocomplete="new-password"
+
+                        required>
+
+
+                    <button
+
+                        type="button"
+
+                        class="password-toggle"
+
+                        onclick="togglePassword()">
+
+                        <i
+                            class="fa-regular fa-eye"
+                            id="passwordIcon">
+                        </i>
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="register-button">
+
+                <i class="fa-solid fa-user-plus"></i>
+
+                Daftar Sekarang
+
+            </button>
+
+
+        </form>
+
+
+
+        <!-- LOGIN -->
+
+        <div class="login-link">
+
+            Sudah punya akun?
+
+            <a href="{% url 'login' %}">
+
+                Login
+
+            </a>
+
+        </div>
+
+
+
+        <!-- HOME -->
+
+        <div class="back-home">
+
+            <a href="{% url 'index' %}">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Kembali ke KUU Mart
+
+            </a>
+
+        </div>
+
+
+    </div>
+
 
 </div>
 
-<div class="right">
 
-<h2>Daftar Akun</h2>
-{% if messages %}
-    {% for message in messages %}
-    <div class="alert">
-        {{ message }}
-    </div>
-    {% endfor %}
-{% endif %}
 
-<form method="POST">
+<!-- =====================================================
+     JAVASCRIPT
+===================================================== -->
 
-    {% csrf_token %}
+<script>
 
-    <div class="input-group">
+function togglePassword(){
 
-        <label>Username</label>
+    const password =
+        document.getElementById("password");
 
-        <input type="text" name="username" placeholder="Masukkan Username" required>
+    const icon =
+        document.getElementById("passwordIcon");
 
-    </div>
 
-    <div class="input-group">
+    if(password.type === "password"){
 
-        <label>Email</label>
+        password.type = "text";
 
-        <input type="email" name="email" placeholder="Masukkan Email" required>
+        icon.classList.remove("fa-eye");
 
-    </div>
+        icon.classList.add("fa-eye-slash");
 
-    <div class="input-group">
+    }
 
-        <label>Password</label>
+    else{
 
-        <input type="password" name="password" placeholder="Masukkan Password" required>
+        password.type = "password";
 
-    </div>
+        icon.classList.remove("fa-eye-slash");
 
-    <button type="submit">
+        icon.classList.add("fa-eye");
 
-        Daftar Sekarang
+    }
 
-    </button>
+}
 
-</form>
+</script>
 
-<div class="login-link">
 
-    Sudah punya akun?
-
-    <a href="{% url 'login' %}">
-
-        Login
-
-    </a>
-
-</div>
-
-</div>
-
-</div>
 </body>
+
 </html>

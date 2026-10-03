@@ -1,106 +1,441 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Pesanan Berhasil</title>
+<title>Pesanan Berhasil | KUU Mart</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:Poppins,sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
 body{
 
-background:#F4F8FC;
-display:flex;
-justify-content:center;
-align-items:center;
-height:100vh;
+    font-family:'Poppins',sans-serif;
+
+    background:#f7f5f2;
+
+    min-height:100vh;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    padding:30px 20px;
+
+    color:#332b25;
 
 }
+
+
+/* =====================================================
+   WRAPPER
+===================================================== */
+
+.success-wrapper{
+
+    width:100%;
+
+    max-width:600px;
+
+}
+
+
+/* =====================================================
+   CARD
+===================================================== */
 
 .card{
 
-background:white;
-padding:50px;
-width:550px;
-border-radius:25px;
-text-align:center;
-box-shadow:0 20px 50px rgba(0,0,0,.1);
+    background:#ffffff;
+
+    border:1px solid #ebe5de;
+
+    width:100%;
+
+    padding:55px 50px;
+
+    border-radius:26px;
+
+    text-align:center;
+
+    box-shadow:
+        0 20px 50px rgba(70,52,38,.10);
+
+    position:relative;
+
+    overflow:hidden;
 
 }
+
+
+/* dekorasi */
+
+.card::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:190px;
+
+    height:190px;
+
+    border-radius:50%;
+
+    background:#f1ebe4;
+
+    top:-110px;
+
+    left:-100px;
+
+}
+
+.card::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:170px;
+
+    height:170px;
+
+    border-radius:50%;
+
+    background:#f5f0ea;
+
+    bottom:-100px;
+
+    right:-90px;
+
+}
+
+
+/* =====================================================
+   ICON
+===================================================== */
 
 .icon{
 
-font-size:90px;
-margin-bottom:20px;
+    width:95px;
+
+    height:95px;
+
+    margin:0 auto 25px;
+
+    border-radius:50%;
+
+    background:#f1ebe4;
+
+    color:#76563b;
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    font-size:43px;
+
+    position:relative;
+
+    z-index:2;
+
+    box-shadow:
+        0 10px 25px rgba(118,86,59,.12);
 
 }
+
+
+/* =====================================================
+   TITLE
+===================================================== */
 
 h1{
 
-color:#2563EB;
-margin-bottom:20px;
+    color:#60452f;
+
+    font-size:32px;
+
+    font-weight:700;
+
+    margin-bottom:16px;
+
+    position:relative;
+
+    z-index:2;
 
 }
 
-p{
 
-color:#64748B;
-line-height:30px;
-margin-bottom:35px;
+/* =====================================================
+   DESCRIPTION
+===================================================== */
+
+.description{
+
+    color:#746b64;
+
+    font-size:14px;
+
+    line-height:1.9;
+
+    margin:0 auto;
+
+    max-width:470px;
+
+    position:relative;
+
+    z-index:2;
 
 }
+
+.description b{
+
+    color:#60452f;
+
+}
+
+
+/* =====================================================
+   INFO
+===================================================== */
+
+.order-info{
+
+    margin:25px auto 0;
+
+    max-width:440px;
+
+    background:#faf8f5;
+
+    border:1px solid #eee7df;
+
+    border-radius:13px;
+
+    padding:13px 18px;
+
+    color:#746b64;
+
+    font-size:12px;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.order-info i{
+
+    color:#76563b;
+
+    margin-right:6px;
+
+}
+
+
+/* =====================================================
+   BUTTON
+===================================================== */
 
 .btn{
 
-display:flex;
-justify-content:center;
-gap:20px;
+    display:flex;
+
+    justify-content:center;
+
+    gap:12px;
+
+    margin-top:30px;
+
+    position:relative;
+
+    z-index:2;
 
 }
 
 .btn a{
 
-text-decoration:none;
-padding:15px 30px;
-border-radius:12px;
-font-weight:bold;
+    text-decoration:none;
+
+    padding:14px 25px;
+
+    border-radius:12px;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    display:inline-flex;
+
+    align-items:center;
+
+    justify-content:center;
+
+    gap:8px;
+
+    transition:.25s;
 
 }
 
-.order{
 
-background:#2563EB;
-color:white;
-
-}
+/* =====================================================
+   HOME BUTTON
+===================================================== */
 
 .home{
 
-border:2px solid #2563EB;
-color:#2563EB;
+    background:#ffffff;
 
-}
+    border:1px solid #d8c9ba;
 
-.order:hover{
-
-background:#1D4ED8;
+    color:#674b33;
 
 }
 
 .home:hover{
 
-background:#2563EB;
-color:white;
+    background:#f1ebe4;
+
+    transform:translateY(-2px);
+
+}
+
+
+/* =====================================================
+   ORDER BUTTON
+===================================================== */
+
+.order{
+
+    background:#76563b;
+
+    border:1px solid #76563b;
+
+    color:white;
+
+    box-shadow:
+        0 8px 18px rgba(118,86,59,.20);
+
+}
+
+.order:hover{
+
+    background:#60452f;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(118,86,59,.25);
+
+}
+
+
+/* =====================================================
+   BRAND
+===================================================== */
+
+.brand{
+
+    margin-top:30px;
+
+    color:#60452f;
+
+    font-size:13px;
+
+    font-weight:700;
+
+    position:relative;
+
+    z-index:2;
+
+}
+
+.brand span{
+
+    color:#9a7b5c;
+
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:600px){
+
+    body{
+
+        padding:20px 15px;
+
+    }
+
+    .card{
+
+        padding:45px 25px;
+
+        border-radius:22px;
+
+    }
+
+    .icon{
+
+        width:82px;
+
+        height:82px;
+
+        font-size:36px;
+
+    }
+
+    h1{
+
+        font-size:26px;
+
+    }
+
+    .description{
+
+        font-size:13px;
+
+    }
+
+    .btn{
+
+        flex-direction:column;
+
+        width:100%;
+
+    }
+
+    .btn a{
+
+        width:100%;
+
+    }
 
 }
 
@@ -108,46 +443,101 @@ color:white;
 
 </head>
 
+
 <body>
+
+
+<div class="success-wrapper">
+
 
 <div class="card">
 
-<div class="icon">
 
-🎉
+    <!-- ICON BERHASIL -->
+
+    <div class="icon">
+
+        <i class="fa-solid fa-check"></i>
+
+    </div>
+
+
+    <!-- JUDUL -->
+
+    <h1>
+
+        Pesanan Berhasil
+
+    </h1>
+
+
+    <!-- PESAN -->
+
+    <p class="description">
+
+        Terima kasih telah berbelanja di
+
+        <b>KUU Mart</b>.
+
+        Pesanan Anda telah kami terima
+
+        dan akan segera diproses.
+
+    </p>
+
+
+    <!-- INFORMASI -->
+
+    <div class="order-info">
+
+        <i class="fa-solid fa-box"></i>
+
+        Pesanan Anda sedang diproses oleh KUU Mart.
+
+    </div>
+
+
+    <!-- BUTTON -->
+
+    <div class="btn">
+
+
+        <a href="{% url 'index' %}" class="home">
+
+            <i class="fa-solid fa-house"></i>
+
+            Beranda
+
+        </a>
+
+
+        <a href="{% url 'riwayat_pesanan' %}" class="order">
+
+            <i class="fa-solid fa-bag-shopping"></i>
+
+            Pesanan Saya
+
+        </a>
+
+
+    </div>
+
+
+    <!-- BRAND -->
+
+    <div class="brand">
+
+        KUU <span>Mart</span>
+
+    </div>
+
 
 </div>
 
-<h1>
-
-Pesanan Berhasil
-
-</h1>
-
-<p>
-
-Terima kasih telah berbelanja di
-<b>KUU Mart</b>.
-
-Pesanan Anda telah kami terima dan akan segera diproses.
-
-</p>
-
-<div class="btn">
-
-<a href="{% url 'index' %}" class="home">
-
-🏠 Beranda
-
-</a>
-
-<a href="{% url 'riwayat_pesanan' %}" class="order">
-📦 Pesanan Saya
-</a>
 
 </div>
 
-</div>
 
 </body>
+
 </html>

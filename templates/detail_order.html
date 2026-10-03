@@ -1,226 +1,1008 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
+
 <meta charset="UTF-8">
-<title>Detail Pesanan</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Detail Pesanan #{{ order.id }} | KUU Mart</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
+
+/* =====================================================
+   RESET
+===================================================== */
 
 *{
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:Poppins,sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#f5f7fb;
+    font-family:'Poppins',sans-serif;
+    background:#f7f5f2;
+    color:#332b25;
+    min-height:100vh;
+    padding-bottom:40px;
 }
+
+a{
+    text-decoration:none;
+    color:inherit;
+}
+
+
+/* =====================================================
+   CONTAINER
+===================================================== */
 
 .container{
-    width:90%;
+    width:92%;
     max-width:1200px;
-    margin:40px auto;
+    margin:35px auto;
 }
 
-.card{
-    background:#fff;
-    border-radius:15px;
-    padding:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-}
 
-h1{
-    color:#2563eb;
+/* =====================================================
+   HEADER
+===================================================== */
+
+.page-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
     margin-bottom:25px;
 }
 
-.info{
+.page-title{
+    display:flex;
+    align-items:center;
+    gap:13px;
+}
+
+.page-title .icon{
+    width:48px;
+    height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#eee5dc;
+    border-radius:14px;
+    color:#76563b;
+    font-size:21px;
+}
+
+.page-title h1{
+    font-size:28px;
+    font-weight:700;
+    color:#493525;
+}
+
+.page-title p{
+    margin-top:3px;
+    color:#968b82;
+    font-size:12px;
+}
+
+
+/* =====================================================
+   BACK BUTTON
+===================================================== */
+
+.back-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:11px 18px;
+    background:#76563b;
+    color:white;
+    border-radius:11px;
+    font-size:12px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.back-btn:hover{
+    background:#60452f;
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   MAIN CARD
+===================================================== */
+
+.card{
+    background:white;
+    border:1px solid #ebe5de;
+    border-radius:24px;
+    padding:28px;
+    box-shadow:0 15px 35px rgba(70,52,38,.08);
+}
+
+
+/* =====================================================
+   ORDER TOP
+===================================================== */
+
+.order-top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding-bottom:20px;
+    border-bottom:1px solid #eee7df;
+    margin-bottom:22px;
+}
+
+.order-number small{
+    display:block;
+    color:#968b82;
+    font-size:11px;
+    margin-bottom:5px;
+}
+
+.order-number strong{
+    color:#493525;
+    font-size:18px;
+}
+
+
+/* =====================================================
+   STATUS
+===================================================== */
+
+.status{
+    display:inline-flex;
+    align-items:center;
+    gap:7px;
+    padding:8px 15px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:600;
+}
+
+.status-menunggu{
+    background:#f8ead5;
+    color:#9a6a32;
+}
+
+.status-diproses{
+    background:#eee6df;
+    color:#76563b;
+}
+
+.status-dikirim{
+    background:#e7eee8;
+    color:#58715e;
+}
+
+.status-selesai{
+    background:#e6eee8;
+    color:#52705b;
+}
+
+
+/* =====================================================
+   INFORMATION GRID
+===================================================== */
+
+.info-grid{
     display:grid;
     grid-template-columns:1fr 1fr;
-    gap:15px;
+    gap:14px;
     margin-bottom:30px;
 }
 
-.item{
-    background:#f8fafc;
-    padding:15px;
-    border-radius:10px;
+.info-item{
+    background:#faf8f5;
+    border:1px solid #eee7df;
+    border-radius:15px;
+    padding:16px;
 }
 
-.item b{
-    color:#444;
+.info-label{
+    display:flex;
+    align-items:center;
+    gap:7px;
+    color:#9a9189;
+    font-size:11px;
+    margin-bottom:6px;
 }
 
-.status{
-    display:inline-block;
-    padding:8px 18px;
-    background:#FEF3C7;
-    color:#B45309;
-    border-radius:20px;
-    font-weight:bold;
+.info-label i{
+    color:#806047;
+    width:15px;
+}
+
+.info-value{
+    color:#493e35;
+    font-size:13px;
+    font-weight:600;
+    line-height:1.5;
+}
+
+
+/* =====================================================
+   PRODUK
+===================================================== */
+
+.product-section{
+    margin-top:5px;
+}
+
+.section-title{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    margin-bottom:15px;
+}
+
+.section-title i{
+    color:#806047;
+}
+
+.section-title h2{
+    color:#493525;
+    font-size:17px;
+    font-weight:600;
+}
+
+
+/* =====================================================
+   TABLE
+===================================================== */
+
+.table-wrapper{
+    width:100%;
+    overflow-x:auto;
+    border:1px solid #eee7df;
+    border-radius:16px;
 }
 
 table{
     width:100%;
     border-collapse:collapse;
-    margin-top:20px;
+    min-width:700px;
+}
+
+thead{
+    background:#76563b;
 }
 
 th{
-    background:#2563eb;
+    padding:14px 12px;
     color:white;
-    padding:15px;
+    font-size:11px;
+    font-weight:600;
+    text-align:center;
+}
+
+th:first-child{
+    border-radius:15px 0 0 0;
+}
+
+th:last-child{
+    border-radius:0 15px 0 0;
 }
 
 td{
-    padding:18px;
+    padding:16px 12px;
     text-align:center;
-    border-bottom:1px solid #eee;
+    color:#574d45;
+    font-size:12px;
+    border-bottom:1px solid #eee7df;
 }
 
-img{
-    width:80px;
-    border-radius:10px;
+tbody tr:last-child td{
+    border-bottom:none;
 }
 
-tfoot td{
-    font-size:22px;
-    font-weight:bold;
-    color:#2563eb;
-    border:none;
-    padding-top:25px;
+tbody tr:hover{
+    background:#fcfaf8;
 }
 
-.button{
-    margin-top:35px;
+
+/* =====================================================
+   PRODUCT IMAGE
+===================================================== */
+
+.product-img{
+    width:70px;
+    height:70px;
+    object-fit:contain;
+    background:#f5f0eb;
+    border-radius:12px;
+    padding:5px;
 }
 
-.button a{
-    background:#2563eb;
-    color:white;
-    text-decoration:none;
-    padding:12px 25px;
-    border-radius:10px;
-    transition:.3s;
+.no-image{
+    width:70px;
+    height:70px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:#f5f0eb;
+    border-radius:12px;
+    color:#a69789;
+    font-size:24px;
 }
 
-.button a:hover{
-    background:#1d4ed8;
+
+/* =====================================================
+   PRODUCT NAME
+===================================================== */
+
+.product-name{
+    color:#493525;
+    font-weight:600;
+    font-size:12px;
+}
+
+
+/* =====================================================
+   PRICE
+===================================================== */
+
+.price{
+    color:#65482f;
+    font-weight:600;
+}
+
+.quantity{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:35px;
+    height:30px;
+    padding:0 9px;
+    background:#f3eee9;
+    border-radius:8px;
+    color:#65482f;
+    font-weight:600;
+}
+
+
+/* =====================================================
+   TOTAL
+===================================================== */
+
+.total-section{
+    display:flex;
+    justify-content:flex-end;
+    margin-top:22px;
+}
+
+.total-box{
+    width:360px;
+    background:#f8f4ef;
+    border:1px solid #eee5dc;
+    border-radius:16px;
+    padding:18px 20px;
+}
+
+.total-row{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.total-label{
+    color:#6f655d;
+    font-size:12px;
+}
+
+.total-value{
+    color:#65482f;
+    font-size:21px;
+    font-weight:700;
+}
+
+
+/* =====================================================
+   FOOTER BUTTON
+===================================================== */
+
+.bottom-action{
+    margin-top:25px;
+    padding-top:22px;
+    border-top:1px solid #eee7df;
+    display:flex;
+    justify-content:flex-start;
+}
+
+.back-history{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:12px 20px;
+    background:#f0ebe5;
+    color:#674b33;
+    border:1px solid #e0d5c9;
+    border-radius:11px;
+    font-size:12px;
+    font-weight:600;
+    transition:.25s;
+}
+
+.back-history:hover{
+    background:#dfd3c5;
+    transform:translateY(-2px);
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:700px){
+
+    .container{
+        width:94%;
+        margin:20px auto;
+    }
+
+    .page-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .page-title h1{
+        font-size:23px;
+    }
+
+    .back-btn{
+        width:100%;
+        justify-content:center;
+    }
+
+    .card{
+        padding:18px;
+        border-radius:18px;
+    }
+
+    .order-top{
+        align-items:flex-start;
+        gap:15px;
+    }
+
+    .info-grid{
+        grid-template-columns:1fr;
+    }
+
+    .total-section{
+        justify-content:stretch;
+    }
+
+    .total-box{
+        width:100%;
+    }
+
+    .bottom-action{
+        width:100%;
+    }
+
+    .back-history{
+        width:100%;
+        justify-content:center;
+    }
+
+}
+
+@media(max-width:450px){
+
+    .page-title .icon{
+        width:42px;
+        height:42px;
+        font-size:18px;
+    }
+
+    .page-title h1{
+        font-size:20px;
+    }
+
+    .order-top{
+        flex-direction:column;
+    }
+
+    .order-number strong{
+        font-size:16px;
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
 <div class="container">
 
+
+<!-- =====================================================
+     HEADER
+===================================================== -->
+
+<div class="page-header">
+
+    <div class="page-title">
+
+        <div class="icon">
+            <i class="fa-solid fa-box"></i>
+        </div>
+
+        <div>
+
+            <h1>
+                Detail Pesanan #{{ order.id }}
+            </h1>
+
+            <p>
+                Informasi lengkap pesanan Anda
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <a href="{% url 'riwayat_pesanan' %}" class="back-btn">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Riwayat Pesanan
+
+    </a>
+
+</div>
+
+
+<!-- =====================================================
+     CARD
+===================================================== -->
+
 <div class="card">
 
-<h1>📦 Detail Pesanan #{{ order.id }}</h1>
 
-<div class="info">
+<!-- =====================================================
+     ORDER HEADER
+===================================================== -->
 
-<div class="item">
-<b>Nama Penerima</b><br>
-{{ order.nama }}
-</div>
+<div class="order-top">
 
-<div class="item">
-<b>No Telepon</b><br>
-{{ order.telepon }}
-</div>
+    <div class="order-number">
 
-<div class="item">
-<b>Alamat</b><br>
-{{ order.alamat }}
-</div>
+        <small>
+            Nomor Pesanan
+        </small>
 
-<div class="item">
-<b>Metode Pembayaran</b><br>
-{{ order.metode_pembayaran }}
-</div>
+        <strong>
+            #KUU{{ order.id|stringformat:"05d" }}
+        </strong>
 
-<div class="item">
-<b>Status Pesanan</b><br><br>
-<span class="status">{{ order.status }}</span>
-</div>
+    </div>
 
-<div class="item">
-<b>Tanggal Pesanan</b><br>
-{{ order.dibuat }}
-</div>
 
-</div>
+    <div>
 
-<table>
+        {% if order.status == 'Menunggu' %}
 
-<thead>
+        <span class="status status-menunggu">
 
-<tr>
-<th>Gambar</th>
-<th>Produk</th>
-<th>Harga</th>
-<th>Jumlah</th>
-<th>Subtotal</th>
-</tr>
+            <i class="fa-solid fa-clock"></i>
 
-</thead>
+            {{ order.status }}
 
-<tbody>
+        </span>
 
-{% for item in items %}
+        {% elif order.status == 'Diproses' %}
 
-<tr>
+        <span class="status status-diproses">
 
-<td>
-<img src="{{ item.produk.gambar.url }}">
-</td>
+            <i class="fa-solid fa-box"></i>
 
-<td>{{ item.produk.nama }}</td>
+            {{ order.status }}
 
-<td>Rp {{ item.harga }}</td>
+        </span>
 
-<td>{{ item.jumlah }}</td>
+        {% elif order.status == 'Dikirim' %}
 
-<td>Rp {{ item.subtotal }}</td>
+        <span class="status status-dikirim">
 
-</tr>
+            <i class="fa-solid fa-truck"></i>
 
-{% endfor %}
+            {{ order.status }}
 
-</tbody>
+        </span>
 
-<tfoot>
+        {% else %}
 
-<tr>
+        <span class="status status-selesai">
 
-<td colspan="5" align="right">
+            <i class="fa-solid fa-circle-check"></i>
 
-Total Pembayaran :
-Rp {{ order.total }}
+            {{ order.status }}
 
-</td>
+        </span>
 
-</tr>
+        {% endif %}
 
-</tfoot>
-
-</table>
-
-<div class="button">
-
-<a href="{% url 'riwayat_pesanan' %}">
-← Kembali ke Riwayat Pesanan
-</a>
+    </div>
 
 </div>
 
+
+<!-- =====================================================
+     INFORMASI PESANAN
+===================================================== -->
+
+<div class="info-grid">
+
+    <div class="info-item">
+
+        <div class="info-label">
+
+            <i class="fa-solid fa-user"></i>
+
+            Nama Penerima
+
+        </div>
+
+        <div class="info-value">
+
+            {{ order.nama }}
+
+        </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+        <div class="info-label">
+
+            <i class="fa-solid fa-phone"></i>
+
+            No. Telepon
+
+        </div>
+
+        <div class="info-value">
+
+            {{ order.telepon }}
+
+        </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+        <div class="info-label">
+
+            <i class="fa-solid fa-location-dot"></i>
+
+            Alamat Pengiriman
+
+        </div>
+
+        <div class="info-value">
+
+            {{ order.alamat }}
+
+        </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+        <div class="info-label">
+
+            <i class="fa-solid fa-credit-card"></i>
+
+            Metode Pembayaran
+
+        </div>
+
+        <div class="info-value">
+
+            {{ order.metode_pembayaran }}
+
+        </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+        <div class="info-label">
+
+            <i class="fa-solid fa-calendar"></i>
+
+            Tanggal Pesanan
+
+        </div>
+
+        <div class="info-value">
+
+            {{ order.dibuat|date:"d F Y, H:i" }}
+
+        </div>
+
+    </div>
+
+
+    <div class="info-item">
+
+        <div class="info-label">
+
+            <i class="fa-solid fa-box"></i>
+
+            Status Pesanan
+
+        </div>
+
+        <div class="info-value">
+
+            {{ order.status }}
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     PRODUK
+===================================================== -->
+
+<div class="product-section">
+
+    <div class="section-title">
+
+        <i class="fa-solid fa-bag-shopping"></i>
+
+        <h2>
+            Produk yang Dipesan
+        </h2>
+
+    </div>
+
+
+    <div class="table-wrapper">
+
+        <table>
+
+            <thead>
+
+                <tr>
+
+                    <th>
+                        Gambar
+                    </th>
+
+                    <th>
+                        Produk
+                    </th>
+
+                    <th>
+                        Harga
+                    </th>
+
+                    <th>
+                        Jumlah
+                    </th>
+
+                    <th>
+                        Subtotal
+                    </th>
+
+                </tr>
+
+            </thead>
+
+
+            <tbody>
+
+            {% for item in items %}
+
+            <tr>
+
+                <td>
+
+                    {% if item.produk.gambar %}
+
+                    <img
+                        src="{{ item.produk.gambar.url }}"
+                        alt="{{ item.produk.nama }}"
+                        class="product-img">
+
+                    {% else %}
+
+                    <div class="no-image">
+
+                        <i class="fa-solid fa-image"></i>
+
+                    </div>
+
+                    {% endif %}
+
+                </td>
+
+
+                <td>
+
+                    <div class="product-name">
+
+                        {{ item.produk.nama }}
+
+                    </div>
+
+                </td>
+
+
+                <td>
+
+                    <span class="price harga-indonesia">
+
+                        Rp {{ item.harga|floatformat:0 }}
+
+                    </span>
+
+                </td>
+
+
+                <td>
+
+                    <span class="quantity">
+
+                        {{ item.jumlah }}
+
+                    </span>
+
+                </td>
+
+
+                <td>
+
+                    <span class="price harga-indonesia">
+
+                        Rp {{ item.subtotal|floatformat:0 }}
+
+                    </span>
+
+                </td>
+
+            </tr>
+
+            {% empty %}
+
+            <tr>
+
+                <td colspan="5">
+
+                    Belum ada produk dalam pesanan ini.
+
+                </td>
+
+            </tr>
+
+            {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     TOTAL
+===================================================== -->
+
+<div class="total-section">
+
+    <div class="total-box">
+
+        <div class="total-row">
+
+            <span class="total-label">
+
+                Total Pembayaran
+
+            </span>
+
+            <span class="total-value harga-indonesia">
+
+                Rp {{ order.total|floatformat:0 }}
+
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =====================================================
+     ACTION
+===================================================== -->
+
+<div class="bottom-action">
+
+    <a
+        href="{% url 'riwayat_pesanan' %}"
+        class="back-history">
+
+        <i class="fa-solid fa-arrow-left"></i>
+
+        Kembali ke Riwayat Pesanan
+
+    </a>
+
+</div>
+
+
 </div>
 
 </div>
+
+
+<!-- =====================================================
+     UBAH FORMAT HARGA MENJADI TITIK
+===================================================== -->
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function(){
+
+    document.querySelectorAll(".harga-indonesia").forEach(function(element){
+
+        let text = element.textContent.trim();
+
+        /*
+        Hapus semua pemisah ribuan yang mungkin berasal
+        dari Django, kemudian format ulang menggunakan titik.
+        */
+
+        let angka = text.replace(/[^\d]/g, "");
+
+        if(angka !== ""){
+
+            let formatted = Number(angka).toLocaleString("id-ID");
+
+            element.textContent = "Rp " + formatted;
+
+        }
+
+    });
+
+});
+
+</script>
+
 
 </body>
+
 </html>

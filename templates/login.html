@@ -1,199 +1,883 @@
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Login - KUU Mart</title>
+<title>Login | KUU Mart</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link
+    href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+    rel="stylesheet">
+
+<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
+/* =====================================================
+   RESET
+===================================================== */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-background:linear-gradient(135deg,#DBEAFE,#EFF6FF);
-height:100vh;
-display:flex;
-justify-content:center;
-align-items:center;
+    min-height:100vh;
+
+    font-family:'Poppins',sans-serif;
+
+    background:#f7f5f2;
+
+    color:#332b25;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:30px;
 }
 
-.container{
-width:900px;
-display:flex;
-background:white;
-border-radius:25px;
-overflow:hidden;
-box-shadow:0 15px 40px rgba(0,0,0,.1);
+a{
+    text-decoration:none;
 }
 
-.left{
-flex:1;
-background:linear-gradient(135deg,#2563EB,#60A5FA);
-display:flex;
-justify-content:center;
-align-items:center;
-color:white;
-padding:60px;
+
+/* =====================================================
+   MAIN CONTAINER
+===================================================== */
+
+.auth-container{
+
+    width:920px;
+
+    max-width:100%;
+
+    min-height:560px;
+
+    background:white;
+
+    border:1px solid #ebe4dc;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    display:flex;
+
+    box-shadow:
+        0 20px 55px rgba(70,52,38,.13);
 }
 
-.left h1{
-font-size:45px;
-line-height:60px;
+
+/* =====================================================
+   LEFT SIDE
+===================================================== */
+
+.auth-left{
+
+    width:50%;
+
+    background:
+        linear-gradient(
+            135deg,
+            #e5d9cc,
+            #f3ece4
+        );
+
+    padding:55px;
+
+    display:flex;
+
+    align-items:center;
+
+    position:relative;
+
+    overflow:hidden;
 }
 
-.right{
-flex:1;
-padding:55px;
+
+/* CIRCLE DECORATION */
+
+.auth-left::before{
+
+    content:"";
+
+    position:absolute;
+
+    width:300px;
+    height:300px;
+
+    right:-120px;
+    top:-120px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.35);
 }
 
-.right h2{
-text-align:center;
-margin-bottom:35px;
-color:#1E293B;
+.auth-left::after{
+
+    content:"";
+
+    position:absolute;
+
+    width:220px;
+    height:220px;
+
+    left:-120px;
+    bottom:-100px;
+
+    border-radius:50%;
+
+    background:
+        rgba(255,255,255,.25);
 }
+
+
+/* LEFT CONTENT */
+
+.left-content{
+
+    position:relative;
+
+    z-index:2;
+
+    max-width:390px;
+}
+
+
+/* SMALL TEXT */
+
+.left-small{
+
+    color:#806047;
+
+    font-size:11px;
+
+    font-weight:600;
+
+    letter-spacing:.8px;
+
+    margin-bottom:13px;
+}
+
+
+/* TITLE */
+
+.left-content h1{
+
+    color:#493525;
+
+    font-size:40px;
+
+    line-height:1.25;
+
+    margin-bottom:18px;
+}
+
+
+/* HIGHLIGHT */
+
+.left-content h1 span{
+
+    color:#8d6c4d;
+}
+
+
+/* DESCRIPTION */
+
+.left-content p{
+
+    color:#6f655d;
+
+    font-size:13px;
+
+    line-height:1.9;
+}
+
+
+/* SHOPPING ICON */
+
+.left-icon{
+
+    margin-top:35px;
+
+    width:70px;
+    height:70px;
+
+    border-radius:20px;
+
+    background:rgba(255,255,255,.55);
+
+    color:#76563b;
+
+    display:flex;
+
+    align-items:center;
+    justify-content:center;
+
+    font-size:27px;
+
+    box-shadow:
+        0 10px 25px rgba(70,52,38,.08);
+}
+
+
+/* =====================================================
+   RIGHT SIDE
+===================================================== */
+
+.auth-right{
+
+    width:50%;
+
+    padding:50px 55px;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+}
+
+
+/* =====================================================
+   LOGO
+===================================================== */
+
+.logo{
+
+    text-align:center;
+
+    font-size:28px;
+
+    font-weight:700;
+
+    color:#60452f;
+
+    margin-bottom:6px;
+}
+
+.logo span{
+
+    color:#9a7b5c;
+}
+
+
+/* =====================================================
+   SUBTITLE
+===================================================== */
+
+.subtitle{
+
+    text-align:center;
+
+    color:#99918a;
+
+    font-size:11px;
+
+    line-height:1.6;
+
+    margin-bottom:28px;
+}
+
+
+/* =====================================================
+   TITLE
+===================================================== */
+
+.auth-title{
+
+    text-align:center;
+
+    color:#493525;
+
+    font-size:23px;
+
+    font-weight:600;
+
+    margin-bottom:24px;
+}
+
+
+/* =====================================================
+   ALERT
+===================================================== */
+
+.alert{
+
+    padding:12px 14px;
+
+    margin-bottom:18px;
+
+    border-radius:11px;
+
+    background:#f7eee8;
+
+    border:1px solid #ead8ca;
+
+    color:#8a6650;
+
+    font-size:11px;
+
+    line-height:1.6;
+}
+
+
+/* =====================================================
+   INPUT
+===================================================== */
 
 .input-group{
-margin-bottom:22px;
+
+    margin-bottom:18px;
 }
 
 .input-group label{
-display:block;
-margin-bottom:8px;
-font-weight:600;
+
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#4a3d34;
+
+    font-size:12px;
+
+    font-weight:600;
+}
+
+.input-wrapper{
+
+    position:relative;
+}
+
+.input-wrapper i{
+
+    position:absolute;
+
+    left:15px;
+
+    top:50%;
+
+    transform:translateY(-50%);
+
+    color:#9a8878;
+
+    font-size:13px;
+
+    pointer-events:none;
 }
 
 .input-group input{
-width:100%;
-padding:15px;
-border-radius:12px;
-border:1px solid #ddd;
-outline:none;
+
+    width:100%;
+
+    height:46px;
+
+    padding:0 15px 0 43px;
+
+    border:1px solid #e4d8cb;
+
+    border-radius:12px;
+
+    outline:none;
+
+    background:#fffdf9;
+
+    color:#3f342b;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:12px;
+
+    transition:.25s;
 }
 
-button{
-width:100%;
-padding:15px;
-background:#2563EB;
-color:white;
-border:none;
-border-radius:12px;
-font-size:16px;
-cursor:pointer;
+.input-group input:focus{
+
+    border-color:#bda78f;
+
+    background:white;
+
+    box-shadow:
+        0 0 0 3px rgba(118,86,59,.09);
 }
 
-button:hover{
-background:#1D4ED8;
+.input-group input::placeholder{
+
+    color:#b5aaa0;
 }
+
+
+/* =====================================================
+   LOGIN BUTTON
+===================================================== */
+
+.auth-button{
+
+    width:100%;
+
+    height:46px;
+
+    margin-top:5px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:#76563b;
+
+    color:white;
+
+    font-family:'Poppins',sans-serif;
+
+    font-size:12px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s;
+
+    box-shadow:
+        0 8px 20px rgba(118,86,59,.18);
+}
+
+.auth-button:hover{
+
+    background:#60452f;
+
+    transform:translateY(-2px);
+
+    box-shadow:
+        0 12px 25px rgba(118,86,59,.22);
+}
+
+
+/* =====================================================
+   OTP INFO
+===================================================== */
+
+.otp-info{
+
+    margin-top:14px;
+
+    padding:11px 13px;
+
+    background:#f7f3ee;
+
+    border:1px solid #ebe1d7;
+
+    border-radius:10px;
+
+    color:#806f60;
+
+    font-size:10px;
+
+    line-height:1.6;
+
+    text-align:center;
+}
+
+
+/* =====================================================
+   REGISTER
+===================================================== */
 
 .register{
-text-align:center;
-margin-top:20px;
+
+    text-align:center;
+
+    margin-top:22px;
+
+    color:#91877f;
+
+    font-size:11px;
 }
 
 .register a{
-text-decoration:none;
-color:#2563EB;
-font-weight:bold;
+
+    color:#76563b;
+
+    font-weight:600;
+
+    transition:.2s;
 }
 
-.alert{
-padding:12px;
-background:#DBEAFE;
-color:#2563EB;
-border-radius:10px;
-margin-bottom:20px;
+.register a:hover{
+
+    color:#60452f;
+
+    text-decoration:underline;
+}
+
+
+/* =====================================================
+   BACK
+===================================================== */
+
+.back-home{
+
+    text-align:center;
+
+    margin-top:14px;
+
+    font-size:10px;
+
+    color:#a19891;
+}
+
+.back-home a{
+
+    color:#806047;
+
+    font-weight:500;
+}
+
+.back-home a:hover{
+
+    text-decoration:underline;
+}
+
+
+/* =====================================================
+   RESPONSIVE
+===================================================== */
+
+@media(max-width:750px){
+
+    body{
+
+        padding:18px;
+
+        align-items:center;
+    }
+
+    .auth-container{
+
+        flex-direction:column;
+
+        min-height:auto;
+
+        border-radius:22px;
+    }
+
+    .auth-left{
+
+        width:100%;
+
+        padding:35px 30px;
+
+        text-align:center;
+
+        justify-content:center;
+    }
+
+    .left-content{
+
+        max-width:100%;
+    }
+
+    .left-content h1{
+
+        font-size:29px;
+    }
+
+    .left-content p{
+
+        font-size:11px;
+    }
+
+    .left-icon{
+
+        width:55px;
+        height:55px;
+
+        margin:22px auto 0;
+
+        border-radius:15px;
+
+        font-size:21px;
+    }
+
+    .auth-right{
+
+        width:100%;
+
+        padding:35px 28px;
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    body{
+
+        padding:12px;
+    }
+
+    .auth-container{
+
+        border-radius:20px;
+    }
+
+    .auth-left{
+
+        padding:30px 22px;
+    }
+
+    .left-content h1{
+
+        font-size:25px;
+    }
+
+    .auth-right{
+
+        padding:30px 22px;
+    }
+
+    .logo{
+
+        font-size:25px;
+    }
+
+    .auth-title{
+
+        font-size:20px;
+    }
+
 }
 
 </style>
 
 </head>
 
+
 <body>
 
-<div class="container">
 
-<div class="left">
+<div class="auth-container">
 
-<h1>
 
-Selamat Datang Kembali
+    <!-- =================================================
+         LEFT
+    ================================================== -->
 
-</h1>
+    <div class="auth-left">
 
-</div>
+        <div class="left-content">
 
-<div class="right">
+            <div class="left-small">
+                ✦ KUU MART
+            </div>
 
-<h2>Login</h2>
-{% if messages %}
-    {% for message in messages %}
-    <div class="alert">
-        {{ message }}
-    </div>
-    {% endfor %}
-{% endif %}
+            <h1>
+                Selamat<br>
+                <span>Datang Kembali</span> 👋
+            </h1>
 
-<form method="POST">
+            <p>
+                Masuk ke akun KUU Mart dan lanjutkan
+                pengalaman belanja dengan mudah,
+                nyaman, dan aman.
+            </p>
 
-    {% csrf_token %}
+            <div class="left-icon">
 
-    <div class="input-group">
+                <i class="fa-solid fa-bag-shopping"></i>
 
-        <label>Username</label>
+            </div>
 
-        <input
-            type="text"
-            name="username"
-            placeholder="Masukkan Username"
-            required>
+        </div>
 
     </div>
 
-    <div class="input-group">
 
-        <label>Password</label>
+    <!-- =================================================
+         RIGHT
+    ================================================== -->
 
-        <input
-            type="password"
-            name="password"
-            placeholder="Masukkan Password"
-            required>
+    <div class="auth-right">
+
+
+        <!-- LOGO -->
+
+        <div class="logo">
+
+            KUU <span>Mart</span>
+
+        </div>
+
+
+        <div class="subtitle">
+
+            Marketplace Modern Untuk Semua Kebutuhan
+
+        </div>
+
+
+        <!-- TITLE -->
+
+        <h2 class="auth-title">
+
+            Login ke Akun
+
+        </h2>
+
+
+        <!-- DJANGO MESSAGE -->
+
+        {% if messages %}
+
+            {% for message in messages %}
+
+                <div class="alert">
+
+                    {{ message }}
+
+                </div>
+
+            {% endfor %}
+
+        {% endif %}
+
+
+        <!-- LOGIN FORM -->
+
+        <form method="POST">
+
+            {% csrf_token %}
+
+
+            <!-- EMAIL -->
+
+            <div class="input-group">
+
+                <label for="email">
+                    Email
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-regular fa-envelope"></i>
+
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Masukkan email kamu"
+                        autocomplete="email"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- PASSWORD -->
+
+            <div class="input-group">
+
+                <label for="password">
+                    Password
+                </label>
+
+                <div class="input-wrapper">
+
+                    <i class="fa-solid fa-lock"></i>
+
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        placeholder="Masukkan password kamu"
+                        autocomplete="current-password"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <!-- BUTTON -->
+
+            <button
+                type="submit"
+                class="auth-button">
+
+                <i class="fa-solid fa-right-to-bracket"></i>
+
+                &nbsp; Login & Kirim OTP
+
+            </button>
+
+
+            <!-- OTP INFO -->
+
+            <div class="otp-info">
+
+                <i class="fa-regular fa-envelope"></i>
+
+                Setelah password benar, kode OTP 6 digit
+                akan dikirim ke email kamu untuk
+                verifikasi login.
+
+            </div>
+
+        </form>
+
+
+        <!-- REGISTER -->
+
+        <div class="register">
+
+            Belum punya akun?
+
+            <a href="{% url 'register' %}">
+                Daftar sekarang
+            </a>
+
+        </div>
+
+
+        <!-- HOME -->
+
+        <div class="back-home">
+
+            <a href="{% url 'index' %}">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Kembali ke Beranda
+
+            </a>
+
+        </div>
+
 
     </div>
 
-    <button type="submit">
-
-        Login Sekarang
-
-    </button>
-
-</form>
-
-<div class="register">
-
-Belum punya akun?
-
-<a href="{% url 'register' %}">
-
-Daftar
-
-</a>
-
 </div>
 
-</div>
-
-</div>
 
 </body>
-
 </html>

@@ -1,15 +1,23 @@
 {% load static %}
+{% load humanize %}
+
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>{{ produk.nama }} | KUU Mart</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
@@ -17,462 +25,1071 @@
     margin:0;
     padding:0;
     box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
-    background:#F5F7FB;
+    font-family:'Poppins',sans-serif;
+    background:#f7f5f2;
+    color:#332b25;
+    padding-bottom:100px;
+}
+
+a{
+    text-decoration:none;
+    color:inherit;
 }
 
 .container{
-    width:90%;
-    max-width:1300px;
-    margin:50px auto;
+    width:92%;
+    max-width:1250px;
+    margin:auto;
+}
+
+
+/* ================= HEADER ================= */
+
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
+    background:rgba(255,255,255,.97);
+    border-bottom:1px solid #ebe4dc;
+    backdrop-filter:blur(15px);
+}
+
+.header-inner{
+    min-height:72px;
+    display:flex;
+    align-items:center;
+    gap:25px;
+}
+
+.logo{
+    font-size:25px;
+    font-weight:700;
+    color:#60452f;
+    white-space:nowrap;
+}
+
+.logo span{
+    color:#9a7b5c;
+}
+
+
+/* ================= SEARCH ================= */
+
+.search{
+    flex:1;
+    max-width:580px;
+    margin:auto;
+    position:relative;
+}
+
+.search input{
+    width:100%;
+    height:44px;
+    border:none;
+    outline:none;
+    background:#f2eee9;
+    border-radius:14px;
+    padding:0 52px 0 18px;
+    font-family:'Poppins',sans-serif;
+    font-size:13px;
+    color:#332b25;
+}
+
+.search input:focus{
+    box-shadow:0 0 0 2px #d8c9ba;
+}
+
+.search button{
+    position:absolute;
+    right:5px;
+    top:5px;
+    width:34px;
+    height:34px;
+    border:none;
+    border-radius:10px;
+    background:#76563b;
+    color:white;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.search button:hover{
+    background:#60452f;
+}
+
+
+/* ================= HEADER ICON ================= */
+
+.header-icons{
+    display:flex;
+    align-items:center;
+    gap:20px;
+}
+
+.icon-link{
+    position:relative;
+    font-size:19px;
+    color:#4c443e;
+    transition:.25s;
+}
+
+.icon-link:hover{
+    color:#76563b;
+    transform:translateY(-2px);
+}
+
+
+/* ================= DETAIL ================= */
+
+.detail-section{
+    padding:35px 0 10px;
 }
 
 .product-detail{
-
     display:grid;
-
     grid-template-columns:1fr 1fr;
-
-    gap:50px;
-
+    gap:45px;
     background:white;
-
-    padding:40px;
-
-    border-radius:25px;
-
-    box-shadow:0 15px 35px rgba(0,0,0,.08);
-
+    border:1px solid #ebe5de;
+    border-radius:26px;
+    padding:35px;
+    box-shadow:0 15px 35px rgba(70,52,38,.08);
 }
 
+
+/* ================= IMAGE ================= */
+
 .image-box{
-
-    text-align:center;
-
+    height:500px;
+    background:#f3eee9;
+    border-radius:20px;
+    overflow:hidden;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    position:relative;
 }
 
 .image-box img{
-
     width:100%;
-
-    max-height:500px;
-
+    height:100%;
     object-fit:contain;
+    padding:20px;
+}
 
+.no-image{
+    font-size:80px;
+    opacity:.35;
+}
+
+
+/* ================= INFO ================= */
+
+.info{
+    padding:10px 5px;
+}
+
+.category{
+    display:inline-block;
+    background:#f1ebe4;
+    color:#806047;
+    padding:6px 12px;
     border-radius:20px;
-
+    font-size:10px;
+    font-weight:600;
+    text-transform:uppercase;
+    margin-bottom:15px;
 }
 
 .info h1{
-
-    font-size:40px;
-
-    color:#1E293B;
-
-    margin-bottom:15px;
-
+    font-size:34px;
+    line-height:1.35;
+    color:#493525;
+    margin-bottom:13px;
 }
+
+
+/* ================= RATING ================= */
 
 .rating{
-
-    color:#F59E0B;
-
-    font-size:18px;
-
-    margin-bottom:20px;
-
+    display:flex;
+    align-items:center;
+    gap:8px;
+    color:#9a7b5c;
+    font-size:13px;
+    margin-bottom:22px;
 }
+
+.rating i{
+    color:#a07d58;
+}
+
+.rating-number{
+    color:#6f655d;
+}
+
+
+/* ================= PRICE ================= */
 
 .price{
-
-    margin:25px 0;
-
+    background:#f8f4ef;
+    border-radius:17px;
+    padding:20px;
+    margin-bottom:22px;
 }
 
-.price h2{
-
-    font-size:42px;
-
-    color:#2563EB;
-
+.price-main{
+    color:#65482f;
+    font-size:32px;
+    font-weight:700;
 }
 
-.price del{
-
-    color:#94A3B8;
-
-    font-size:20px;
-
-}
-
-.badge{
-
-    display:inline-block;
-
-    margin-left:10px;
-
-    background:#EF4444;
-
-    color:white;
-
-    padding:5px 12px;
-
-    border-radius:30px;
-
+.price-old{
+    color:#aaa39c;
     font-size:14px;
-
+    margin-left:8px;
+    text-decoration:line-through;
 }
 
-.detail{
-
-    margin:25px 0;
-
+.discount{
+    display:inline-block;
+    margin-left:10px;
+    background:#76563b;
+    color:white;
+    padding:5px 9px;
+    border-radius:7px;
+    font-size:10px;
+    font-weight:600;
+    vertical-align:middle;
 }
 
-.detail p{
 
-    margin-bottom:12px;
+/* ================= DETAIL INFO ================= */
 
-    font-size:17px;
-
+.detail-info{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-bottom:25px;
 }
+
+.detail-item{
+    background:#faf8f5;
+    border:1px solid #eee7df;
+    border-radius:13px;
+    padding:13px;
+}
+
+.detail-item small{
+    display:block;
+    color:#9a9189;
+    font-size:10px;
+    margin-bottom:4px;
+}
+
+.detail-item strong{
+    color:#493e35;
+    font-size:13px;
+}
+
+
+/* ================= DESKRIPSI ================= */
 
 .deskripsi{
-
-    margin-top:30px;
-
+    border-top:1px solid #eee7df;
+    padding-top:20px;
 }
 
 .deskripsi h3{
-
-    margin-bottom:15px;
-
-    color:#1E293B;
-
+    color:#493525;
+    font-size:17px;
+    margin-bottom:10px;
 }
 
 .deskripsi p{
-
+    color:#746b64;
+    font-size:13px;
     line-height:1.8;
-
-    color:#475569;
-
 }
 
-/*================ BUTTON =================*/
+
+/* ================= BUTTON ================= */
 
 .btn-group{
-
-    display:flex;
-
-    gap:15px;
-
-    margin-top:35px;
-
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:12px;
+    margin-top:25px;
 }
 
 .cart-btn,
 .buy-btn{
-
-    flex:1;
-
-    text-align:center;
-
-    padding:15px;
-
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:8px;
+    padding:14px;
     border-radius:12px;
-
-    text-decoration:none;
-
+    font-size:12px;
     font-weight:600;
-
-    transition:.3s;
-
+    transition:.25s;
 }
 
 .cart-btn{
-
-    background:#EFF6FF;
-
-    color:#2563EB;
-
+    background:#f0ebe5;
+    color:#674b33;
+    border:1px solid #e0d5c9;
 }
 
 .cart-btn:hover{
-
-    background:#DBEAFE;
-
+    background:#dfd3c5;
+    transform:translateY(-2px);
 }
 
 .buy-btn{
-
-    background:#2563EB;
-
+    background:#76563b;
     color:white;
-
 }
 
 .buy-btn:hover{
-
-    background:#1D4ED8;
-
+    background:#60452f;
+    transform:translateY(-2px);
 }
 
-/*================ PRODUK LAIN =================*/
+
+/* ================= REKOMENDASI ================= */
 
 .rekomendasi{
-
-    margin-top:70px;
-
+    margin-top:38px;
 }
 
-.rekomendasi h2{
-
-    margin-bottom:25px;
-
-    color:#1E293B;
-
+.section-header{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:18px;
 }
+
+.section-title{
+    font-size:21px;
+    font-weight:600;
+    color:#302923;
+}
+
+.section-link{
+    color:#806047;
+    font-size:12px;
+    font-weight:600;
+}
+
+.section-link:hover{
+    text-decoration:underline;
+}
+
+
+/* ================= PRODUCT GRID ================= */
 
 .product-grid{
-
     display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-
-    gap:25px;
-
+    grid-template-columns:repeat(4,1fr);
+    gap:15px;
 }
 
-.card{
-
+.product-card{
     background:white;
-
-    border-radius:20px;
-
+    border:1px solid #ebe5de;
+    border-radius:17px;
     overflow:hidden;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
+    position:relative;
     transition:.3s;
-
 }
 
-.card:hover{
-
-    transform:translateY(-8px);
-
+.product-card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 15px 30px rgba(65,48,34,.11);
 }
 
-.card img{
+.product-image{
+    height:190px;
+    background:#f3eee9;
+    position:relative;
+    overflow:hidden;
+}
 
+.product-image img{
     width:100%;
-
-    height:200px;
-
+    height:100%;
     object-fit:cover;
+    transition:.4s;
+}
 
+.product-card:hover .product-image img{
+    transform:scale(1.05);
+}
+
+.card-discount{
+    position:absolute;
+    top:10px;
+    left:10px;
+    z-index:5;
+    background:#76563b;
+    color:white;
+    padding:5px 8px;
+    border-radius:6px;
+    font-size:9px;
+    font-weight:600;
 }
 
 .card-body{
-
-    padding:18px;
-
+    padding:13px;
 }
 
-.card-body h3{
-
-    margin-bottom:10px;
-
+.card-category{
+    color:#96775a;
+    font-size:9px;
+    font-weight:600;
+    text-transform:uppercase;
 }
 
-.card-body h3 a{
-
-    text-decoration:none;
-
-    color:#1E293B;
-
+.card-name{
+    font-size:13px;
+    font-weight:600;
+    line-height:1.5;
+    min-height:39px;
+    margin-top:5px;
+    color:#302b27;
 }
 
-.card-body h3 a:hover{
-
-    color:#2563EB;
-
+.card-name:hover{
+    color:#806047;
 }
 
-.card-body h4{
-
-    color:#2563EB;
-
-    margin-top:10px;
-
+.card-rating{
+    margin-top:7px;
+    color:#a07d58;
+    font-size:10px;
 }
 
-/*================ BACK =================*/
+.card-price{
+    margin-top:9px;
+    color:#65482f;
+    font-size:15px;
+    font-weight:700;
+}
+
+
+/* ================= BACK ================= */
 
 .back{
-
     text-align:center;
-
-    margin:60px 0;
-
+    margin:35px 0 20px;
 }
 
 .back a{
-
-    background:#2563EB;
-
-    color:white;
-
-    padding:15px 35px;
-
-    border-radius:50px;
-
-    text-decoration:none;
-
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    background:#f0ebe5;
+    color:#674b33;
+    padding:11px 20px;
+    border-radius:10px;
+    font-size:12px;
     font-weight:600;
-
+    transition:.25s;
 }
 
 .back a:hover{
-
-    background:#1D4ED8;
-
+    background:#dfd3c5;
+    transform:translateY(-2px);
 }
 
-/*================ RESPONSIVE =================*/
 
-@media(max-width:900px){
+/* ================= BOTTOM NAV ================= */
 
-.product-detail{
-
-grid-template-columns:1fr;
-
+.bottom-nav{
+    position:fixed;
+    left:50%;
+    bottom:18px;
+    transform:translateX(-50%);
+    width:min(650px,92%);
+    height:72px;
+    background:rgba(255,255,255,.97);
+    backdrop-filter:blur(18px);
+    border:1px solid #e9e1d9;
+    border-radius:23px;
+    box-shadow:0 15px 40px rgba(70,52,38,.16);
+    display:flex;
+    align-items:center;
+    justify-content:space-around;
+    z-index:9999;
 }
 
-.info h1{
-
-font-size:30px;
-
+.nav-item{
+    position:relative;
+    width:20%;
+    height:100%;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:5px;
+    color:#968b82;
+    transition:.25s;
 }
 
-.price h2{
-
-font-size:32px;
-
+.nav-icon{
+    font-size:20px;
+    line-height:1;
+    transition:.25s;
 }
 
+.nav-text{
+    font-size:10px;
+    font-weight:500;
 }
 
-.product-card img{
-    width:100%;
-    height:220px;
-    object-fit:cover;
-    display:block;
+.nav-item:hover{
+    color:#76563b;
+}
+
+.nav-item:hover .nav-icon{
+    transform:translateY(-2px);
+}
+
+.nav-item.active{
+    color:#76563b;
+    font-weight:600;
+}
+
+.nav-item.active::before{
+    content:"";
+    position:absolute;
+    top:0;
+    width:35px;
+    height:3px;
+    background:#76563b;
+    border-radius:0 0 8px 8px;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+    .product-detail{
+        grid-template-columns:1fr;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
+@media(max-width:700px){
+
+    .container{
+        width:94%;
+    }
+
+    .header-inner{
+        padding:13px 0;
+        flex-wrap:wrap;
+    }
+
+    .search{
+        order:3;
+        flex-basis:100%;
+        max-width:none;
+    }
+
+    .product-detail{
+        padding:20px;
+        gap:25px;
+    }
+
+    .image-box{
+        height:350px;
+    }
+
+    .info h1{
+        font-size:27px;
+    }
+
+    .price-main{
+        font-size:26px;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+        gap:10px;
+    }
+
+    .product-image{
+        height:155px;
+    }
+
+    .btn-group{
+        grid-template-columns:1fr;
+    }
+}
+
+@media(max-width:450px){
+
+    .logo{
+        font-size:21px;
+    }
+
+    .header-icons{
+        gap:13px;
+    }
+
+    .product-detail{
+        padding:15px;
+    }
+
+    .image-box{
+        height:300px;
+    }
+
+    .info h1{
+        font-size:24px;
+    }
+
+    .detail-info{
+        grid-template-columns:1fr;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+    .bottom-nav{
+        width:100%;
+        bottom:0;
+        height:70px;
+        border-radius:0;
+        border-left:none;
+        border-right:none;
+        border-bottom:none;
+    }
+
+    body{
+        padding-bottom:80px;
+    }
+
 }
 
 </style>
 
+</head>
+
 <body>
+
+
+<!-- ================= HEADER ================= -->
+
+<header class="header">
+
+<div class="container header-inner">
+
+<a href="/" class="logo">
+    KUU <span>Mart</span>
+</a>
+
+<form action="{% url 'produk' %}" method="GET" class="search">
+
+<input
+    type="text"
+    name="q"
+    placeholder="Cari produk di KUU Mart..."
+    value="{{ request.GET.q }}">
+
+<button type="submit">
+    <i class="fa-solid fa-magnifying-glass"></i>
+</button>
+
+</form>
+
+<div class="header-icons">
+
+{% if user.is_authenticated %}
+
+<a href="{% url 'wishlist' %}" class="icon-link">
+    <i class="fa-regular fa-heart"></i>
+</a>
+
+<a href="{% url 'cart' %}" class="icon-link">
+    <i class="fa-solid fa-cart-shopping"></i>
+</a>
+
+<a href="{% url 'logout' %}" class="icon-link">
+    <i class="fa-regular fa-user"></i>
+</a>
+
+{% else %}
+
+<a href="{% url 'login' %}" class="icon-link">
+    <i class="fa-regular fa-user"></i>
+</a>
+
+{% endif %}
+
+</div>
+
+</div>
+
+</header>
+
+
+<!-- ================= DETAIL PRODUK ================= -->
+
+<main>
 
 <div class="container">
 
+<section class="detail-section">
+
 <div class="product-detail">
+
+
+<!-- GAMBAR -->
 
 <div class="image-box">
 
-<img src="{{ produk.gambar.url }}" alt="{{ produk.nama }}">
+{% if produk.gambar %}
+
+<img
+    src="{{ produk.gambar.url }}"
+    alt="{{ produk.nama }}">
+
+{% else %}
+
+<div class="no-image">
+    🛍️
+</div>
+
+{% endif %}
 
 </div>
+
+
+<!-- INFORMASI -->
 
 <div class="info">
 
-<h1>{{ produk.nama }}</h1>
+{% if produk.kategori %}
+
+<div class="category">
+    {{ produk.kategori.nama }}
+</div>
+
+{% endif %}
+
+<h1>
+    {{ produk.nama }}
+</h1>
+
+
+<!-- RATING -->
 
 <div class="rating">
 
-⭐⭐⭐⭐⭐ {{ produk.rating }}
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+<i class="fa-solid fa-star"></i>
+
+<span class="rating-number">
+    {{ produk.rating|default:"5.0" }}
+</span>
 
 </div>
 
+
+<!-- ================= HARGA ================= -->
+
 <div class="price">
 
-<h2>
-
-Rp {{ produk.harga_diskon|floatformat:0 }}
+<span class="price-main">
 
 {% if produk.diskon > 0 %}
 
-<span class="badge">
+Rp {{ produk.harga_diskon|intcomma }}
 
--{{ produk.diskon }}%
+{% else %}
 
+Rp {{ produk.harga|intcomma }}
+
+{% endif %}
+
+</span>
+
+
+{% if produk.diskon > 0 %}
+
+<span class="price-old">
+    Rp {{ produk.harga|intcomma }}
+</span>
+
+<span class="discount">
+    -{{ produk.diskon }}%
 </span>
 
 {% endif %}
 
-</h2>
+</div>
 
-{% if produk.diskon > 0 %}
 
-<del>
+<!-- DETAIL -->
 
-Rp {{ produk.harga|floatformat:0 }}
+<div class="detail-info">
 
-</del>
+<div class="detail-item">
+
+<small>
+    <i class="fa-solid fa-box"></i> Stok
+</small>
+
+<strong>
+    {{ produk.stok }} produk
+</strong>
+
+</div>
+
+
+<div class="detail-item">
+
+<small>
+    <i class="fa-solid fa-bag-shopping"></i> Terjual
+</small>
+
+<strong>
+    {{ produk.terjual|default:"0" }} produk
+</strong>
+
+</div>
+
+</div>
+
+
+<!-- DESKRIPSI -->
+
+<div class="deskripsi">
+
+<h3>
+    Deskripsi Produk
+</h3>
+
+<p>
+    {{ produk.deskripsi|default:"Belum ada deskripsi produk." }}
+</p>
+
+</div>
+
+
+<!-- BUTTON -->
+
+{% if user.is_authenticated %}
+
+<div class="btn-group">
+
+<a
+    href="{% url 'tambah_ke_keranjang' produk.id %}"
+    class="cart-btn">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+Tambah ke Keranjang
+
+</a>
+
+
+<a
+    href="{% url 'beli_sekarang' produk.id %}"
+    class="buy-btn">
+
+<i class="fa-solid fa-bolt"></i>
+
+Beli Sekarang
+
+</a>
+
+</div>
+
+{% else %}
+
+<div class="btn-group">
+
+<a
+    href="{% url 'login' %}"
+    class="cart-btn">
+
+<i class="fa-solid fa-cart-plus"></i>
+
+Login untuk Belanja
+
+</a>
+
+
+<a
+    href="{% url 'login' %}"
+    class="buy-btn">
+
+<i class="fa-solid fa-right-to-bracket"></i>
+
+Login
+
+</a>
+
+</div>
 
 {% endif %}
 
 </div>
 
-<div class="detail">
+</div>
 
-<p><b>📂 Kategori :</b> {{ produk.kategori.nama }}</p>
+</section>
 
-<p><b>📦 Stok :</b> {{ produk.stok }}</p>
+
+<!-- ================= PRODUK LAINNYA ================= -->
+
+<section class="rekomendasi">
+
+<div class="section-header">
+
+<h2 class="section-title">
+    Produk Lainnya
+</h2>
+
+<a href="{% url 'produk' %}" class="section-link">
+    Lihat Semua
+</a>
 
 </div>
 
-<div class="deskripsi">
 
-<h3>Deskripsi Produk</h3>
+<div class="product-grid">
 
-<p>
+{% for p in produk_lain %}
 
-{{ produk.deskripsi }}
+<div class="product-card">
+
+<div class="product-image">
+
+{% if p.diskon > 0 %}
+
+<div class="card-discount">
+    -{{ p.diskon }}%
+</div>
+
+{% endif %}
+
+<a href="{% url 'detail_produk' p.id %}">
+
+{% if p.gambar %}
+
+<img
+    src="{{ p.gambar.url }}"
+    alt="{{ p.nama }}">
+
+{% else %}
+
+<div style="
+height:100%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:50px;
+">
+
+🛍️
+
+</div>
+
+{% endif %}
+
+</a>
+
+</div>
+
+
+<div class="card-body">
+
+<div class="card-category">
+    {{ p.kategori.nama }}
+</div>
+
+<a href="{% url 'detail_produk' p.id %}">
+
+<div class="card-name">
+    {{ p.nama }}
+</div>
+
+</a>
+
+<div class="card-rating">
+    ★ {{ p.rating|default:"5.0" }}
+</div>
+
+
+<!-- HARGA PRODUK LAIN -->
+
+<div class="card-price">
+
+{% if p.diskon > 0 %}
+
+Rp {{ p.harga_diskon|intcomma }}
+
+{% else %}
+
+Rp {{ p.harga|intcomma }}
+
+{% endif %}
+
+</div>
+
+</div>
+
+</div>
+
+{% empty %}
+
+<p style="
+grid-column:1/-1;
+text-align:center;
+padding:35px;
+color:#8b8178;
+">
+
+Belum ada produk lainnya.
 
 </p>
 
-</div>
-
-<div class="btn-group">
-
-<a href="{% url 'tambah_ke_keranjang' produk.id %}" class="cart-btn">
-
-🛒 Tambah ke Keranjang
-
-</a>
-
-<a href="{% url 'beli_sekarang' produk.id %}" class="buy-btn">
-
-⚡ Beli Sekarang
-
-</a>
+{% endfor %}
 
 </div>
 
-</div>
+</section>
 
-</div>
+
+<!-- KEMBALI -->
 
 <div class="back">
 
 <a href="{% url 'produk' %}">
 
-⬅ Kembali ke Produk
+<i class="fa-solid fa-arrow-left"></i>
+
+Kembali ke Produk
 
 </a>
 
@@ -480,6 +1097,122 @@ Rp {{ produk.harga|floatformat:0 }}
 
 </div>
 
-</body>
+</main>
 
+
+<!-- ================= BOTTOM NAV ================= -->
+
+<nav class="bottom-nav">
+
+<a href="/" class="nav-item">
+
+<span class="nav-icon">
+    <i class="fa-solid fa-house"></i>
+</span>
+
+<span class="nav-text">
+    Beranda
+</span>
+
+</a>
+
+
+<a href="{% url 'kategori' %}" class="nav-item">
+
+<span class="nav-icon">
+    <i class="fa-solid fa-layer-group"></i>
+</span>
+
+<span class="nav-text">
+    Kategori
+</span>
+
+</a>
+
+
+{% if user.is_authenticated %}
+
+<a href="{% url 'wishlist' %}" class="nav-item">
+
+<span class="nav-icon">
+    <i class="fa-regular fa-heart"></i>
+</span>
+
+<span class="nav-text">
+    Wishlist
+</span>
+
+</a>
+
+
+<a href="{% url 'cart' %}" class="nav-item">
+
+<span class="nav-icon">
+    <i class="fa-solid fa-cart-shopping"></i>
+</span>
+
+<span class="nav-text">
+    Keranjang
+</span>
+
+</a>
+
+
+<a href="{% url 'logout' %}" class="nav-item">
+
+<span class="nav-icon">
+    <i class="fa-regular fa-user"></i>
+</span>
+
+<span class="nav-text">
+    Keluar
+</span>
+
+</a>
+
+{% else %}
+
+<a href="{% url 'login' %}" class="nav-item">
+
+<span class="nav-icon">
+    <i class="fa-regular fa-heart"></i>
+</span>
+
+<span class="nav-text">
+    Wishlist
+</span>
+
+</a>
+
+
+<a href="{% url 'login' %}" class="nav-item">
+
+<span class="nav-icon">
+    <i class="fa-solid fa-cart-shopping"></i>
+</span>
+
+<span class="nav-text">
+    Keranjang
+</span>
+
+</a>
+
+
+<a href="{% url 'login' %}" class="nav-item">
+
+<span class="nav-icon">
+    <i class="fa-regular fa-user"></i>
+</span>
+
+<span class="nav-text">
+    Akun
+</span>
+
+</a>
+
+{% endif %}
+
+</nav>
+
+</body>
 </html>

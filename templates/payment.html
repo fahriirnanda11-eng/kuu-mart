@@ -1,128 +1,606 @@
+{% load static %}
+{% load humanize %}
+
 <!DOCTYPE html>
 <html lang="id">
+
 <head>
 
-<meta charset="UTF-8">
-<title>Pembayaran</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<style>
+    <title>Pembayaran | KUU Mart</title>
 
-body{
-font-family:Poppins,sans-serif;
-background:#f4f7fb;
-}
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-.container{
-width:700px;
-margin:40px auto;
-background:white;
-padding:35px;
-border-radius:15px;
-box-shadow:0 5px 20px rgba(0,0,0,.1);
-}
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
 
-h2{
-color:#2563EB;
-}
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
-.info{
-background:#EFF6FF;
-padding:20px;
-border-radius:10px;
-margin:20px 0;
-}
+    <style>
 
-img{
-max-width:250px;
-}
+        /* =====================================================
+           RESET
+        ===================================================== */
 
-input{
-width:100%;
-padding:12px;
-margin-top:10px;
-}
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
 
-button{
-margin-top:20px;
-background:#2563EB;
-color:white;
-border:none;
-padding:14px 30px;
-border-radius:8px;
-cursor:pointer;
-}
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: #f7f5f2;
+            color: #332b25;
+            min-height: 100vh;
+            padding: 40px 20px;
+        }
 
-</style>
+
+        /* =====================================================
+           CONTAINER
+        ===================================================== */
+
+        .container {
+            width: 100%;
+            max-width: 750px;
+            margin: auto;
+        }
+
+
+        /* =====================================================
+           CARD
+        ===================================================== */
+
+        .payment-card {
+            background: white;
+            border: 1px solid #ebe5de;
+            border-radius: 26px;
+            padding: 35px;
+
+            box-shadow:
+                0 15px 35px
+                rgba(70, 52, 38, .09);
+        }
+
+
+        /* =====================================================
+           HEADER
+        ===================================================== */
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        .header-icon {
+            width: 70px;
+            height: 70px;
+            margin: 0 auto 15px;
+            border-radius: 50%;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            background: #f1ebe4;
+            color: #76563b;
+            font-size: 28px;
+        }
+
+        .header h1 {
+            font-size: 28px;
+            color: #493525;
+            margin-bottom: 7px;
+        }
+
+        .header p {
+            color: #8b8178;
+            font-size: 12px;
+        }
+
+
+        /* =====================================================
+           ORDER NUMBER
+        ===================================================== */
+
+        .order-number {
+            text-align: center;
+            background: #f8f4ef;
+            border: 1px solid #ebe1d7;
+            padding: 12px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+
+            color: #806047;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+
+        /* =====================================================
+           PAYMENT INFORMATION
+        ===================================================== */
+
+        .info {
+            background: #faf8f5;
+            border: 1px solid #eee7df;
+            padding: 23px;
+            border-radius: 17px;
+            margin-bottom: 25px;
+        }
+
+        .info-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 17px;
+        }
+
+        .info-header i {
+            color: #76563b;
+            font-size: 18px;
+        }
+
+        .info-header h3 {
+            color: #493525;
+            font-size: 17px;
+        }
+
+        .info p {
+            color: #6f655d;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-bottom: 4px;
+        }
+
+        .info p:last-child {
+            margin-bottom: 0;
+        }
+
+        .info b {
+            color: #493525;
+        }
+
+
+        /* =====================================================
+           QRIS
+        ===================================================== */
+
+        .qris-box {
+            text-align: center;
+        }
+
+        .qris-box img {
+            display: block;
+            width: 280px;
+            max-width: 100%;
+            margin: 20px auto 5px;
+            border-radius: 12px;
+            border: 1px solid #e5ddd4;
+        }
+
+
+        /* =====================================================
+           TOTAL
+        ===================================================== */
+
+        .total-box {
+            background: #f3eee9;
+            border-radius: 17px;
+            padding: 22px;
+            margin-bottom: 25px;
+
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 20px;
+        }
+
+        .total-label {
+            color: #6f655d;
+            font-size: 13px;
+        }
+
+        .total-label i {
+            color: #76563b;
+            margin-right: 5px;
+        }
+
+        .total-price {
+            color: #65482f;
+            font-size: 25px;
+            font-weight: 700;
+        }
+
+
+        /* =====================================================
+           UPLOAD
+        ===================================================== */
+
+        .upload-section {
+            border-top: 1px solid #eee7df;
+            padding-top: 25px;
+        }
+
+        .upload-title {
+            color: #493525;
+            font-size: 17px;
+            font-weight: 600;
+            margin-bottom: 8px;
+        }
+
+        .upload-description {
+            color: #8b8178;
+            font-size: 11px;
+            line-height: 1.7;
+            margin-bottom: 17px;
+        }
+
+
+        /* =====================================================
+           FILE INPUT
+        ===================================================== */
+
+        .file-box {
+            position: relative;
+            background: #faf8f5;
+            border: 2px dashed #d8c9ba;
+            border-radius: 15px;
+            padding: 20px;
+            text-align: center;
+            transition: .25s;
+        }
+
+        .file-box:hover {
+            border-color: #a98d72;
+            background: #f8f4ef;
+        }
+
+        .file-box i {
+            font-size: 27px;
+            color: #96775a;
+            margin-bottom: 9px;
+        }
+
+        .file-box p {
+            color: #806047;
+            font-size: 12px;
+            margin-bottom: 10px;
+        }
+
+        input[type="file"] {
+            width: 100%;
+            font-family: 'Poppins', sans-serif;
+            font-size: 11px;
+            color: #6f655d;
+        }
+
+
+        /* =====================================================
+           BUTTON
+        ===================================================== */
+
+        button {
+            width: 100%;
+            margin-top: 22px;
+            padding: 15px;
+            border: none;
+            border-radius: 12px;
+
+            background: #76563b;
+            color: white;
+
+            font-family: 'Poppins', sans-serif;
+            font-size: 14px;
+            font-weight: 600;
+
+            cursor: pointer;
+            transition: .25s;
+
+            box-shadow:
+                0 8px 18px
+                rgba(118, 86, 59, .22);
+        }
+
+        button:hover {
+            background: #60452f;
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 25px
+                rgba(118, 86, 59, .28);
+        }
+
+
+        /* =====================================================
+           BACK
+        ===================================================== */
+
+        .back {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+
+            color: #806047;
+            font-size: 12px;
+            font-weight: 600;
+
+            text-decoration: none;
+            transition: .25s;
+        }
+
+        .back:hover {
+            color: #60452f;
+        }
+
+
+        /* =====================================================
+           RESPONSIVE
+        ===================================================== */
+
+        @media (max-width: 600px) {
+
+            body {
+                padding: 20px 12px;
+            }
+
+            .payment-card {
+                padding: 23px 18px;
+                border-radius: 20px;
+            }
+
+            .header h1 {
+                font-size: 24px;
+            }
+
+            .total-box {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 7px;
+            }
+
+            .total-price {
+                font-size: 23px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
+
 <body>
 
-<div class="container">
+    <div class="container">
 
-<h2>Pembayaran Pesanan #{{ order.id }}</h2>
+        <div class="payment-card">
 
-{% if order.metode_pembayaran == "Transfer Bank" %}
 
-<div class="info">
+            <!-- =====================================================
+                 HEADER
+            ===================================================== -->
 
-<h3>Transfer Bank</h3>
+            <div class="header">
 
-<p><b>BCA</b> : 1234567890</p>
+                <div class="header-icon">
+                    <i class="fa-solid fa-credit-card"></i>
+                </div>
 
-<p>a.n KUU Mart</p>
+                <h1>Pembayaran Pesanan</h1>
 
-</div>
+                <p>
+                    Silakan selesaikan pembayaran pesanan Anda
+                </p>
 
-{% elif order.metode_pembayaran == "E-Wallet" %}
+            </div>
 
-<div class="info">
 
-<h3>E-Wallet</h3>
+            <!-- =====================================================
+                 NOMOR PESANAN
+            ===================================================== -->
 
-<p>DANA : 08123456789</p>
+            <div class="order-number">
 
-<p>OVO : 08123456789</p>
+                <i class="fa-solid fa-receipt"></i>
 
-<p>GoPay : 08123456789</p>
+                Pesanan #KUU{{ order.id|stringformat:"05d" }}
 
-<p>ShopeePay : 08123456789</p>
+            </div>
 
-</div>
 
-{% elif order.metode_pembayaran == "QRIS" %}
+            <!-- =====================================================
+                 TRANSFER BANK
+            ===================================================== -->
 
-<div class="info">
+            {% if order.metode_pembayaran == "Transfer Bank" %}
 
-<h3>Scan QRIS</h3>
+                <div class="info">
 
-<img src="/media/qris.png" width="280">
+                    <div class="info-header">
 
-</div>
+                        <i class="fa-solid fa-building-columns"></i>
 
-{% endif %}
+                        <h3>
+                            Transfer Bank
+                        </h3>
 
-<h3>Total Bayar</h3>
+                    </div>
 
-<h2>Rp {{ order.total }}</h2>
+                    <p>
+                        <b>BCA</b> : 1234567890
+                    </p>
 
-<form method="POST" enctype="multipart/form-data">
+                    <p>
+                        a.n KUU Mart
+                    </p>
 
-{% csrf_token %}
+                </div>
 
-<label>Upload Bukti Pembayaran</label>
 
-<input type="file" name="bukti" required>
+            <!-- =====================================================
+                 E-WALLET
+            ===================================================== -->
 
-<button>
+            {% elif order.metode_pembayaran == "E-Wallet" %}
 
-Upload Bukti
+                <div class="info">
 
-</button>
+                    <div class="info-header">
 
-</form>
+                        <i class="fa-solid fa-wallet"></i>
 
-</div>
+                        <h3>
+                            E-Wallet
+                        </h3>
+
+                    </div>
+
+                    <p>
+                        <b>DANA</b> : 08123456789
+                    </p>
+
+                    <p>
+                        <b>OVO</b> : 08123456789
+                    </p>
+
+                    <p>
+                        <b>GoPay</b> : 08123456789
+                    </p>
+
+                    <p>
+                        <b>ShopeePay</b> : 08123456789
+                    </p>
+
+                </div>
+
+
+            <!-- =====================================================
+                 QRIS
+            ===================================================== -->
+
+            {% elif order.metode_pembayaran == "QRIS" %}
+
+                <div class="info qris-box">
+
+                    <div class="info-header"
+                         style="justify-content:center;">
+
+                        <i class="fa-solid fa-qrcode"></i>
+
+                        <h3>
+                            Scan QRIS
+                        </h3>
+
+                    </div>
+
+                    <p>
+                        Scan kode QRIS berikut untuk melakukan pembayaran.
+                    </p>
+
+                    <img
+                        src="/media/qris.png"
+                        alt="QRIS KUU Mart"
+                    >
+
+                </div>
+
+            {% endif %}
+
+
+            <!-- =====================================================
+                 TOTAL
+            ===================================================== -->
+
+            <div class="total-box">
+
+                <div class="total-label">
+
+                    <i class="fa-solid fa-money-bill-wave"></i>
+
+                    Total Pembayaran
+
+                </div>
+
+                <div class="total-price">
+
+                    Rp {{ order.total|intcomma }}
+
+                </div>
+
+            </div>
+
+
+            <!-- =====================================================
+                 UPLOAD BUKTI
+            ===================================================== -->
+
+            <div class="upload-section">
+
+                <div class="upload-title">
+
+                    <i class="fa-solid fa-cloud-arrow-up"></i>
+
+                    Upload Bukti Pembayaran
+
+                </div>
+
+                <div class="upload-description">
+
+                    Silakan upload bukti pembayaran setelah melakukan transaksi.
+
+                    <br>
+
+                    Pastikan foto atau file yang diupload dapat terlihat dengan jelas.
+
+                </div>
+
+
+                <form
+                    method="POST"
+                    enctype="multipart/form-data"
+                >
+
+                    {% csrf_token %}
+
+                    <div class="file-box">
+
+                        <i class="fa-solid fa-file-arrow-up"></i>
+
+                        <p>
+                            Pilih bukti pembayaran
+                        </p>
+
+                        <input
+                            type="file"
+                            name="bukti"
+                            required
+                        >
+
+                    </div>
+
+
+                    <button type="submit">
+
+                        <i class="fa-solid fa-check"></i>
+
+                        &nbsp; Upload Bukti Pembayaran
+
+                    </button>
+
+                </form>
+
+            </div>
+
+
+        </div>
+
+    </div>
 
 </body>
 

@@ -1,475 +1,1577 @@
 {% load static %}
+
 <!DOCTYPE html>
 <html lang="id">
 
 <head>
 
 <meta charset="UTF-8">
-
-<meta name="viewport"
-content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <title>Promo | KUU Mart</title>
 
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
 
+/* =========================================================
+   RESET
+========================================================= */
+
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html{
+    scroll-behavior:smooth;
 }
 
 body{
+    font-family:'Poppins',sans-serif;
+    background:#f7f5f2;
+    color:#332b25;
+    padding-bottom:110px;
+}
 
-background:#F5F7FB;
+a{
+    text-decoration:none;
+    color:inherit;
+}
 
+button,
+input{
+    font-family:'Poppins',sans-serif;
 }
 
 .container{
-
-width:90%;
-
-max-width:1300px;
-
-margin:auto;
-
+    width:92%;
+    max-width:1250px;
+    margin:auto;
 }
 
-/* HERO */
 
-.hero{
+/* =========================================================
+   HEADER
+========================================================= */
 
-background:linear-gradient(135deg,#2563EB,#3B82F6);
+.header{
+    position:sticky;
+    top:0;
+    z-index:1000;
 
-padding:80px 20px;
+    background:rgba(255,255,255,.97);
 
-text-align:center;
+    border-bottom:1px solid #ebe4dc;
 
-color:white;
-
+    backdrop-filter:blur(15px);
 }
 
-.hero h1{
+.header-inner{
+    min-height:72px;
 
-font-size:50px;
+    display:flex;
+    align-items:center;
 
-margin-bottom:15px;
-
+    gap:25px;
 }
 
-.hero p{
 
-font-size:18px;
+/* =========================================================
+   LOGO
+========================================================= */
 
-opacity:.9;
+.logo{
+    font-size:25px;
+    font-weight:700;
 
+    color:#60452f;
+
+    white-space:nowrap;
+
+    transition:.25s;
 }
 
-.flash{
-
-margin-top:-35px;
-
-background:white;
-
-padding:20px;
-
-border-radius:18px;
-
-box-shadow:0 15px 30px rgba(0,0,0,.08);
-
-display:flex;
-
-justify-content:space-between;
-
-align-items:center;
-
+.logo span{
+    color:#9a7b5c;
 }
 
-.flash h2{
-
-color:#EF4444;
-
-font-size:28px;
-
+.logo:hover{
+    transform:translateY(-1px);
 }
 
-.flash span{
 
-font-size:18px;
+/* =========================================================
+   SEARCH
+========================================================= */
 
-color:#64748B;
+.search{
+    flex:1;
 
-}
+    max-width:580px;
 
-.title{
-
-margin:60px 0 35px;
-
-text-align:center;
-
-}
-
-.title h2{
-
-font-size:40px;
-
-color:#1E293B;
-
-}
-
-/*================ PRODUK =================*/
-
-.product-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-
-    gap:30px;
-
-    margin:40px 0 70px;
-
-}
-
-.product-card{
-
-    background:white;
-
-    border-radius:20px;
-
-    overflow:hidden;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-    transition:.35s;
+    margin:auto;
 
     position:relative;
-
 }
 
-.product-card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 20px 40px rgba(37,99,235,.18);
-
-}
-
-.product-card img{
-
+.search input{
     width:100%;
+    height:44px;
 
-    height:220px;
+    border:none;
+    outline:none;
 
-    object-fit:cover;
+    background:#f2eee9;
 
-}
+    border-radius:14px;
 
-.badge{
-
-    position:absolute;
-
-    top:15px;
-
-    left:15px;
-
-    background:#EF4444;
-
-    color:white;
-
-    padding:7px 14px;
-
-    border-radius:30px;
+    padding:0 55px 0 18px;
 
     font-size:13px;
 
-    font-weight:bold;
+    color:#332b25;
 
+    transition:.25s;
 }
 
-.info{
-
-    padding:20px;
-
+.search input::placeholder{
+    color:#a29a93;
 }
 
-.info h3{
+.search input:focus{
+    background:#fff;
 
-    font-size:22px;
-
-    margin-bottom:10px;
-
-    color:#1E293B;
-
+    box-shadow:0 0 0 2px #d8c9ba;
 }
 
-.category{
+.search button{
+    position:absolute;
 
-    color:#2563EB;
+    right:5px;
+    top:5px;
 
-    font-size:14px;
+    width:34px;
+    height:34px;
 
-    font-weight:600;
+    border:none;
 
+    border-radius:10px;
+
+    background:#76563b;
+
+    color:#fff;
+
+    cursor:pointer;
+
+    transition:.25s;
 }
 
-.rating{
+.search button:hover{
+    background:#60452f;
 
-    color:#F59E0B;
-
-    margin:12px 0;
-
+    transform:scale(1.04);
 }
 
-.price{
 
-    margin:15px 0;
+/* =========================================================
+   HEADER ICON
+========================================================= */
 
+.header-icons{
+    display:flex;
+
+    align-items:center;
+
+    gap:20px;
 }
 
-.price h2{
+.icon-link{
+    position:relative;
 
-    color:#2563EB;
-
-    font-size:28px;
-
-}
-
-.price del{
-
-    color:#94A3B8;
-
-}
-
-.stok{
-
-    color:#64748B;
-
-    margin-bottom:20px;
-
-}
-
-.btn-group{
+    width:38px;
+    height:38px;
 
     display:flex;
 
-    gap:12px;
+    align-items:center;
+    justify-content:center;
 
+    border-radius:50%;
+
+    font-size:18px;
+
+    color:#4c443e;
+
+    transition:.25s;
 }
 
-.cart-btn{
+.icon-link:hover{
+    background:#f2eee9;
 
-    flex:1;
+    color:#76563b;
 
-    background:#EFF6FF;
+    transform:translateY(-2px);
+}
 
-    color:#2563EB;
 
-    text-align:center;
+/* =========================================================
+   PAGE
+========================================================= */
 
-    padding:12px;
+.page{
+    padding:35px 0 20px;
+}
 
-    border-radius:12px;
 
-    text-decoration:none;
+/* =========================================================
+   PROMO HERO
+========================================================= */
+
+.promo-hero{
+    min-height:235px;
+
+    border-radius:26px;
+
+    background:
+        linear-gradient(
+            120deg,
+            #e5d9cc,
+            #f5f1ec
+        );
+
+    position:relative;
+
+    overflow:hidden;
+
+    display:flex;
+
+    align-items:center;
+
+    padding:40px 50px;
+
+    margin-bottom:35px;
+
+    box-shadow:
+        0 10px 30px rgba(70,50,35,.05);
+}
+
+.promo-hero::before{
+    content:"";
+
+    position:absolute;
+
+    width:250px;
+    height:250px;
+
+    right:100px;
+    top:-160px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.28);
+}
+
+.promo-hero::after{
+    content:"";
+
+    position:absolute;
+
+    width:350px;
+    height:350px;
+
+    right:-100px;
+    bottom:-180px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.38);
+}
+
+.promo-content{
+    position:relative;
+
+    z-index:2;
+
+    max-width:680px;
+}
+
+.promo-small{
+    color:#806047;
+
+    font-size:12px;
 
     font-weight:600;
 
-    transition:.3s;
+    letter-spacing:.7px;
 
+    margin-bottom:8px;
 }
 
-.cart-btn:hover{
+.promo-content h1{
+    color:#493525;
 
-    background:#DBEAFE;
+    font-size:36px;
 
+    line-height:1.25;
+
+    margin-bottom:12px;
 }
 
-.buy-btn{
+.promo-content h1 span{
+    color:#8d6c4d;
+}
 
-    flex:1;
+.promo-content p{
+    color:#6f655d;
 
-    background:#2563EB;
+    font-size:13px;
 
-    color:white;
+    line-height:1.8;
 
-    text-align:center;
+    max-width:600px;
+}
 
-    padding:12px;
+.promo-icon{
+    position:absolute;
 
-    border-radius:12px;
+    right:80px;
+    bottom:10px;
 
-    text-decoration:none;
+    font-size:115px;
+
+    opacity:.16;
+
+    z-index:1;
+
+    transform:rotate(-8deg);
+}
+
+
+/* =========================================================
+   SECTION HEADER
+========================================================= */
+
+.section-header{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-bottom:20px;
+}
+
+.section-title{
+    font-size:22px;
 
     font-weight:600;
 
-    transition:.3s;
-
+    color:#302923;
 }
 
-.buy-btn:hover{
+.section-link{
+    color:#806047;
 
-    background:#1D4ED8;
-
-}
-
-.back-home{
-
-    text-align:center;
-
-    margin-bottom:70px;
-
-}
-
-.back-btn{
-
-    display:inline-block;
-
-    background:#2563EB;
-
-    color:white;
-
-    text-decoration:none;
-
-    padding:15px 35px;
-
-    border-radius:50px;
+    font-size:12px;
 
     font-weight:600;
 
+    transition:.2s;
+}
+
+.section-link:hover{
+    color:#60452f;
+
+    text-decoration:underline;
+}
+
+
+/* =========================================================
+   PRODUCT GRID
+========================================================= */
+
+.product-grid{
+    display:grid;
+
+    grid-template-columns:repeat(5,1fr);
+
+    gap:15px;
+}
+
+
+/* =========================================================
+   PRODUCT CARD
+========================================================= */
+
+.product-card{
+    background:#fff;
+
+    border:1px solid #ebe5de;
+
+    border-radius:17px;
+
+    overflow:hidden;
+
+    position:relative;
+
     transition:.3s;
+}
+
+.product-card:hover{
+    transform:translateY(-5px);
+
+    box-shadow:
+        0 15px 30px rgba(65,48,34,.11);
+}
+
+
+/* =========================================================
+   PRODUCT IMAGE
+========================================================= */
+
+.product-image{
+    height:185px;
+
+    background:#f3eee9;
+
+    position:relative;
+
+    overflow:hidden;
+}
+
+.product-image img{
+    width:100%;
+    height:100%;
+
+    object-fit:cover;
+
+    display:block;
+
+    transition:.4s;
+}
+
+.product-card:hover .product-image img{
+    transform:scale(1.05);
+}
+
+
+/* =========================================================
+   DISCOUNT
+========================================================= */
+
+.discount{
+    position:absolute;
+
+    top:10px;
+    left:10px;
+
+    z-index:5;
+
+    background:#76563b;
+
+    color:#fff;
+
+    padding:5px 9px;
+
+    border-radius:6px;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    box-shadow:
+        0 4px 10px rgba(70,50,35,.15);
+}
+
+
+/* =========================================================
+   FAVORITE
+========================================================= */
+
+.favorite{
+    position:absolute;
+
+    right:10px;
+    top:10px;
+
+    z-index:5;
+
+    width:32px;
+    height:32px;
+
+    border-radius:50%;
+
+    background:rgba(255,255,255,.96);
+
+    display:flex;
+
+    justify-content:center;
+    align-items:center;
+
+    color:#6e6258;
+
+    font-size:13px;
+
+    box-shadow:
+        0 4px 10px rgba(60,45,30,.08);
+
+    transition:.25s;
+}
+
+.favorite:hover{
+    color:#76563b;
+
+    transform:scale(1.08);
+
+    background:#fff;
+}
+
+
+/* =========================================================
+   PRODUCT INFO
+========================================================= */
+
+.product-info{
+    padding:13px;
+}
+
+.product-category{
+    color:#96775a;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    text-transform:uppercase;
+
+    letter-spacing:.3px;
+}
+
+.product-name{
+    font-size:13px;
+
+    font-weight:600;
+
+    line-height:1.5;
+
+    min-height:39px;
+
+    margin-top:5px;
+
+    color:#302b27;
+
+    transition:.2s;
+}
+
+.product-name:hover{
+    color:#806047;
+}
+
+
+/* =========================================================
+   RATING
+========================================================= */
+
+.rating{
+    margin-top:7px;
+
+    color:#a07d58;
+
+    font-size:10px;
+}
+
+.sold{
+    color:#99918a;
+
+    margin-left:5px;
+}
+
+
+/* =========================================================
+   PRICE
+========================================================= */
+
+.price{
+    margin-top:9px;
+
+    min-height:25px;
+}
+
+.price-main{
+    color:#65482f;
+
+    font-size:16px;
+
+    font-weight:700;
+}
+
+.price-old{
+    color:#aaa39c;
+
+    font-size:10px;
+
+    margin-left:5px;
+
+    text-decoration:line-through;
+}
+
+
+/* =========================================================
+   PRODUCT BOTTOM
+========================================================= */
+
+.product-bottom{
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    margin-top:10px;
+}
+
+.stock{
+    color:#89817a;
+
+    font-size:9px;
+}
+
+.detail-btn{
+    background:#f0ebe5;
+
+    color:#674b33;
+
+    padding:6px 10px;
+
+    border-radius:7px;
+
+    font-size:9px;
+
+    font-weight:600;
+
+    transition:.25s;
+}
+
+.detail-btn:hover{
+    background:#dfd3c5;
+
+    color:#60452f;
+}
+
+
+/* =========================================================
+   EMPTY
+========================================================= */
+
+.empty{
+    background:#fff;
+
+    border:1px solid #ebe5de;
+
+    border-radius:20px;
+
+    padding:65px 20px;
+
+    text-align:center;
+
+    color:#8b8178;
+
+    box-shadow:
+        0 8px 25px rgba(60,45,30,.04);
+}
+
+.empty i{
+    font-size:45px;
+
+    color:#b29a81;
+
+    margin-bottom:15px;
+}
+
+.empty h3{
+    font-size:18px;
+
+    color:#60452f;
+
+    margin-bottom:7px;
+}
+
+.empty p{
+    font-size:12px;
+
+    line-height:1.7;
+}
+
+
+/* =========================================================
+   BOTTOM NAVIGATION
+========================================================= */
+
+.bottom-nav{
+    position:fixed;
+
+    left:50%;
+    bottom:18px;
+
+    transform:translateX(-50%);
+
+    width:min(650px,92%);
+
+    height:72px;
+
+    background:rgba(255,255,255,.97);
+
+    backdrop-filter:blur(18px);
+
+    border:1px solid #e9e1d9;
+
+    border-radius:23px;
+
+    box-shadow:
+        0 15px 40px rgba(70,52,38,.16);
+
+    display:flex;
+
+    align-items:center;
+
+    justify-content:space-around;
+
+    z-index:9999;
+}
+
+.nav-item{
+    position:relative;
+
+    width:20%;
+    height:100%;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:5px;
+
+    color:#968b82;
+
+    transition:.25s;
+}
+
+.nav-icon{
+    font-size:20px;
+
+    line-height:1;
+
+    transition:.25s;
+}
+
+.nav-text{
+    font-size:10px;
+
+    font-weight:500;
+}
+
+.nav-item:hover{
+    color:#76563b;
+}
+
+.nav-item:hover .nav-icon{
+    transform:translateY(-2px);
+}
+
+.nav-item.active{
+    color:#76563b;
+
+    font-weight:600;
+}
+
+.nav-item.active::before{
+    content:"";
+
+    position:absolute;
+
+    top:0;
+
+    width:35px;
+    height:3px;
+
+    background:#76563b;
+
+    border-radius:0 0 8px 8px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media(max-width:1100px){
+
+    .product-grid{
+        grid-template-columns:repeat(4,1fr);
+    }
 
 }
 
-.back-btn:hover{
 
-    background:#1D4ED8;
+@media(max-width:900px){
 
-    transform:translateY(-3px);
+    .header-inner{
+        gap:15px;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+
+    .promo-icon{
+        right:40px;
+    }
 
 }
+
+
+@media(max-width:700px){
+
+    .container{
+        width:94%;
+    }
+
+    .header-inner{
+        padding:13px 0;
+
+        flex-wrap:wrap;
+
+        min-height:auto;
+    }
+
+    .logo{
+        font-size:22px;
+    }
+
+    .header-icons{
+        margin-left:auto;
+
+        gap:8px;
+    }
+
+    .search{
+        order:3;
+
+        flex-basis:100%;
+
+        max-width:none;
+
+        width:100%;
+    }
+
+    .promo-hero{
+        min-height:260px;
+
+        padding:30px 27px;
+
+        margin-bottom:28px;
+    }
+
+    .promo-content h1{
+        font-size:29px;
+    }
+
+    .promo-content p{
+        font-size:12px;
+    }
+
+    .promo-icon{
+        display:none;
+    }
+
+    .product-grid{
+        grid-template-columns:repeat(2,1fr);
+
+        gap:10px;
+    }
+
+    .product-image{
+        height:155px;
+    }
+
+    .section-title{
+        font-size:19px;
+    }
+
+}
+
+
+@media(max-width:450px){
+
+    body{
+        padding-bottom:85px;
+    }
+
+    .logo{
+        font-size:21px;
+    }
+
+    .header-icons{
+        gap:5px;
+    }
+
+    .icon-link{
+        width:34px;
+        height:34px;
+
+        font-size:16px;
+    }
+
+    .promo-hero{
+        padding:28px 22px;
+
+        border-radius:20px;
+    }
+
+    .promo-content h1{
+        font-size:26px;
+    }
+
+    .product-image{
+        height:140px;
+    }
+
+    .product-info{
+        padding:11px;
+    }
+
+    .product-name{
+        font-size:12px;
+    }
+
+    .price-main{
+        font-size:14px;
+    }
+
+    .price-old{
+        display:block;
+
+        margin-left:0;
+
+        margin-top:2px;
+    }
+
+    .bottom-nav{
+        width:100%;
+
+        left:0;
+        bottom:0;
+
+        transform:none;
+
+        height:70px;
+
+        border-radius:0;
+
+        border-left:none;
+        border-right:none;
+        border-bottom:none;
+    }
+
+}
+
 </style>
+
+</head>
+
+
 <body>
 
-<section class="hero">
 
-    <h1>🎉 Promo Spesial KUU Mart</h1>
+<!-- =========================================================
+     HEADER
+========================================================= -->
 
-    <p>Diskon terbaik hanya untuk hari ini.</p>
+<header class="header">
 
-</section>
+<div class="container header-inner">
 
-<div class="container">
 
-<div class="flash">
+<!-- LOGO -->
 
-<h2>🔥 Flash Sale</h2>
+<a href="{% url 'index' %}" class="logo">
 
-<span>Produk dengan diskon terbesar</span>
+    KUU <span>Mart</span>
 
-</div>
+</a>
 
-<div class="title">
 
-<h2>Promo Terbaik</h2>
+<!-- SEARCH -->
 
-</div>
+<form
+    action="{% url 'produk' %}"
+    method="GET"
+    class="search">
 
-<div class="product-grid">
+    <input
+        type="text"
+        name="q"
+        placeholder="Cari produk di KUU Mart..."
+        value="{{ request.GET.q }}"
+        autocomplete="off">
 
-{% for p in produk %}
+    <button type="submit">
 
-<div class="product-card">
+        <i class="fa-solid fa-magnifying-glass"></i>
 
-{% if p.diskon > 0 %}
-<div class="badge">
--{{ p.diskon }}%
-</div>
+    </button>
+
+</form>
+
+
+<!-- HEADER ICON -->
+
+<div class="header-icons">
+
+
+{% if user.is_authenticated %}
+
+
+<!-- WISHLIST -->
+
+<a
+    href="{% url 'wishlist' %}"
+    class="icon-link"
+    title="Wishlist">
+
+    <i class="fa-regular fa-heart"></i>
+
+</a>
+
+
+<!-- CART -->
+
+<a
+    href="{% url 'cart' %}"
+    class="icon-link"
+    title="Keranjang">
+
+    <i class="fa-solid fa-cart-shopping"></i>
+
+</a>
+
+
+<!-- ACCOUNT / PESANAN -->
+
+<a
+    href="{% url 'riwayat_pesanan' %}"
+    class="icon-link"
+    title="Pesanan Saya">
+
+    <i class="fa-regular fa-user"></i>
+
+</a>
+
+
+{% else %}
+
+
+<!-- LOGIN -->
+
+<a
+    href="{% url 'login' %}"
+    class="icon-link"
+    title="Login">
+
+    <i class="fa-regular fa-user"></i>
+
+</a>
+
+
 {% endif %}
 
-<h3>
-<a href="{% url 'detail_produk' p.id %}">
-<img src="{{ p.gambar.url }}" alt="{{ p.nama }}">
-</a>
-</h3>
-
-<div class="info">
-
-<div class="category">
-{{ p.kategori.nama }}
 </div>
-
-<h3><a href="{% url 'detail_produk' p.id %}">
-     {{ p.nama }}</a></h3>
-
-<div class="rating">
-
-⭐⭐⭐⭐⭐ {{ p.rating }}
 
 </div>
 
-<div class="price">
+</header>
 
-<h2>
-Rp {{ p.harga_diskon|floatformat:0 }}
-</h2>
 
-<del>
-Rp {{ p.harga|floatformat:0 }}
-</del>
+
+<!-- =========================================================
+     MAIN
+========================================================= -->
+
+<main>
+
+<div class="container page">
+
+
+<!-- =========================================================
+     PROMO HERO
+========================================================= -->
+
+<section class="promo-hero">
+
+<div class="promo-content">
+
+<div class="promo-small">
+
+    ✦ PROMO SPESIAL KUU MART
 
 </div>
 
-<p class="stok">
+<h1>
 
-📦 Stok : {{ p.stok }}
+    Belanja Lebih Hemat<br>
+
+    <span>Dengan Promo Menarik</span>
+
+</h1>
+
+<p>
+
+    Nikmati berbagai produk pilihan dengan harga spesial.
+    Temukan promo terbaik yang tersedia hanya di KUU Mart.
 
 </p>
 
-<div class="btn-group">
+</div>
 
-<a href="{% url 'tambah_ke_keranjang' p.id %}" class="cart-btn">
 
-🛒 Keranjang
+<div class="promo-icon">
 
-</a>
-
-<a href="{% url 'beli_sekarang' p.id %}" class="buy-btn">
-
-⚡ Beli
-
-</a>
+    🏷️
 
 </div>
 
-</div>
+</section>
 
-</div>
 
-{% empty %}
 
-<h2 style="text-align:center;grid-column:1/-1;">
-Belum ada promo saat ini.
+<!-- =========================================================
+     TITLE
+========================================================= -->
+
+<div class="section-header">
+
+<h2 class="section-title">
+
+    🔥 Produk Promo
+
 </h2>
+
+
+<a
+    href="{% url 'produk' %}"
+    class="section-link">
+
+    Semua Produk
+
+</a>
+
+</div>
+
+
+
+<!-- =========================================================
+     PRODUCTS
+========================================================= -->
+
+{% if produk %}
+
+<div class="product-grid">
+
+
+{% for p in produk %}
+
+
+<div class="product-card">
+
+
+<!-- IMAGE -->
+
+<div class="product-image">
+
+
+<!-- DISCOUNT -->
+
+<div class="discount">
+
+    -{{ p.diskon }}%
+
+</div>
+
+
+<!-- PRODUCT LINK -->
+
+<a
+    href="{% url 'detail_produk' p.id %}">
+
+{% if p.gambar %}
+
+<img
+    src="{{ p.gambar.url }}"
+    alt="{{ p.nama }}">
+
+{% else %}
+
+<div
+    style="
+        height:100%;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        font-size:50px;
+    ">
+
+    🛍️
+
+</div>
+
+{% endif %}
+
+</a>
+
+
+
+<!-- WISHLIST -->
+
+{% if user.is_authenticated %}
+
+<a
+    href="{% url 'tambah_wishlist' p.id %}"
+    class="favorite"
+    title="Tambah ke Wishlist">
+
+    <i class="fa-regular fa-heart"></i>
+
+</a>
+
+{% endif %}
+
+
+</div>
+
+
+
+<!-- PRODUCT INFO -->
+
+<div class="product-info">
+
+
+<!-- CATEGORY -->
+
+<div class="product-category">
+
+    {{ p.kategori.nama }}
+
+</div>
+
+
+<!-- NAME -->
+
+<a
+    href="{% url 'detail_produk' p.id %}">
+
+<div class="product-name">
+
+    {{ p.nama }}
+
+</div>
+
+</a>
+
+
+<!-- RATING -->
+
+<div class="rating">
+
+    ★ {{ p.rating|default:"5.0" }}
+
+    <span class="sold">
+
+        Terjual {{ p.terjual|default:"0" }}
+
+    </span>
+
+</div>
+
+
+<!-- PRICE -->
+
+<div class="price">
+
+<span class="price-main">
+
+    Rp {{ p.harga_diskon|floatformat:0 }}
+
+</span>
+
+
+<span class="price-old">
+
+    Rp {{ p.harga|floatformat:0 }}
+
+</span>
+
+</div>
+
+
+<!-- BOTTOM -->
+
+<div class="product-bottom">
+
+<span class="stock">
+
+    Stok {{ p.stok }}
+
+</span>
+
+
+<a
+    href="{% url 'detail_produk' p.id %}"
+    class="detail-btn">
+
+    Detail
+
+</a>
+
+</div>
+
+
+</div>
+
+</div>
+
 
 {% endfor %}
 
 </div>
 
-<div class="back-home">
 
-<a href="{% url 'index' %}" class="back-btn">
+{% else %}
 
-🏠 Kembali ke Beranda
+
+<!-- EMPTY PROMO -->
+
+<div class="empty">
+
+    <i class="fa-solid fa-tag"></i>
+
+    <h3>
+        Belum Ada Promo
+    </h3>
+
+    <p>
+        Saat ini belum ada produk yang sedang mendapatkan diskon.
+        Silakan kembali lagi nanti.
+    </p>
+
+</div>
+
+
+{% endif %}
+
+
+</div>
+
+</main>
+
+
+
+<!-- =========================================================
+     BOTTOM NAVIGATION
+========================================================= -->
+
+<nav class="bottom-nav">
+
+
+<!-- BERANDA -->
+
+<a
+    href="{% url 'index' %}"
+    class="nav-item">
+
+    <span class="nav-icon">
+
+        <i class="fa-solid fa-house"></i>
+
+    </span>
+
+    <span class="nav-text">
+
+        Beranda
+
+    </span>
 
 </a>
 
-</div>
 
-</div>
+<!-- KATEGORI -->
+
+<a
+    href="{% url 'kategori' %}"
+    class="nav-item">
+
+    <span class="nav-icon">
+
+        <i class="fa-solid fa-layer-group"></i>
+
+    </span>
+
+    <span class="nav-text">
+
+        Kategori
+
+    </span>
+
+</a>
+
+
+{% if user.is_authenticated %}
+
+
+<!-- WISHLIST -->
+
+<a
+    href="{% url 'wishlist' %}"
+    class="nav-item">
+
+    <span class="nav-icon">
+
+        <i class="fa-regular fa-heart"></i>
+
+    </span>
+
+    <span class="nav-text">
+
+        Wishlist
+
+    </span>
+
+</a>
+
+
+<!-- PESANAN -->
+
+<a
+    href="{% url 'riwayat_pesanan' %}"
+    class="nav-item active">
+
+    <span class="nav-icon">
+
+        <i class="fa-solid fa-bag-shopping"></i>
+
+    </span>
+
+    <span class="nav-text">
+
+        Pesanan
+
+    </span>
+
+</a>
+
+
+<!-- AKUN / KELUAR -->
+
+<a
+    href="{% url 'logout' %}"
+    class="nav-item">
+
+    <span class="nav-icon">
+
+        <i class="fa-regular fa-user"></i>
+
+    </span>
+
+    <span class="nav-text">
+
+        Keluar
+
+    </span>
+
+</a>
+
+
+{% else %}
+
+
+<!-- WISHLIST -->
+
+<a
+    href="{% url 'login' %}"
+    class="nav-item">
+
+    <span class="nav-icon">
+
+        <i class="fa-regular fa-heart"></i>
+
+    </span>
+
+    <span class="nav-text">
+
+        Wishlist
+
+    </span>
+
+</a>
+
+
+<!-- PESANAN -->
+
+<a
+    href="{% url 'login' %}"
+    class="nav-item">
+
+    <span class="nav-icon">
+
+        <i class="fa-solid fa-bag-shopping"></i>
+
+    </span>
+
+    <span class="nav-text">
+
+        Pesanan
+
+    </span>
+
+</a>
+
+
+<!-- AKUN -->
+
+<a
+    href="{% url 'login' %}"
+    class="nav-item">
+
+    <span class="nav-icon">
+
+        <i class="fa-regular fa-user"></i>
+
+    </span>
+
+    <span class="nav-text">
+
+        Akun
+
+    </span>
+
+</a>
+
+
+{% endif %}
+
+</nav>
+
 
 </body>
 

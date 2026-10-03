@@ -3,210 +3,914 @@
 <html lang="id">
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kategori | KUU Mart</title>
 
-<title>Kategori | KUU Mart</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+          rel="stylesheet">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
 
 <style>
 
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:'Poppins',sans-serif;
+/* =========================
+   RESET
+========================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-body{
-    background:#F5F7FB;
+html {
+    scroll-behavior: smooth;
 }
 
-.container{
-    width:90%;
-    max-width:1300px;
-    margin:auto;
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f7f5f2;
+    color: #332b25;
+    padding-bottom: 110px;
 }
 
-/* HERO */
+a {
+    text-decoration: none;
+    color: inherit;
+}
 
-.hero{
+button {
+    font-family: 'Poppins', sans-serif;
+}
 
-    background:linear-gradient(135deg,#2563EB,#60A5FA);
+.container {
+    width: 92%;
+    max-width: 1250px;
+    margin: auto;
+}
 
-    color:white;
 
-    text-align:center;
+/* =========================
+   HEADER
+========================= */
 
-    padding:70px 20px;
+.header {
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+
+    background: rgba(255, 255, 255, 0.97);
+
+    border-bottom: 1px solid #ebe4dc;
+
+    backdrop-filter: blur(15px);
+}
+
+.header-inner {
+    min-height: 72px;
+
+    display: flex;
+    align-items: center;
+
+    gap: 25px;
+}
+
+
+/* =========================
+   LOGO
+========================= */
+
+.logo {
+    font-size: 25px;
+    font-weight: 700;
+
+    color: #60452f;
+
+    white-space: nowrap;
+}
+
+.logo span {
+    color: #9a7b5c;
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+.search {
+    flex: 1;
+    max-width: 580px;
+
+    margin: auto;
+
+    position: relative;
+}
+
+.search input {
+    width: 100%;
+    height: 44px;
+
+    border: none;
+    outline: none;
+
+    background: #f2eee9;
+
+    border-radius: 14px;
+
+    padding: 0 52px 0 18px;
+
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+
+    color: #332b25;
+}
+
+.search input:focus {
+    box-shadow: 0 0 0 2px #d8c9ba;
+}
+
+.search button {
+    position: absolute;
+
+    right: 5px;
+    top: 5px;
+
+    width: 34px;
+    height: 34px;
+
+    border: none;
+    border-radius: 10px;
+
+    background: #76563b;
+
+    color: white;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.search button:hover {
+    background: #60452f;
+}
+
+
+/* =========================
+   HEADER ICON
+========================= */
+
+.header-icons {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-link {
+    position: relative;
+
+    font-size: 19px;
+
+    color: #4c443e;
+
+    transition: .25s;
+}
+
+.icon-link:hover {
+    color: #76563b;
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   ACCOUNT
+========================= */
+
+.account-wrapper {
+    position: relative;
+}
+
+.account-button {
+    width: 38px;
+    height: 38px;
+
+    border: none;
+
+    border-radius: 50%;
+
+    background: #f2eee9;
+
+    color: #4c443e;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 17px;
+
+    cursor: pointer;
+
+    transition: .25s;
+}
+
+.account-button:hover {
+    background: #e8ddd0;
+
+    color: #76563b;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   ACCOUNT DROPDOWN
+========================= */
+
+.account-menu {
+    position: absolute;
+
+    top: 50px;
+    right: 0;
+
+    width: 290px;
+
+    background: #ffffff;
+
+    border: 1px solid #ebe4dc;
+
+    border-radius: 18px;
+
+    box-shadow:
+        0 18px 45px rgba(60,45,30,.17);
+
+    padding: 10px;
+
+    opacity: 0;
+
+    visibility: hidden;
+
+    transform: translateY(-8px);
+
+    transition: .25s;
+
+    z-index: 10000;
+}
+
+.account-menu.show {
+    opacity: 1;
+
+    visibility: visible;
+
+    transform: translateY(0);
+}
+
+
+/* =========================
+   ACCOUNT HEADER
+========================= */
+
+.account-header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    padding: 12px 10px;
+}
+
+.account-avatar {
+    width: 46px;
+    height: 46px;
+
+    flex-shrink: 0;
+
+    border-radius: 50%;
+
+    background: #76563b;
+
+    color: #ffffff;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    font-size: 18px;
+
+    font-weight: 600;
+}
+
+.account-info {
+    min-width: 0;
+
+    display: flex;
+
+    flex-direction: column;
+}
+
+.account-info strong {
+    color: #332b25;
+
+    font-size: 13px;
+
+    font-weight: 600;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+.account-info span {
+    color: #99918a;
+
+    font-size: 10px;
+
+    margin-top: 3px;
+
+    white-space: nowrap;
+
+    overflow: hidden;
+
+    text-overflow: ellipsis;
+}
+
+
+/* =========================
+   ACCOUNT DIVIDER
+========================= */
+
+.account-divider {
+    height: 1px;
+
+    background: #eee8e2;
+
+    margin: 5px 0;
+}
+
+
+/* =========================
+   ACCOUNT ITEM
+========================= */
+
+.account-item {
+    width: 100%;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 13px;
+
+    padding: 12px 11px;
+
+    border-radius: 10px;
+
+    color: #554b43;
+
+    font-size: 12px;
+
+    transition: .2s;
+}
+
+.account-item i {
+    width: 20px;
+
+    text-align: center;
+
+    color: #806047;
+
+    font-size: 14px;
+}
+
+.account-item:hover {
+    background: #f6f1eb;
+
+    color: #76563b;
+}
+
+.account-item:hover i {
+    color: #76563b;
+}
+
+
+/* =========================
+   LOGOUT
+========================= */
+
+.logout-item {
+    color: #8a6650;
+}
+
+.logout-item i {
+    color: #8a6650;
+}
+
+.logout-item:hover {
+    background: #f7eee8;
+}
+
+
+/* =========================
+   PAGE
+========================= */
+
+.page {
+    padding: 35px 0 10px;
+}
+
+
+/* =========================
+   PAGE HEADER
+========================= */
+
+.page-header {
+    background:
+        linear-gradient(
+            120deg,
+            #e5d9cc,
+            #f5f1ec
+        );
+
+    border-radius: 24px;
+
+    padding: 35px 40px;
+
+    margin-bottom: 30px;
+
+    position: relative;
+
+    overflow: hidden;
+}
+
+.page-header::after {
+    content: "";
+
+    position: absolute;
+
+    width: 280px;
+    height: 280px;
+
+    right: -90px;
+    top: -130px;
+
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, .35);
+}
+
+.page-header-content {
+    position: relative;
+    z-index: 2;
+}
+
+.page-small {
+    color: #806047;
+
+    font-size: 11px;
+
+    font-weight: 600;
+
+    letter-spacing: .7px;
+
+    margin-bottom: 8px;
+}
+
+.page-header h1 {
+    font-size: 34px;
+
+    color: #493525;
+
+    margin-bottom: 8px;
+}
+
+.page-header p {
+    color: #6f655d;
+
+    font-size: 13px;
+
+    line-height: 1.7;
+
+    max-width: 650px;
+}
+
+
+/* =========================
+   CATEGORY GRID
+========================= */
+
+.category-grid {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 20px;
+}
+
+.category-card {
+    background: white;
+
+    border: 1px solid #ebe5de;
+
+    border-radius: 20px;
+
+    padding: 28px 18px;
+
+    text-align: center;
+
+    position: relative;
+
+    overflow: hidden;
+
+    transition: .3s;
+}
+
+.category-card:hover {
+    transform: translateY(-6px);
+
+    border-color: #d8c9ba;
+
+    box-shadow:
+        0 15px 30px
+        rgba(70, 50, 35, .10);
+}
+
+
+/* ICON */
+
+.category-icon {
+    width: 72px;
+    height: 72px;
+
+    margin: 0 auto 16px;
+
+    border-radius: 50%;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    background: #f1ebe4;
+
+    color: #76563b;
+
+    font-size: 27px;
+
+    transition: .3s;
+}
+
+.category-card:hover .category-icon {
+    background: #e5d9cc;
+
+    transform: scale(1.08);
+}
+
+
+/* NAME */
+
+.category-card h2 {
+    font-size: 15px;
+
+    font-weight: 600;
+
+    color: #413932;
+
+    margin-bottom: 8px;
+}
+
+
+/* LINK */
+
+.category-card span {
+    color: #96775a;
+
+    font-size: 10px;
+
+    font-weight: 500;
+}
+
+.category-card:hover h2 {
+    color: #76563b;
+}
+
+
+/* =========================
+   EMPTY
+========================= */
+
+.empty {
+    grid-column: 1 / -1;
+
+    background: white;
+
+    border: 1px solid #ebe5de;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    padding: 70px 20px;
+
+    color: #8b8178;
+}
+
+.empty i {
+    font-size: 45px;
+
+    color: #b6a18b;
+
+    margin-bottom: 15px;
+}
+
+.empty h3 {
+    color: #493525;
+
+    font-size: 18px;
+
+    margin-bottom: 7px;
+}
+
+.empty p {
+    font-size: 12px;
+}
+
+
+/* =========================
+   BACK
+========================= */
+
+.back {
+    text-align: center;
+
+    margin: 35px 0 20px;
+}
+
+.back a {
+    display: inline-flex;
+
+    align-items: center;
+
+    gap: 8px;
+
+    background: #f0ebe5;
+
+    color: #674b33;
+
+    padding: 11px 20px;
+
+    border-radius: 10px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    transition: .25s;
+}
+
+.back a:hover {
+    background: #dfd3c5;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   BOTTOM NAVIGATION
+========================= */
+
+.bottom-nav {
+    position: fixed;
+
+    left: 50%;
+    bottom: 18px;
+
+    transform: translateX(-50%);
+
+    width: min(650px, 92%);
+
+    height: 72px;
+
+    background: rgba(255, 255, 255, .97);
+
+    backdrop-filter: blur(18px);
+
+    border: 1px solid #e9e1d9;
+
+    border-radius: 23px;
+
+    box-shadow:
+        0 15px 40px
+        rgba(70, 52, 38, .16);
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-around;
+
+    z-index: 9999;
+}
+
+.nav-item {
+    position: relative;
+
+    width: 20%;
+    height: 100%;
+
+    display: flex;
+
+    flex-direction: column;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 5px;
+
+    color: #968b82;
+
+    transition: .25s;
+
+    cursor: pointer;
+}
+
+.nav-icon {
+    font-size: 20px;
+
+    line-height: 1;
+
+    transition: .25s;
+}
+
+.nav-text {
+    font-size: 10px;
+
+    font-weight: 500;
+}
+
+.nav-item:hover {
+    color: #76563b;
+}
+
+.nav-item:hover .nav-icon {
+    transform: translateY(-2px);
+}
+
+.nav-item.active {
+    color: #76563b;
+
+    font-weight: 600;
+}
+
+.nav-item.active::before {
+    content: "";
+
+    position: absolute;
+
+    top: 0;
+
+    width: 35px;
+    height: 3px;
+
+    background: #76563b;
+
+    border-radius: 0 0 8px 8px;
+}
+
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media(max-width:1000px) {
+
+    .category-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
 
 }
 
-.hero h1{
 
-    font-size:50px;
+@media(max-width:700px) {
 
-    margin-bottom:15px;
+    .container {
+        width: 94%;
+    }
 
-}
+    .header-inner {
+        padding: 13px 0;
 
-.hero p{
+        flex-wrap: wrap;
+    }
 
-    font-size:18px;
+    .search {
+        order: 3;
 
-    opacity:.9;
+        flex-basis: 100%;
 
-}
+        max-width: none;
+    }
 
-/* BUTTON */
+    .account-menu {
+        position: fixed;
 
-/*================ KEMBALI =================*/
+        top: 75px;
 
-.back-home{
+        right: 15px;
 
-    text-align:center;
+        width: 280px;
+    }
 
-    margin:50px 0 70px;
+    .page {
+        padding-top: 25px;
+    }
 
-}
+    .page-header {
+        padding: 27px;
 
-.back-btn{
+        border-radius: 20px;
+    }
 
-    display:inline-flex;
+    .page-header h1 {
+        font-size: 27px;
+    }
 
-    align-items:center;
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
 
-    gap:10px;
+        gap: 12px;
+    }
 
-    padding:15px 35px;
-
-    background:#2563EB;
-
-    color:white;
-
-    text-decoration:none;
-
-    border-radius:50px;
-
-    font-weight:600;
-
-    font-size:16px;
-
-    box-shadow:0 10px 25px rgba(37,99,235,.25);
-
-    transition:.35s;
-
-}
-
-.back-btn:hover{
-
-    background:#1D4ED8;
-
-    transform:translateY(-5px);
-
-    box-shadow:0 20px 35px rgba(37,99,235,.35);
+    .category-card {
+        padding: 22px 10px;
+    }
 
 }
 
-/* TITLE */
 
-.title{
+@media(max-width:450px) {
 
-    text-align:center;
+    .logo {
+        font-size: 21px;
+    }
 
-    margin:60px 0 35px;
+    .header-icons {
+        gap: 13px;
+    }
 
-}
+    .page-header {
+        padding: 22px 20px;
+    }
 
-.title h2{
+    .page-header h1 {
+        font-size: 24px;
+    }
 
-    font-size:38px;
+    .category-grid {
+        grid-template-columns: repeat(2, 1fr);
 
-    color:#1E293B;
+        gap: 9px;
+    }
 
-}
+    .category-icon {
+        width: 55px;
+        height: 55px;
 
-/* GRID */
+        font-size: 21px;
+    }
 
-.kategori-grid{
+    .category-card h2 {
+        font-size: 12px;
+    }
 
-    display:grid;
+    .bottom-nav {
+        width: 100%;
 
-    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+        bottom: 0;
 
-    gap:30px;
+        height: 70px;
 
-    margin-bottom:70px;
+        border-radius: 0;
 
-}
+        border-left: none;
+        border-right: none;
+        border-bottom: none;
+    }
 
-.card{
-
-    background:white;
-
-    border-radius:22px;
-
-    padding:35px;
-
-    text-align:center;
-
-    text-decoration:none;
-
-    color:#222;
-
-    transition:.35s;
-
-    box-shadow:0 10px 25px rgba(0,0,0,.08);
-
-}
-
-.card:hover{
-
-    transform:translateY(-10px);
-
-    box-shadow:0 20px 40px rgba(37,99,235,.18);
-
-}
-
-.icon{
-
-    width:90px;
-
-    height:90px;
-
-    margin:auto;
-
-    border-radius:50%;
-
-    background:#EFF6FF;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    font-size:42px;
-
-    margin-bottom:20px;
-
-}
-
-.card h3{
-
-    font-size:24px;
-
-    margin-bottom:10px;
-
-}
-
-.card p{
-
-    color:#64748B;
-
-    font-size:15px;
+    body {
+        padding-bottom: 80px;
+    }
 
 }
 
@@ -214,137 +918,667 @@ body{
 
 </head>
 
+
 <body>
 
-<section class="hero">
 
-<h1>📂 Kategori Produk</h1>
+<!-- =========================
+     HEADER
+========================= -->
 
-<p>Pilih kategori favoritmu dan temukan produk terbaik di KUU Mart.</p>
+<header class="header">
 
-</section>
+    <div class="container header-inner">
 
-<div class="container">
 
-<div class="title">
+        <!-- LOGO -->
 
-<h2>Kategori Populer</h2>
+        <a href="{% url 'index' %}" class="logo">
 
-</div>
+            KUU <span>Mart</span>
 
-<div class="kategori-grid">
-    <a href="{% url 'produk' %}?kategori=1" class="card">
+        </a>
 
-    <div class="icon">📱</div>
 
-    <h3>Elektronik</h3>
+        <!-- SEARCH -->
 
-    <p>Smartphone, TV, Speaker, Kamera dan lainnya.</p>
+        <form
+            action="{% url 'produk' %}"
+            method="GET"
+            class="search">
 
-</a>
+            <input
+                type="text"
+                name="q"
+                placeholder="Cari produk di KUU Mart..."
+                value="{{ request.GET.q }}">
 
-<a href="{% url 'produk' %}?kategori=2" class="card">
+            <button type="submit">
 
-    <div class="icon">🥤</div>
+                <i class="fa-solid fa-magnifying-glass"></i>
 
-    <h3>Minuman</h3>
+            </button>
 
-    <p>Minuman segar, kopi, teh dan aneka jus.</p>
+        </form>
 
-</a>
 
-<a href="{% url 'produk' %}?kategori=3" class="card">
+        <!-- HEADER ICON -->
 
-    <div class="icon">🍔</div>
+        <div class="header-icons">
 
-    <h3>Makanan</h3>
+            {% if user.is_authenticated %}
 
-    <p>Makanan ringan, instan hingga makanan siap saji.</p>
 
-</a>
+                <!-- WISHLIST -->
 
-<a href="{% url 'produk' %}?kategori=4" class="card">
+                <a
+                    href="{% url 'wishlist' %}"
+                    class="icon-link">
 
-    <div class="icon">⚽</div>
+                    <i class="fa-regular fa-heart"></i>
 
-    <h3>Olahraga</h3>
+                </a>
 
-    <p>Peralatan olahraga dan kebutuhan kebugaran.</p>
 
-</a>
+                <!-- CART -->
 
-<a href="{% url 'produk' %}?kategori=5" class="card">
+                <a
+                    href="{% url 'cart' %}"
+                    class="icon-link">
 
-    <div class="icon">💻</div>
+                    <i class="fa-solid fa-cart-shopping"></i>
 
-    <h3>Komputer</h3>
+                </a>
 
-    <p>Laptop, PC, Keyboard, Mouse dan aksesoris.</p>
 
-</a>
+                <!-- ACCOUNT -->
 
-<a href="{% url 'produk' %}?kategori=6" class="card">
+                <div class="account-wrapper">
 
-    <div class="icon">👕</div>
+                    <button
+                        type="button"
+                        class="account-button"
+                        onclick="toggleAccountMenu(event)">
 
-    <h3>Fashion</h3>
+                        <i class="fa-regular fa-user"></i>
 
-    <p>Pakaian pria, wanita, sepatu dan tas terbaru.</p>
+                    </button>
 
-</a>
 
-<a href="{% url 'produk' %}?kategori=7" class="card">
+                    <!-- ACCOUNT DROPDOWN -->
 
-    <div class="icon">⌚</div>
+                    <div
+                        class="account-menu"
+                        id="accountMenu">
 
-    <h3>Aksesoris</h3>
 
-    <p>Jam tangan, headset, charger dan perlengkapan lainnya.</p>
+                        <!-- DATA AKUN -->
 
-</a>
+                        <div class="account-header">
 
-<a href="{% url 'produk' %}" class="card">
+                            <div class="account-avatar">
 
-    <div class="icon">🛍️</div>
+                                {{ user.username|first|upper }}
 
-    <h3>Semua Produk</h3>
+                            </div>
 
-    <p>Lihat seluruh produk yang tersedia di KUU Mart.</p>
 
-</a>
+                            <div class="account-info">
 
-</div>
+                                <strong>
 
-</div>
-<div class="back-home">
+                                    {{ user.username }}
 
-    <a href="{% url 'index' %}" class="back-btn">
+                                </strong>
 
-        <i>🏠</i>
+                                <span>
 
-        Kembali ke Beranda
+                                    {{ user.email }}
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <div class="account-divider"></div>
+
+
+                        <!-- PESANAN -->
+
+                        <a
+                            href="{% url 'riwayat_pesanan' %}"
+                            class="account-item">
+
+                            <i class="fa-solid fa-box"></i>
+
+                            <span>
+
+                                Pesanan Saya
+
+                            </span>
+
+                        </a>
+
+
+                        <!-- WISHLIST -->
+
+                        <a
+                            href="{% url 'wishlist' %}"
+                            class="account-item">
+
+                            <i class="fa-regular fa-heart"></i>
+
+                            <span>
+
+                                Wishlist
+
+                            </span>
+
+                        </a>
+
+
+                        <div class="account-divider"></div>
+
+
+                        <!-- KELUAR -->
+
+                        <a
+                            href="{% url 'logout' %}"
+                            class="account-item logout-item">
+
+                            <i class="fa-solid fa-right-from-bracket"></i>
+
+                            <span>
+
+                                Keluar
+
+                            </span>
+
+                        </a>
+
+
+                    </div>
+
+                </div>
+
+
+            {% else %}
+
+
+                <!-- BELUM LOGIN -->
+
+                <a
+                    href="{% url 'login' %}"
+                    class="icon-link">
+
+                    <i class="fa-regular fa-user"></i>
+
+                </a>
+
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</header>
+
+
+<!-- =========================
+     MAIN
+========================= -->
+
+<main>
+
+    <div class="container">
+
+        <section class="page">
+
+
+            <!-- PAGE HEADER -->
+
+            <div class="page-header">
+
+                <div class="page-header-content">
+
+                    <div class="page-small">
+
+                        ✦ KUU MART
+
+                    </div>
+
+                    <h1>
+
+                        Semua Kategori
+
+                    </h1>
+
+                    <p>
+
+                        Temukan berbagai kategori produk yang tersedia
+                        di KUU Mart dan pilih produk favoritmu dengan mudah.
+
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <!-- CATEGORY -->
+
+            <div class="category-grid">
+
+
+                {% for k in kategori %}
+
+
+                    <a
+                        href="{% url 'produk' %}?kategori={{ k.id }}"
+                        class="category-card">
+
+
+                        <div class="category-icon">
+
+
+                            {% if forloop.counter == 1 %}
+
+                                <i class="fa-solid fa-mobile-screen-button"></i>
+
+                            {% elif forloop.counter == 2 %}
+
+                                <i class="fa-solid fa-shirt"></i>
+
+                            {% elif forloop.counter == 3 %}
+
+                                <i class="fa-solid fa-utensils"></i>
+
+                            {% elif forloop.counter == 4 %}
+
+                                <i class="fa-solid fa-basketball"></i>
+
+                            {% elif forloop.counter == 5 %}
+
+                                <i class="fa-solid fa-laptop"></i>
+
+                            {% elif forloop.counter == 6 %}
+
+                                <i class="fa-solid fa-bag-shopping"></i>
+
+                            {% elif forloop.counter == 7 %}
+
+                                <i class="fa-solid fa-house"></i>
+
+                            {% elif forloop.counter == 8 %}
+
+                                <i class="fa-solid fa-gamepad"></i>
+
+                            {% else %}
+
+                                <i class="fa-solid fa-store"></i>
+
+                            {% endif %}
+
+
+                        </div>
+
+
+                        <h2>
+
+                            {{ k.nama }}
+
+                        </h2>
+
+
+                        <span>
+
+                            Lihat Produk
+
+                            <i class="fa-solid fa-arrow-right"></i>
+
+                        </span>
+
+
+                    </a>
+
+
+                {% empty %}
+
+
+                    <div class="empty">
+
+                        <i class="fa-solid fa-layer-group"></i>
+
+                        <h3>
+
+                            Belum Ada Kategori
+
+                        </h3>
+
+                        <p>
+
+                            Kategori produk belum tersedia.
+
+                        </p>
+
+                    </div>
+
+
+                {% endfor %}
+
+
+            </div>
+
+
+            <!-- BACK -->
+
+            <div class="back">
+
+                <a href="{% url 'index' %}">
+
+                    <i class="fa-solid fa-arrow-left"></i>
+
+                    Kembali ke Beranda
+
+                </a>
+
+            </div>
+
+
+        </section>
+
+    </div>
+
+</main>
+
+
+<!-- =========================
+     BOTTOM NAVIGATION
+========================= -->
+
+<nav class="bottom-nav">
+
+
+    <!-- BERANDA -->
+
+    <a
+        href="{% url 'index' %}"
+        class="nav-item">
+
+        <span class="nav-icon">
+
+            <i class="fa-solid fa-house"></i>
+
+        </span>
+
+        <span class="nav-text">
+
+            Beranda
+
+        </span>
 
     </a>
 
-</div>
 
-<footer style="background:#111827;color:white;padding:35px;text-align:center;">
+    <!-- KATEGORI -->
 
-    <h2>KUU Mart</h2>
+    <a
+        href="{% url 'kategori' %}"
+        class="nav-item active">
 
-    <p style="margin-top:10px;color:#CBD5E1;">
+        <span class="nav-icon">
 
-        Marketplace Modern Untuk Semua Kebutuhan
+            <i class="fa-solid fa-layer-group"></i>
 
-    </p>
+        </span>
 
-    <p style="margin-top:20px;font-size:14px;color:#94A3B8;">
+        <span class="nav-text">
 
-        © 2026 KUU Mart. All Rights Reserved.
+            Kategori
 
-    </p>
+        </span>
 
-</footer>
+    </a>
+
+
+    {% if user.is_authenticated %}
+
+
+        <!-- WISHLIST -->
+
+        <a
+            href="{% url 'wishlist' %}"
+            class="nav-item">
+
+            <span class="nav-icon">
+
+                <i class="fa-regular fa-heart"></i>
+
+            </span>
+
+            <span class="nav-text">
+
+                Wishlist
+
+            </span>
+
+        </a>
+
+
+        <!-- PESANAN -->
+
+        <a
+            href="{% url 'riwayat_pesanan' %}"
+            class="nav-item">
+
+            <span class="nav-icon">
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+            </span>
+
+            <span class="nav-text">
+
+                Pesanan
+
+            </span>
+
+        </a>
+
+
+        <!-- AKUN -->
+
+        <a
+            href="#"
+            class="nav-item"
+            onclick="toggleAccountMenu(event)">
+
+            <span class="nav-icon">
+
+                <i class="fa-regular fa-user"></i>
+
+            </span>
+
+            <span class="nav-text">
+
+                Akun
+
+            </span>
+
+        </a>
+
+
+    {% else %}
+
+
+        <!-- WISHLIST -->
+
+        <a
+            href="{% url 'login' %}"
+            class="nav-item">
+
+            <span class="nav-icon">
+
+                <i class="fa-regular fa-heart"></i>
+
+            </span>
+
+            <span class="nav-text">
+
+                Wishlist
+
+            </span>
+
+        </a>
+
+
+        <!-- PESANAN -->
+
+        <a
+            href="{% url 'login' %}"
+            class="nav-item">
+
+            <span class="nav-icon">
+
+                <i class="fa-solid fa-bag-shopping"></i>
+
+            </span>
+
+            <span class="nav-text">
+
+                Pesanan
+
+            </span>
+
+        </a>
+
+
+        <!-- AKUN -->
+
+        <a
+            href="{% url 'login' %}"
+            class="nav-item">
+
+            <span class="nav-icon">
+
+                <i class="fa-regular fa-user"></i>
+
+            </span>
+
+            <span class="nav-text">
+
+                Akun
+
+            </span>
+
+        </a>
+
+
+    {% endif %}
+
+
+</nav>
+
+
+<!-- =========================
+     JAVASCRIPT ACCOUNT
+========================= -->
+
+<script>
+
+/* =========================
+   ACCOUNT MENU
+========================= */
+
+function toggleAccountMenu(event) {
+
+    if (event) {
+
+        event.preventDefault();
+
+        event.stopPropagation();
+
+    }
+
+
+    const menu =
+        document.getElementById("accountMenu");
+
+
+    if (!menu) {
+
+        return;
+
+    }
+
+
+    menu.classList.toggle("show");
+
+}
+
+
+/* =========================
+   TUTUP KETIKA KLIK DI LUAR
+========================= */
+
+document.addEventListener("click", function(event) {
+
+    const menu =
+        document.getElementById("accountMenu");
+
+    const accountWrapper =
+        document.querySelector(".account-wrapper");
+
+
+    if (!menu) {
+
+        return;
+
+    }
+
+
+    if (
+        accountWrapper &&
+        accountWrapper.contains(event.target)
+    ) {
+
+        return;
+
+    }
+
+
+    menu.classList.remove("show");
+
+});
+
+
+/* =========================
+   ESC
+========================= */
+
+document.addEventListener("keydown", function(event) {
+
+    if (event.key === "Escape") {
+
+        const menu =
+            document.getElementById("accountMenu");
+
+
+        if (menu) {
+
+            menu.classList.remove("show");
+
+        }
+
+    }
+
+});
+
+</script>
+
 
 </body>
 
